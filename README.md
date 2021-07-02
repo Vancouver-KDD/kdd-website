@@ -14,7 +14,8 @@
 
 ### Instructions:
 
-1. Create ~/.zshrc (if you use zsh)
+1. (Mac/Linux only)
+   Create ~/.zshrc (if you use zsh)
    and ~/.bash_profile (if you use bash)
 
 2. Install `nvm`
