@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react'
 
 function App() {
-  return <div>Welcome, KDD steppers!</div>;
+  return <div>Welcome, KDD steppers!</div>
 }
 
-export default memo(App);
+export default memo(App)
