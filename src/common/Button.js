@@ -3,9 +3,8 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
 
-export const Button = (props) => {
+export const Button = ({className, children, onClick, disabled}) => {
   const classes = useStyles()
-  const {className, children, onClick, disabled} = props
 
   const handlClick = () => {
     onClick?.()
