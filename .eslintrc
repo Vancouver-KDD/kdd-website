@@ -2,11 +2,28 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      }
     }
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "jsx-a11y", "import", "react-hooks", "testing-library"],
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "react-hooks",
+    "testing-library"
+  ],
   "env": {
     "browser": true,
     "jest": true
@@ -17,20 +34,33 @@
     "jsx-a11y/label-has-associated-control": 1,
     "jsx-a11y/click-events-have-key-events": 1,
     "jsx-a11y/no-noninteractive-element-interactions": 1,
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "components": [ "Link" ],
-      "specialLink": [ "onClick", "to" ],
-      "aspects": [ "preferButton" ] // sometimes we use Link just as a wrapper tag
-    }],
-    "react/jsx-wrap-multilines": [1, {
-      "declaration": "parens",
-      "assignment": "parens",
-      "return": "parens",
-      "arrow": "parens",
-      "condition": "parens-new-line",
-      "logical": "parens-new-line",
-      "prop": "ignore"
-    }],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "onClick",
+          "to"
+        ],
+        "aspects": [
+          "preferButton"
+        ] // sometimes we use Link just as a wrapper tag
+      }
+    ],
+    "react/jsx-wrap-multilines": [
+      1,
+      {
+        "declaration": "parens",
+        "assignment": "parens",
+        "return": "parens",
+        "arrow": "parens",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "ignore"
+      }
+    ],
     "react/state-in-constructor": 0,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
@@ -41,24 +71,45 @@
     "react/jsx-one-expression-per-line": "off",
     "react/static-property-placement": "off",
     "react/no-array-index-key": "off",
-    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/sort-comp": [1, {
-      "order": [
-        "type-annotations",
-        "defaultProps",
-        "static-methods",
-        "state",
-        "constructor",
-        "everything-else",
-        "lifecycle",
-        "render"
-      ]
-    }],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "beforeSelfClosing": "always"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/sort-comp": [
+      1,
+      {
+        "order": [
+          "type-annotations",
+          "defaultProps",
+          "static-methods",
+          "state",
+          "constructor",
+          "everything-else",
+          "lifecycle",
+          "render"
+        ]
+      }
+    ],
     "react-hooks/rules-of-hooks": "error",
     "function-paren-newline": "off",
     "indent": "off",
-    "no-param-reassign": ["error", { "props": false }],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": [
       "error",
@@ -73,13 +124,35 @@
       }
     ],
     "implicit-arrow-linebreak": 0,
-    "lines-between-class-members": [2, "always", { "exceptAfterSingleLine": true }],
+    "lines-between-class-members": [
+      2,
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
     "guard-for-in": 0,
-    "max-len": ["error", { "code": 115, "ignoreStrings": true, "ignoreTemplateLiterals": true }],
+    "max-len": [
+      "error",
+      {
+        "code": 115,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
     "no-tabs": "error",
     "no-confusing-arrow": 0,
-    "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": false }],
-    "no-return-assign": ["off"],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false
+      }
+    ],
+    "no-return-assign": [
+      "off"
+    ],
     "no-console": "off",
     "no-duplicate-imports": 0,
     "no-mixed-operators": 0,
@@ -87,7 +160,16 @@
     "no-void": 0,
     "operator-linebreak": 0,
     "object-curly-newline": "off",
-    "comma-style": ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }],
+    "comma-style": [
+      "error",
+      "first",
+      {
+        "exceptions": {
+          "ArrayExpression": true,
+          "ObjectExpression": true
+        }
+      }
+    ],
     "arrow-body-style": "off"
   },
   "globals": {
@@ -96,10 +178,15 @@
     "require": true,
     "cordova": true
   },
-  "overrides": [{
-    "files": [ "./src/**/__tests__/**/*.js", "./jest/*.js" ],
-    "rules": {
-      "react/prop-types": 0
+  "overrides": [
+    {
+      "files": [
+        "./src/**/__tests__/**/*.js",
+        "./jest/*.js"
+      ],
+      "rules": {
+        "react/prop-types": 0
+      }
     }
-  }]
+  ]
 }
