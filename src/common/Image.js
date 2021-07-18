@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-export const Image = ({className, img, url, altText, fallbackImg}) => {
+export const Image = ({className, img, url, altText = '', fallbackImg = ''}) => {
   let errorFlag = false
 
   const handleError = (e) => {
     if (!errorFlag) {
       errorFlag = true
-      e.target.src = fallbackImg || ''
+      e.target.src = fallbackImg
     }
   }
 
@@ -16,13 +16,13 @@ export const Image = ({className, img, url, altText, fallbackImg}) => {
     if (url) {
       return (
         <a href={url}>
-          <img className={classnames('kdd-image', className)} src={img} alt={altText || ''} onError={handleError} />
+          <img className={classnames('kdd-image', className)} src={img} alt={altText} onError={handleError} />
         </a>
       )
     }
   }
 
-  return <img className={classnames('kdd-image', className)} src={img} alt={altText || ''} onError={handleError} />
+  return <img className={classnames('kdd-image', className)} src={img} alt={altText} onError={handleError} />
 }
 
 Image.propTypes = {
