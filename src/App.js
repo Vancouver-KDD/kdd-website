@@ -1,5 +1,5 @@
 import React, {memo} from 'react'
-import Router from './routes/AppRouter';
+import Router from './routes/AppRouter'
 
 function App() {
   return (
