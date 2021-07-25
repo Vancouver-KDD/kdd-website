@@ -1,7 +1,13 @@
-import React, {memo} from 'react'
+import React from 'react'
+import Footer from 'components/footer'
 
 function App() {
-  return <div>Welcome, KDD steppers!</div>
+  return (
+    <div>
+      <div>Welcome, KDD steppers!</div>
+      <Footer />
+    </div>
+  )
 }
 
-export default memo(App)
+export default App

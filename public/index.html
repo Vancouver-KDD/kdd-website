@@ -1,43 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>KDD</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <main>
+      <nav>
+        <a class="nav_logo" href="index.html">
+          <img src='images/KDD-Logo.png'>
+        </a>
+        <ul class="nav_menu">
+          <li><a class="h3" href="#section_statistics">About Us</a></li>
+          <li><a class="h3" href="#section_events">Events</a></li>
+          <li><a class="h3" href="#section_photos">Photos</a></li>
+        </ul>
+      </nav>
+  
+      <section class="hero" id="section_hero">
+        <div class="tt0">
+          <div class="tt1">
+            Join one of the best Korean
+            communities in Vancouver
+          </div>
+          <br/>
+          <div class="tt2">
+            It is a long established fact that a reader will be distracted by the readable
+            content of a page when looking at its layout. The point of using Lorem lpsum is
+            that it has a more-or-less normal distribution of letters.
+          </div>
+          <div class="tt3">
+            <button>UPCOMMING EVENT</button>
+            <button class="join_slack">JOIN SLACK</button>
+          </div>
+        </div>
+        <div class="ellipse"></div>
+      </section>
+      <section class="statistics" id="section_statistics">
+        <div class="statistics_img1">
+          <img src="images/img_statics.png" alt="">
+        </div>
+        <div class="statistics_img2">
+          <img src="images/statistics_img2.png" alt="">
+        </div>
+        <div class="statistics_text">
+          <span>Snice July 2017</span>
+          <span>37 Meetups</span>
+          <span>1,150 Members</span>
+        </div>
+      </section>
+      <section class="sponser" id="section_events">
+        <ul>
+          <li><img src="images/sponsored_foodly.png" alt=""></li>
+        </ul>
+      </section>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <section class="events" id="section_events">
+        <h1>Upcomming Events</h1>
+        <div class="group_arrow_button">
+          <input class="btn_arror_left" type="button">
+          <input class="btn_arror_right" type="button">
+        </div>
+        <div class="group_events">
+          <div class="event_card">
+            <img src="images/temp_event.png" alt="">
+            <div class="event_card_info_group">
+              <p class="text-left event_date">MON, JUL 27, 2021 AT 7 PM PDT</p>
+              <h2 class="text-left">VANCOVER KDD JULY 2021 MEETUP</h2>
+              <p class="text-left event_location">Vancouver Public Library</h4>
+            </div>
+            <div class="event_card_btn_group">
+              <button class="btn_event_signup h3" type="button">SIGN UP</button>
+              <input class="btn_event_calendar" type="button">
+            </div>
+          </div>
+          <div class="event_card">
+            <img src="images/temp_event.png" alt="">
+            <div class="event_card_info_group">
+              <p class="text-left event_date">MON, JUL 27, 2021 AT 7 PM PDT</p>
+              <h2 class="text-left">VANCOVER KDD JULY 2021 MEETUP</h2>
+              <p class="text-left event_location">Vancouver Public Library</h4>
+            </div>
+            <div class="event_card_btn_group">
+              <button class="btn_event_signup h3" type="button">SIGN UP</button>
+              <input class="btn_event_calendar" type="button">
+            </div>
+          </div>
+        </div>
+      </section>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <section class="photos" id="section_photos">
+        <h1>Photos</h1>
+        <div class="group_arrow_button">
+          <a class="h3" href="#section_photos">VIEW ALL</a>
+          <input class="btn_arror_left" type="button">
+          <input class="btn_arror_right" type="button">
+        </div>
+        <div class="group_photos">
+          <div class="photo_card">
+            <img src="images/temp_photo1.png" alt="">
+          </div>
+          <div class="photo_card">
+            <img src="images/temp_photo2.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="contactus" id="section_contactus">
+        <h1>Contact Us</h1>
+        <div class="contact_info">
+          <div class="contact_email">
+            <h1 class="text-left">Email</h1>
+            <p class="text-left h3">vancouverkdd@gmail.com</p>
+          </div>
+          <div class="contact_social">
+            <h1 class="text-left">Social Media</h1>
+            <a class="btn_slack" type="button"></a>
+            <a class="btn_linkedin" type="button"></a>
+            <a class="btn_facebook" type="button"></a>
+            <a class="btn_meetup" type="button"></a>
+          </div>
+        </div>
+      </section>
+      <div id="root"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p class="h2">
+        Developed Eric Kim ABC 123 DDD event_date
+      </p>
+      <p class="h2">
+        Special thanks to PM Coordinator Mentors CCC
+      </p>
+    </footer>
   </body>
 </html>
