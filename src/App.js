@@ -1,13 +1,8 @@
 import React, {memo} from 'react'
-import Router from './routes/AppRouter'
+import {Hero} from 'components/Hero'
 
 function App() {
-  return (
-    <div>
-      Welcome, KDD steppers!
-      <Router />
-    </div>
-  )
+  return <Hero />
 }
 
 export default memo(App)

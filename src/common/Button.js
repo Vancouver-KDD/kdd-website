@@ -34,9 +34,8 @@ const useStyles = createUseStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '65',
-    height: '38',
-    borderRadius: '1000',
+    height: '38px',
+    borderRadius: '1000px',
     border: 'none',
     color: 'white',
     '&:hover': {
