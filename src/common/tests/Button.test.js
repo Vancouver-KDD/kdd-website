@@ -2,25 +2,25 @@ import {Button} from 'common/Button'
 import {render, screen, fireEvent} from '@testing-library/react'
 
 test('should render', () => {
-  render(<Button />)
+    render(<Button />)
 
-  expect(screen.getByRole('button')).toBeTruthy()
+    expect(screen.getByRole('button')).toBeTruthy()
 })
 
 test('should run prop onClick if available', () => {
-  const handleClick = jest.fn()
+    const handleClick = jest.fn()
 
-  render(<Button onClick={handleClick} />)
+    render(<Button onClick={handleClick} />)
 
-  fireEvent.click(screen.getByRole('button'))
+    fireEvent.click(screen.getByRole('button'))
 
-  expect(handleClick).toBeCalled()
+    expect(handleClick).toBeCalled()
 })
 
 test('should show prop title as button title', () => {
-  const buttonTitle = <span>hello</span>
+    const buttonTitle = <span>hello</span>
 
-  render(<Button>{buttonTitle}</Button>)
+    render(<Button>{buttonTitle}</Button>)
 
-  expect(screen.getByText('hello')).toBeTruthy()
+    expect(screen.getByText('hello')).toBeTruthy()
 })
