@@ -20,37 +20,35 @@ time, mark, audio, video {
   box-sizing: border-box;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 h1 {
   font-size: 4.8rem;
 }
 h2 {
-	font-size: 4rem;
+  font-size: 4rem;
 }
 h3 {
-	font-size: 3.75rem;
+  font-size: 3.75rem;
 }
 h4 {
-	font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 h5 {
-	font-size: 3.25rem;
+  font-size: 3.25rem;
 }
 h6 {
-	font-size: 3rem;
+  font-size: 3rem;
 }
-
-
