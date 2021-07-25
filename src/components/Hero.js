@@ -1,22 +1,22 @@
 /* eslint-disable max-len */
-import React from 'react';
-import classnames from 'classnames';
-import { Image } from 'common/Image';
-import { Button } from 'common/Button';
-import { createUseStyles } from 'react-jss';
-import slackLogo from '../assets/icons/coolicon-slack.svg';
-import heroBGMobile from '../assets/images/hero-bg-mobile.svg';
+import React from 'react'
+import classnames from 'classnames'
+import {Image} from 'common/Image'
+import {Button} from 'common/Button'
+import {createUseStyles} from 'react-jss'
+import slackLogo from '../assets/icons/coolicon-slack.svg'
+import heroBGMobile from '../assets/images/hero-bg-mobile.svg'
 
 export const Hero = () => {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <div className={classnames('kdd-hero', classes.default)}>
             <div className={classes.container}>
                 <h1 className={classes.title}>Join one of the best Korean communities in Vancouver</h1>
                 <p className={classes.subtitle}>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+                    its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
                 </p>
 
                 <div className={classes.btnContainer}>
@@ -30,8 +30,8 @@ export const Hero = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 const useStyles = createUseStyles({
     default: {
@@ -39,7 +39,7 @@ const useStyles = createUseStyles({
         height: 850,
         padding: '2rem',
         backgroundImage: `url(${heroBGMobile})`,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     container: {},
     title: {
@@ -69,4 +69,4 @@ const useStyles = createUseStyles({
             marginRight: '1rem',
         },
     },
-});
+})
