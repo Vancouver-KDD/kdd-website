@@ -24,15 +24,14 @@ const useStyles = createUseStyles((theme) => ({
     },
     nav_logo: {
         position: 'absolute',
-        marginTop: '25rem',
+        marginTop: '220px',
     },
     nav_menu: {
         display: 'flex',
-        '& li': {
-            padding: '8px 50px',
-            '&:hover': {
-                textDecoration: 'underline'
-            },
+        justifyContent: 'space-between',
+        width: '80%',
+        '& li:hover': {
+            textDecoration: 'underline',
         },
     },
 }))
@@ -44,9 +43,6 @@ function Homepage(props) {
     return (
         <div>
             <nav className={classes.nav}>
-                <Link className={classes.nav_logo} to="/">
-                    <img src={kddLogo} alt="KDD logo" />
-                </Link>
                 <ul className={classes.nav_menu}>
                     <li>
                         <a href="/about-us">About Us</a>
@@ -58,6 +54,9 @@ function Homepage(props) {
                         <a href="/photos">Photos</a>
                     </li>
                 </ul>
+                <Link className={classes.nav_logo} to="/">
+                    <img src={kddLogo} alt="KDD logo" />
+                </Link>
             </nav>
             <Hero />
             <Footer />

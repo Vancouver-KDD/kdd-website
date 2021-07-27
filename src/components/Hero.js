@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
         textAlign: 'center',
     },
     container: {
-        marginTop: '240px',
+        marginTop: '260px',
     },
     title: {
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
