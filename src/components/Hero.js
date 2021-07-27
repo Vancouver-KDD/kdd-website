@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable */
 import React from 'react'
 import classnames from 'classnames'
 import {Image} from 'common/Image'
@@ -38,11 +38,13 @@ const useStyles = createUseStyles({
         backgroundColor: 'hsla(349, 100%, 68%, 0.9)',
         height: 850,
         padding: '2rem',
-        background: `url(${heroBGMobile}) no-repeat center center fixed`,
+        background: `url(${heroBGMobile}) no-repeat center center`,
         backgroundSize: 'cover',
         textAlign: 'center',
     },
-    container: {},
+    container: {
+        marginTop: '240px',
+    },
     title: {
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         color: 'white',
