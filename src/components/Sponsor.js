@@ -1,6 +1,6 @@
 import React from 'react'
 import {Image} from 'common/Image'
-import { createUseStyles } from 'react-jss'
+import {createUseStyles} from 'react-jss'
 import foodlyLogo from '../assets/images/foodly-logo-large.svg'
 
 export const Sponsor = () => {
@@ -12,8 +12,7 @@ export const Sponsor = () => {
             <Image img={foodlyLogo} alt="Foodly" />
         </section>
     )
-};
-
+}
 
 const useStyles = createUseStyles({
     default: {
@@ -28,6 +27,6 @@ const useStyles = createUseStyles({
     title: {
         fontSize: '2.4rem',
         fontWeight: '900',
-        marginBottom: '3rem'
-    }
-});
+        marginBottom: '3rem',
+    },
+})
