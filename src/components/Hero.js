@@ -36,8 +36,7 @@ export const Hero = () => {
 const useStyles = createUseStyles({
     default: {
         backgroundColor: 'hsla(349, 100%, 68%, 0.9)',
-        height: 850,
-        padding: '2rem',
+        padding: '5rem',
         background: `url(${heroBGMobile}) no-repeat center center`,
         backgroundSize: 'cover',
         textAlign: 'center',
