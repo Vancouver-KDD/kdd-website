@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {createUseStyles, useTheme} from 'react-jss'
-import kddLogo from 'assets/images/KDDLogo.png'
 import {Hero} from 'components/Hero'
 import EventCards from 'components/EventCards'
 import Footer from 'components/Footer'
 import NavigationBar from 'components/NavigationBar'
+import {Sponsor} from 'components/Sponsor'
+import ellipse from 'assets/images/ellipse.svg'
 
 const useStyles = createUseStyles((theme) => ({
     nav: {
@@ -26,7 +26,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     nav_logo: {
         position: 'absolute',
-        marginTop: '220px',
+        top: '130px',
     },
     nav_menu: {
         display: 'flex',
@@ -35,6 +35,15 @@ const useStyles = createUseStyles((theme) => ({
         '& li:hover': {
             textDecoration: 'underline',
         },
+    },
+    divider: {
+        transform: 'translateY(-86px)',
+        width: '100%',
+        height: '100px',
+        position: 'absolute',
+    },
+    stat: {
+        height: '543px',
     },
 }))
 
@@ -47,6 +56,9 @@ function Homepage(props) {
             <NavigationBar />
             <Hero />
             <EventCards />
+            <img className={classes.divider} src={ellipse} />
+            <div className={classes.stat} />
+            <Sponsor />
             <Footer />
         </div>
     )

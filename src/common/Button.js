@@ -1,10 +1,11 @@
 import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import {createUseStyles} from 'react-jss'
+import {createUseStyles, useTheme} from 'react-jss'
 
 export const Button = ({className, children, onClick, disabled}) => {
-    const classes = useStyles()
+    const theme = useTheme()
+    const classes = useStyles({theme})
 
     const handlClick = () => {
         onClick?.()
@@ -28,24 +29,21 @@ Button.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles((theme) => ({
     default: {
-        backgroundColor: 'hsla(343, 91%, 56%, 1)',
+        backgroundColor: theme.colorPrimary,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '38px',
-        borderRadius: '1000px',
+        height: '3.8rem',
+        borderRadius: '10rem',
         border: 'none',
         color: 'white',
         '&:hover': {
-            backgroundColor: 'hsla(343, 91%, 36%, 1)',
+            backgroundColor: theme.colorPrimaryHover,
         },
     },
     disabled: {
-        backgroundColor: 'hsla(343, 91%, 90%, 1)',
-        '&:hover': {
-            backgroundColor: 'hsla(343, 91%, 90%, 1)',
-        },
+        backgroundColor: theme.colorPrimaryDisabled,
     },
-})
+}))
