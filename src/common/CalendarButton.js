@@ -5,9 +5,7 @@ import btnCalendar from '../assets/images/btn-calendar.svg'
 function CalendarButton(props) {
     const classes = useStyles({...props})
 
-    return (
-        <input className={classes.btnEventCalendar} type="button" />
-    )
+    return <input className={classes.btnEventCalendar} type="button" />
 }
 
 const useStyles = createUseStyles(() => ({
@@ -20,9 +18,9 @@ const useStyles = createUseStyles(() => ({
         borderRadius: '50%',
         backgroundColor: '#5D5FEF',
         cursor: 'pointer',
-        '&:hover' : {
+        '&:hover': {
             backgroundColor: '#5DC1EF',
-        }
+        },
     },
 }))
 

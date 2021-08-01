@@ -23,8 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "husky install",
-    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [

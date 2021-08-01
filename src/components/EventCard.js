@@ -5,7 +5,6 @@ import CalendarButton from 'common/CalendarButton'
 import CalendarSelection from 'common/CalendarSelection'
 import tempEventImg from '../assets/images/temp-event.png'
 
-
 function EventCard(props) {
     const classes = useStyles({...props})
 
@@ -33,7 +32,7 @@ const useStyles = createUseStyles(() => ({
         margin: '2px auto',
         border: '1px solid black',
         borderRadius: '16px',
-        '& img' : {
+        '& img': {
             width: '100%',
             objectFit: 'cover',
             borderStartStartRadius: '16px',

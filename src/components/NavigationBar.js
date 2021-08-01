@@ -4,7 +4,7 @@ import {createUseStyles} from 'react-jss'
 import kddLogo1 from 'assets/images/KDDLogo.png'
 
 function NavigationBar(props) {
-    const classes = useStyles({...props, })
+    const classes = useStyles({...props})
 
     return (
         <nav className={classes.nav}>

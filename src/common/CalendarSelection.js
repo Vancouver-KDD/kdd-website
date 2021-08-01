@@ -24,11 +24,11 @@ const useStyles = createUseStyles(() => ({
         margin: 'auto',
         display: 'inline-block',
         position: 'relative',
-        
+
         '&:focus-within': {
             '& div': {
                 visibility: 'visible',
-            }
+            },
         },
     },
     tooltipContent: {
@@ -55,7 +55,7 @@ const useStyles = createUseStyles(() => ({
             '&:hover': {
                 backgroundColor: '#BDBDBD',
                 borderRadius: '8px',
-            }
+            },
         },
         '&::after': {
             content: ' ',

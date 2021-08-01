@@ -1,6 +1,6 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import { ArrorButton } from 'common/ArrorButton'
+import {ArrorButton} from 'common/ArrorButton'
 import EventCard from './EventCard'
 
 function EventCards(props) {
