@@ -3,6 +3,7 @@ import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
 import {Hero} from 'components/Hero'
 import Footer from 'components/Footer'
+import {Sponsor} from 'components/Sponsor'
 import {Link} from 'react-router-dom'
 import kddLogo from 'assets/images/KDDLogo.png'
 import ellipse from 'assets/images/ellipse.svg'
@@ -71,6 +72,7 @@ function Homepage(props) {
             <Hero />
             <img className={classes.divider} src={ellipse} />
             <div className={classes.stat} />
+            <Sponsor />
             <Footer />
         </div>
     )
