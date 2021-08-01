@@ -1,10 +1,12 @@
 /* eslint-disable */
 import React from 'react'
-import {createUseStyles, useTheme} from 'react-jss'
-import {Hero} from 'components/Hero'
-import Footer from 'components/Footer'
 import {Link} from 'react-router-dom'
+import {createUseStyles, useTheme} from 'react-jss'
 import kddLogo from 'assets/images/KDDLogo.png'
+import {Hero} from 'components/Hero'
+import EventCards from 'components/EventCards'
+import Footer from 'components/Footer'
+import NavigationBar from 'components/NavigationBar'
 
 const useStyles = createUseStyles((theme) => ({
     nav: {
@@ -42,23 +44,9 @@ function Homepage(props) {
 
     return (
         <div>
-            <nav className={classes.nav}>
-                <ul className={classes.nav_menu}>
-                    <li>
-                        <a href="/about-us">About Us</a>
-                    </li>
-                    <li>
-                        <a href="/events">Events</a>
-                    </li>
-                    <li>
-                        <a href="/photos">Photos</a>
-                    </li>
-                </ul>
-                <Link className={classes.nav_logo} to="/">
-                    <img src={kddLogo} alt="KDD logo" />
-                </Link>
-            </nav>
+            <NavigationBar />
             <Hero />
+            <EventCards />
             <Footer />
         </div>
     )
