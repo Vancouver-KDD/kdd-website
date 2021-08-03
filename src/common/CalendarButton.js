@@ -17,7 +17,9 @@ function CalendarButton({onClick, disabled}) {
             className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
             type="button"
             onClick={handlClick}
-            disabled={disabled}>{}</button>
+            disabled={disabled}>
+            {}
+        </button>
     )
 }
 
