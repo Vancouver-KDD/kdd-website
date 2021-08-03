@@ -5,7 +5,7 @@ import {createUseStyles} from 'react-jss'
 import leftArrorButtonImg from '../assets/images/btn-arror-left.svg'
 import rightArrorButtonImg from '../assets/images/btn-arror-right.svg'
 
-export const ArrorButton = ({direction, children, onClick, disabled}) => {
+export const ArrowButton = ({direction, onClick, disabled}) => {
     const classes = useStyles()
 
     const handlClick = () => {
@@ -14,18 +14,17 @@ export const ArrorButton = ({direction, children, onClick, disabled}) => {
 
     return (
         <button
-            className={classnames(classes[direction], classes.default, disabled && classes.disabled)}
+            className={classnames(classes[direction], disabled && classes.disabled)}
             type="button"
             onClick={handlClick}
             disabled={disabled}>
-            {children}
+            {}
         </button>
     )
 }
 
-ArrorButton.propTypes = {
+ArrowButton.propTypes = {
     direction: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
 }

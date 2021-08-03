@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
 import Homepage from './pages/Homepage'
 import Eventspage from './pages/Eventspage'
+import NavigationBar from './components/NavigationBar'
 
 const theme = {
     colorPrimary: 'hsl(343, 91%, 56%)',
@@ -17,6 +18,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
+                <NavigationBar />
                 <main>
                     <Switch>
                         <Route exact path="/" component={() => <Homepage />} />

@@ -1,39 +1,51 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
+import PropTypes from 'prop-types'
 import SignupButton from 'common/SignupButton'
 import CalendarButton from 'common/CalendarButton'
-import CalendarSelection from 'common/CalendarSelection'
+import CalendarTooltip from 'common/CalendarTooltip'
 import tempEventImg from '../assets/images/temp-event.png'
 
-function EventCard(props) {
-    const classes = useStyles({...props})
+function EventCard({title, date, location}) {
+    const classes = useStyles()
+    const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
+
+    const calendarOnClickHandler = () => {
+        setIsCalTooltipDisplay((_isCalTooltipDisplay) => !_isCalTooltipDisplay)
+    }
 
     return (
         <div className={classes.eventCard}>
             <img src={`${tempEventImg}`} alt="Temp Event Card" />
             <div className={classes.eventInfo}>
-                <p className={classes.eventDate}>MON, JUL 27, 2021 AT 7 PM PDT</p>
-                <h2>VANCOVER KDD JULY 2021 MEETUP</h2>
-                <p className={classes.eventLocation}>Vancouver Public Library</p>
+                <p className={classes.eventDate}>{date}</p>
+                <h2>{title}</h2>
+                <p className={classes.eventLocation}>{location}</p>
             </div>
             <div className={classes.eventBtnGroup}>
                 <SignupButton />
-                <CalendarSelection />
-                <CalendarButton />
+                {isCalTooltipDisplay && <CalendarTooltip />}
+                <CalendarButton onClick={calendarOnClickHandler} />
             </div>
         </div>
     )
+}
+
+EventCard.propTypes = {
+    title: PropTypes.string,
+    date: PropTypes.string,
+    location: PropTypes.string,
 }
 
 const useStyles = createUseStyles(() => ({
     eventCard: {
         width: '375px',
         height: '390px',
-        margin: '2px auto',
-        border: '1px solid black',
+        margin: '2px 0px',
+        border: '1px solid #7b7b7b',
         borderRadius: '16px',
         '& img': {
-            width: '100%',
+            width: '373px',
             objectFit: 'cover',
             borderStartStartRadius: '16px',
             borderStartEndRadius: '16px',
@@ -62,6 +74,7 @@ const useStyles = createUseStyles(() => ({
         justifyContent: 'space-evenly',
         height: '12rem',
         padding: '10px 20px',
+        position: 'relative',
     },
 }))
 

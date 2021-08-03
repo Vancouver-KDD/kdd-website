@@ -1,19 +1,15 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import SignupButton from './SignupButton'
 
-function CalendarSelection(props) {
-    const classes = useStyles({...props})
+function CalendarTooltip() {
+    const classes = useStyles()
 
     return (
-        <div>
-            <div className={classes.tooltip}>
-                <div className={classes.tooltipContent}>
-                    <div>Google Calendar</div>
-                    <div>Apple Calendar</div>
-                    <div>Outlook</div>
-                    <SignupButton />
-                </div>
+        <div className={classes.tooltip}>
+            <div className={classes.tooltipContent}>
+                <div>Google Calendar</div>
+                <div>Apple Calendar</div>
+                <div>Outlook</div>
             </div>
         </div>
     )
@@ -21,29 +17,15 @@ function CalendarSelection(props) {
 
 const useStyles = createUseStyles(() => ({
     tooltip: {
-        margin: 'auto',
-        display: 'inline-block',
-        position: 'relative',
-
-        '&:focus-within': {
-            '& div': {
-                visibility: 'visible',
-            },
-        },
+        position: 'absolute',
+        bottom: '130px',
+        left: '125px',
     },
     tooltipContent: {
-        visibility: 'hidden',
-        top: '-136px',
-        left: '50%',
         width: '220px',
-        bottom: '180%',
         height: '120px',
-        padding: '0',
-        zIndex: '1',
-        position: 'absolute',
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         textAlign: 'center',
-        marginLeft: '-175px',
         borderRadius: '8px',
         boxShadow: '1px 1px 1px #BDBDBD',
         '& div': {
@@ -70,4 +52,4 @@ const useStyles = createUseStyles(() => ({
     },
 }))
 
-export default CalendarSelection
+export default CalendarTooltip

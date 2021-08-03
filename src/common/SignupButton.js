@@ -1,8 +1,9 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
+import {createUseStyles, useTheme} from 'react-jss'
 
-function SignupButton(props) {
-    const classes = useStyles({...props})
+function SignupButton() {
+    const theme = useTheme()
+    const classes = useStyles({theme})
 
     return (
         <button className={classes.btnEventSignup} type="button">
@@ -11,17 +12,17 @@ function SignupButton(props) {
     )
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles((theme) => ({
     btnEventSignup: {
         width: '270px',
-        height: '48px',
+        height: '47px',
         border: '0',
         borderRadius: '30px',
         color: '#ffffff',
-        backgroundColor: '#F52763',
+        backgroundColor: theme.colorPrimary,
         cursor: 'pointer',
         '&:hover': {
-            backgroundColor: '#F57729',
+            backgroundColor: theme.colorPrimaryHover,
         },
     },
 }))

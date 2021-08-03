@@ -1,16 +1,34 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
-import btnCalendar from '../assets/images/btn-calendar.svg'
+import classnames from 'classnames'
+import PropTypes from 'prop-types'
+import {createUseStyles, useTheme} from 'react-jss'
+import btnCalendarImg from '../assets/images/btn-calendar.svg'
 
-function CalendarButton(props) {
-    const classes = useStyles({...props})
+function CalendarButton({onClick, disabled}) {
+    const theme = useTheme()
+    const classes = useStyles({theme})
 
-    return <input className={classes.btnEventCalendar} type="button" />
+    const handlClick = () => {
+        onClick?.()
+    }
+
+    return (
+        <button
+            className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
+            type="button"
+            onClick={handlClick}
+            disabled={disabled}>{}</button>
+    )
 }
 
-const useStyles = createUseStyles(() => ({
+CalendarButton.propTypes = {
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+}
+
+const useStyles = createUseStyles((theme) => ({
     btnEventCalendar: {
-        background: `url(${btnCalendar}) no-repeat`,
+        background: `url(${btnCalendarImg}) no-repeat`,
         backgroundPosition: 'center',
         border: 'none',
         width: '48px',
@@ -21,6 +39,9 @@ const useStyles = createUseStyles(() => ({
         '&:hover': {
             backgroundColor: '#5DC1EF',
         },
+    },
+    disabled: {
+        backgroundColor: theme.colorPrimaryDisabled,
     },
 }))
 
