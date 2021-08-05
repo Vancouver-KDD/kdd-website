@@ -10,7 +10,7 @@ function EventCard({title, date, location}) {
     const classes = useStyles()
     const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
 
-    const calendarOnClickHandler = () => {
+    const handleClick = () => {
         setIsCalTooltipDisplay((_isCalTooltipDisplay) => !_isCalTooltipDisplay)
     }
 
@@ -25,7 +25,7 @@ function EventCard({title, date, location}) {
             <div className={classes.eventBtnGroup}>
                 <SignupButton />
                 {isCalTooltipDisplay && <CalendarTooltip />}
-                <CalendarButton onClick={calendarOnClickHandler} />
+                <CalendarButton onClick={handleClick} />
             </div>
         </div>
     )
