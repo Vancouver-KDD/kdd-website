@@ -30,31 +30,23 @@ ArrowButton.propTypes = {
 }
 
 const useStyles = createUseStyles({
-    left: {
-        background: `url(${leftArrorButtonImg}) no-repeat`,
-        backgroundPosition: 'center',
+    default: {
         border: 'none',
         width: '40px',
         height: '40px',
         borderRadius: '50%',
-        backgroundColor: '#E0E0E0',
         cursor: 'pointer',
-        '&:hover': {
-            backgroundColor: '#BDBDBD',
+        '@media (hover: hover) ': {
+            '&:hover:enabled': {
+                backgroundColor: '#BDBDBD',
+            },
         },
     },
+    left: {
+        background: `#E0E0E0 url(${leftArrorButtonImg}) no-repeat center`,
+    },
     right: {
-        background: `url(${rightArrorButtonImg}) no-repeat`,
-        backgroundPosition: 'center',
-        border: 'none',
-        width: '40px',
-        height: '40px',
-        borderRadius: '50%',
-        backgroundColor: '#E0E0E0',
-        cursor: 'pointer',
-        '&:hover': {
-            backgroundColor: '#BDBDBD',
-        },
+        background: `#E0E0E0 url(${rightArrorButtonImg}) no-repeat center`,
     },
     disabled: {
         backgroundColor: '#F5F5F5',
