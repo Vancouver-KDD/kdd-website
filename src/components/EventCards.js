@@ -4,8 +4,9 @@ import {ArrowButton} from 'common/ArrowButton'
 import EventCard from './EventCard'
 
 function EventCards() {
+    const TEMP_LIST_SIZE = 4
     const [currentCardNo, setCurrentCardNo] = useState(0)
-    const [cardListSize] = useState(4)
+    const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo, cardListSize)
 
     /* eslint-disable no-param-reassign */
@@ -13,7 +14,6 @@ function EventCards() {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1
         setCurrentCardNo(index)
-        console.log(currentCardNo)
     }
 
     return (
