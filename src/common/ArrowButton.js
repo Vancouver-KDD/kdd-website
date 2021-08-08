@@ -14,7 +14,7 @@ export const ArrowButton = ({direction, onClick, disabled}) => {
 
     return (
         <button
-            className={classnames(classes[direction], disabled && classes.disabled)}
+            className={classnames(classes.default, classes[direction], disabled && classes.disabled)}
             type="button"
             onClick={handlClick}
             disabled={disabled}>
