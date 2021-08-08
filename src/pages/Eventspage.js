@@ -1,12 +1,12 @@
 import React from 'react'
-import EventCard from 'components/EventCard'
+import EventCards from 'components/EventCards'
+import NavigationBar from 'components/NavigationBar'
 
-function Eventspage() {
+const Eventspage = () => {
     return (
         <div>
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            <NavigationBar />
+            <EventCards />
         </div>
     )
 }

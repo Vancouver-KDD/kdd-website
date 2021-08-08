@@ -41,7 +41,7 @@ const useStyles = createUseStyles(() => ({
     eventCard: {
         width: '375px',
         height: '390px',
-        margin: '2px 0px',
+        margin: '2px 2px',
         border: '1px solid #7b7b7b',
         borderRadius: '16px',
         '& img': {
@@ -52,6 +52,14 @@ const useStyles = createUseStyles(() => ({
         },
         '& h2': {
             fontSize: '2.2rem',
+        },
+        '@media (min-width: 1024px)': {
+            width: '502px',
+            height: '442px',
+            margin: '2px 5px',
+            '& img': {
+                width: '502px',
+            },
         },
     },
     eventInfo: {

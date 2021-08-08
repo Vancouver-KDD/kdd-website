@@ -19,11 +19,22 @@ PhotoCard.propTypes = {
 
 const useStyles = createUseStyles(() => ({
     photoCard: {
+        margin: '2px 2px',
         '& img': {
             width: '375px',
-            padding: '0px 1px',
             objectFit: 'cover',
-            borderradius: '0px',
+        },
+        '@media (min-width: 800px)': {
+            '& img': {
+                borderRadius: '10px',
+            },
+        },
+        '@media (min-width: 1024px)': {
+            margin: '0px 5px',
+            '& img': {
+                width: '502px',
+                borderRadius: '10px',
+            },
         },
     },
 }))

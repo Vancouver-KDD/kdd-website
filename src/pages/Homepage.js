@@ -7,13 +7,15 @@ import EventCards from 'components/EventCards'
 import PhotoCards from 'components/PhotoCards'
 import Footer from 'components/Footer'
 import ellipse from 'assets/images/ellipse.svg'
+import NavigationBar from 'components/NavigationBar'
 
-function Homepage(props) {
+const Homepage = () => {
     const theme = useTheme()
-    const classes = useStyles({...props, theme})
+    const classes = useStyles({theme})
 
     return (
         <div>
+            <NavigationBar pathname={location.pathname} />
             <Hero />
             <img className={classes.divider} src={ellipse} />
             <div className={classes.stat} />
@@ -25,7 +27,7 @@ function Homepage(props) {
     )
 }
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
     divider: {
         transform: 'translateY(-86px)',
         width: '100%',
