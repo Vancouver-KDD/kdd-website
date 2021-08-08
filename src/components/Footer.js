@@ -1,25 +1,6 @@
 import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
 
-const useStyles = createUseStyles({
-    footer: {
-        height: 'auto',
-        padding: '1rem',
-        '& p': {
-            textAlign: 'left',
-        },
-        color: 'hsla(240, 52%, 11%, 1)',
-    },
-    text_developer: {
-        fontWeight: '600',
-        fontSize: '2rem',
-    },
-    text_specialist: {
-        fontWeight: '600',
-        fontSize: '2rem',
-    },
-})
-
 function Footer(props) {
     const theme = useTheme()
     const classes = useStyles({...props, theme})
@@ -30,5 +11,29 @@ function Footer(props) {
         </footer>
     )
 }
+
+const useStyles = createUseStyles({
+    footer: {
+        height: 'auto',
+        padding: '1rem',
+        color: 'hsla(240, 52%, 11%, 1)',
+        '& p': {
+            textAlign: 'left',
+        },
+        '@media (min-width: 800px)': {
+            '& p': {
+                textAlign: 'center',
+            },
+        },
+    },
+    text_developer: {
+        fontWeight: '600',
+        fontSize: '2rem',
+    },
+    text_specialist: {
+        fontWeight: '600',
+        fontSize: '2rem',
+    },
+})
 
 export default Footer

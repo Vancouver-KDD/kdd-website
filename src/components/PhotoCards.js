@@ -10,7 +10,7 @@ function PhotoCards() {
     const classes = useStyles(currentCardNo)
 
     /* eslint-disable no-param-reassign */
-    const handlerArrowOnClick = (index) => {
+    const handleClick = (index) => {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1
         setCurrentCardNo(index)
@@ -22,8 +22,9 @@ function PhotoCards() {
                 <div>
                     <h1>Photos</h1>
                     <div className={classes.groupArrowButton}>
-                        <ArrowButton direction="left" onClick={() => handlerArrowOnClick(currentCardNo - 1)} />
-                        <ArrowButton direction="right" onClick={() => handlerArrowOnClick(currentCardNo + 1)} />
+                        <a href="#">VIEW ALL</a>
+                        <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
+                        <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
                     </div>
                 </div>
                 <div className={classes.photoBox}>
@@ -50,6 +51,13 @@ const useStyles = createUseStyles(() => ({
             marginTop: '4rem',
             fontSize: '3.5rem',
         },
+        '@media (min-width: 800px)': {
+            width: '756px',
+        },
+        '@media (min-width: 1024px)': {
+            width: '1022px',
+            height: '400px',
+        },
     },
     photoBox: {
         position: 'relative',
@@ -57,17 +65,35 @@ const useStyles = createUseStyles(() => ({
         overflowX: 'hidden',
     },
     photoCardList: {
-        width: '1500px',
+        width: '3500px',
         overflow: 'hidden',
         transition: 'all 300ms ease 0s',
-        transform: (currentCardNo) => `translate3d(${currentCardNo * -375}px, 0px, 0px)`,
         display: 'flex',
+        transform: (currentCardNo) => `translate3d(${currentCardNo * -379}px, 0px, 0px)`,
+        '@media (min-width: 1024px)': {
+            transform: (currentCardNo) => `translate3d(${currentCardNo * -512}px, 0px, 0px)`,
+        },
     },
     groupArrowButton: {
         position: 'relative',
         display: 'inline-block',
         top: '0',
-        left: '38%',
+        left: '26%',
+        '& a': {
+            fontSize: '1.7rem',
+        },
+        '& button': {
+            marginLeft: '7px',
+        },
+        '@media (min-width: 800px)': {
+            left: '38.3%',
+        },
+        '@media (min-width: 1024px)': {
+            left: '41%',
+            '& button': {
+                marginLeft: '12px',
+            },
+        },
     },
 }))
 
