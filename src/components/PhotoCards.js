@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
+import {Link} from 'react-router-dom'
 import {ArrowButton} from 'common/ArrowButton'
 import PhotoCard from './PhotoCard'
 
+const TEMP_LIST_SIZE = 4
+
 function PhotoCards() {
-    const TEMP_LIST_SIZE = 4
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo)
@@ -22,7 +24,7 @@ function PhotoCards() {
                 <div>
                     <h1>Photos</h1>
                     <div className={classes.groupArrowButton}>
-                        <a href="#">VIEW ALL</a>
+                        <Link to="/photos">VIEW ALL</Link>
                         <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
                         <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
                     </div>

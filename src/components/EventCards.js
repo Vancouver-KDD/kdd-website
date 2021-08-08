@@ -3,8 +3,9 @@ import {createUseStyles} from 'react-jss'
 import {ArrowButton} from 'common/ArrowButton'
 import EventCard from './EventCard'
 
+const TEMP_LIST_SIZE = 4
+
 function EventCards() {
-    const TEMP_LIST_SIZE = 4
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo, cardListSize)

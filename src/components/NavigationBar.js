@@ -1,28 +1,37 @@
 import React from 'react'
+import classnames from 'classnames'
 import {Link} from 'react-router-dom'
 import {createUseStyles, useTheme} from 'react-jss'
-import kddLogo1 from 'assets/images/KDDLogo.png'
+import kddLogo1 from 'assets/images/KDD-Logo1.svg'
+import kddLogo2 from 'assets/images/KDD-Logo2.svg'
 
-function NavigationBar(props) {
+// eslint-disable-next-line react/prop-types
+const NavigationBar = ({pathname}) => {
     const theme = useTheme()
-    const classes = useStyles({...props, theme})
+    const classes = useStyles({theme})
+    let isHome = true
+    let navPosition = 'navAbsolute'
+    if (pathname !== '/') {
+        isHome = false
+        navPosition = 'navRelative'
+    }
 
     return (
-        <nav className={classes.nav}>
+        <nav className={classnames(classes.default, classes[navPosition])}>
             <div>
                 <Link className={classes.nav_logo} to="/">
-                    <img src={kddLogo1} alt="KDD logo" />
+                    {isHome ? <img src={kddLogo1} alt="KDD logo" /> : <img src={kddLogo2} alt="KDD logo" />}
                 </Link>
             </div>
             <ul className={classes.nav_menu}>
                 <li>
-                    <a href="/about-us">About Us</a>
+                    <Link to="/about-us">About Us</Link>
                 </li>
                 <li>
-                    <a href="/events">Events</a>
+                    <Link to="/events">Events</Link>
                 </li>
                 <li>
-                    <a href="/photos">Photos</a>
+                    <Link to="/photos">Photos</Link>
                 </li>
             </ul>
         </nav>
@@ -30,10 +39,9 @@ function NavigationBar(props) {
 }
 
 const useStyles = createUseStyles(() => ({
-    nav: {
+    default: {
         height: '250px',
         display: 'flex',
-        position: 'absolute',
         width: '100%',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -41,14 +49,27 @@ const useStyles = createUseStyles(() => ({
         flexDirection: 'column',
         '& a': {
             textDecoration: 'none',
-            color: '#ffffff',
             fontSize: '1.5rem',
+            fontWeight: '700',
+        },
+    },
+    navAbsolute: {
+        position: 'absolute',
+        '& a': {
+            color: '#ffffff',
+        },
+    },
+    navRelative: {
+        position: 'relative',
+        '& a': {
+            color: '#0E0E2C',
         },
     },
     nav_logo: {
         position: 'absolute',
         top: '110px',
-        left: '36%',
+        left: '50%',
+        marginLeft: '-62px',
     },
     nav_menu: {
         position: 'absolute',
@@ -60,8 +81,8 @@ const useStyles = createUseStyles(() => ({
             textDecoration: 'underline',
         },
     },
-    '@media (min-width: 500px)': {
-        nav: {
+    '@media (min-width: 768px)': {
+        default: {
             height: '170px',
             flexDirection: 'row',
             justifyContent: 'space-around',
