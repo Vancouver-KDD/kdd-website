@@ -29,6 +29,7 @@ const useStyles = createUseStyles({
     since: {
         fontSize: '2.25rem',
         fontWeight: '900',
+        marginTop: '2.5rem',
         marginBottom: '2.5rem',
         color: 'rgba(14, 14, 44, 1)',
     },
