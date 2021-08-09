@@ -8,6 +8,7 @@ import PhotoCards from 'components/PhotoCards'
 import Footer from 'components/Footer'
 import ellipse from 'assets/images/ellipse.svg'
 import NavigationBar from 'components/NavigationBar'
+import {Stat} from 'components/Stat'
 
 const Homepage = () => {
     const theme = useTheme()
@@ -19,6 +20,7 @@ const Homepage = () => {
             <Hero />
             <img className={classes.divider} src={ellipse} />
             <div className={classes.stat} />
+            <Stat />
             <Sponsor />
             <EventCards />
             <PhotoCards />
