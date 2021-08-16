@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
 import Homepage from './pages/Homepage'
 import Eventspage from './pages/Eventspage'
+import Photospage from './pages/Photospage'
 
 const theme = {
     colorPrimary: 'hsl(343, 91%, 56%)',
@@ -21,7 +22,7 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={() => <Homepage />} />
                         <Route exact path="/photos/:id" component={() => <p>photo id</p>} />
-                        <Route path="/photos" component={() => <p>photos</p>} />
+                        <Route path="/photos" component={() => <Photospage />} />
                         <Route exact path="/events/:id" component={() => <p>event id</p>} />
                         <Route path="/events" component={() => <Eventspage />} />
                         <Route path="/about-us" component={() => <p>about-us</p>} />
