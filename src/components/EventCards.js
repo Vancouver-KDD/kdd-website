@@ -8,7 +8,7 @@ const TEMP_LIST_SIZE = 4
 function EventCards() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [cardListSize] = useState(TEMP_LIST_SIZE)
-    const classes = useStyles(currentCardNo, cardListSize)
+    const classes = useStyles(currentCardNo)
 
     /* eslint-disable no-param-reassign */
     const handleClick = (index) => {

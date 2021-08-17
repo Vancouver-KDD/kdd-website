@@ -21,6 +21,13 @@ const useStyles = createUseStyles({
             textAlign: 'left',
         },
         '@media (min-width: 800px)': {
+            padding: '3rem',
+            '& p': {
+                textAlign: 'center',
+            },
+        },
+        '@media (min-width: 1024px)': {
+            padding: '6rem',
             '& p': {
                 textAlign: 'center',
             },

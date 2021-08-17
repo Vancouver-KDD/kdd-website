@@ -3,12 +3,13 @@ import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
 import {ArrowButton} from 'common/ArrowButton'
 import PhotoCard from './PhotoCard'
-
-const TEMP_LIST_SIZE = 4
+import {getPostList} from '../DemoPhotoData'
 
 function PhotoCards() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
-    const [cardListSize] = useState(TEMP_LIST_SIZE)
+    const [photoList] = useState(getPostList())
+    const listSize = photoList.length
+    const [cardListSize] = useState(listSize)
     const classes = useStyles(currentCardNo)
 
     /* eslint-disable no-param-reassign */
@@ -31,10 +32,14 @@ function PhotoCards() {
                 </div>
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
-                        <PhotoCard src="temp_photo1.png" alt="test photo1" />
-                        <PhotoCard src="temp_photo2.png" alt="test photo2" />
-                        <PhotoCard src="temp_photo1.png" alt="test photo1" />
-                        <PhotoCard src="temp_photo2.png" alt="test photo2" />
+                        {photoList.map((photo) => (
+                            <PhotoCard
+                                src={photo.image_url}
+                                alt={photo.description}
+                                description={photo.description}
+                                author={photo.uploader_name}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -67,10 +72,8 @@ const useStyles = createUseStyles(() => ({
         overflowX: 'hidden',
     },
     photoCardList: {
-        width: '3500px',
-        overflow: 'hidden',
-        transition: 'all 300ms ease 0s',
         display: 'flex',
+        transition: 'all 300ms ease 0s',
         transform: (currentCardNo) => `translate3d(${currentCardNo * -379}px, 0px, 0px)`,
         '@media (min-width: 1024px)': {
             transform: (currentCardNo) => `translate3d(${currentCardNo * -512}px, 0px, 0px)`,
