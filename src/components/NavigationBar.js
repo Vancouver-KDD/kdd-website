@@ -5,7 +5,8 @@ import {createUseStyles, useTheme} from 'react-jss'
 import kddLogo1 from 'assets/images/KDD-Logo1.svg'
 import kddLogo2 from 'assets/images/KDD-Logo2.svg'
 
-const NavigationBar = ({pathname}) => {
+const NavigationBar = () => {
+    const pathname = window.location.pathname
     const theme = useTheme()
     const classes = useStyles({theme})
     let isHome = true

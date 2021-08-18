@@ -1,9 +1,9 @@
 import React from 'react'
 import {Image} from 'common/Image'
 import {createUseStyles} from 'react-jss'
-import foodlyLogo from '../assets/images/foodly-logo-large.svg'
+import foodlyLogo from 'assets/images/foodly-logo-large.svg'
 
-export const Sponsor = () => {
+export default function Sponsor() {
     const classes = useStyles()
 
     return (

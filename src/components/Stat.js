@@ -2,7 +2,7 @@ import React from 'react'
 import {createUseStyles} from 'react-jss'
 import Trophy from 'assets/images/trophy.png'
 
-export const Stat = () => {
+export default function Stat() {
     const classes = useStyles()
 
     return (

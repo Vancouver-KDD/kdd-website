@@ -3,36 +3,41 @@ import classnames from 'classnames'
 import {Image} from 'common/Image'
 import {Button} from 'common/Button'
 import {createUseStyles} from 'react-jss'
-import slackLogo from '../assets/icons/coolicon-slack.svg'
-import heroBGMobile from '../assets/images/hero-bg-mobile.svg'
+import slackLogo from 'assets/icons/coolicon-slack.svg'
+import heroBGMobile from 'assets/images/hero-bg-mobile.svg'
+import ellipse from 'assets/images/ellipse.svg'
 
-export const Hero = () => {
+export default function Hero() {
     const classes = useStyles()
 
     return (
-        <div className={classnames('kdd-hero', classes.default)}>
-            <div className={classes.container}>
-                <h1 className={classes.title}>Join one of the best Korean communities in Vancouver</h1>
-                <p className={classes.subtitle}>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-                </p>
+        <div style={{positoin: 'relative'}}>
+            <div className={classnames('kdd-hero', classes.default)}>
+                <div className={classes.container}>
+                    <h1 className={classes.title}>Vancouver KDD</h1>
+                    <p className={classes.subtitle}>
+                        저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
+                    </p>
 
-                <div className={classes.btnContainer}>
-                    <Button>
-                        <span>UPCOMING EVENT</span>
-                    </Button>
-                    <Button>
-                        <Image img={slackLogo} alt="slack" />
-                        <span>JOIN EVENT</span>
-                    </Button>
+                    <div className={classes.btnContainer}>
+                        <Button>
+                            <Image img={slackLogo} alt="join slack" />
+                            <span>JOIN SLACK</span>
+                        </Button>
+                    </div>
                 </div>
             </div>
+            <img className={classes.divider} src={ellipse} />
         </div>
     )
 }
 
 const useStyles = createUseStyles({
+    divider: {
+        width: '100%',
+        position: 'absolute',
+        bottom: -1,
+    },
     default: {
         backgroundColor: 'hsla(349, 100%, 68%, 0.9)',
         padding: '5rem',
@@ -41,7 +46,8 @@ const useStyles = createUseStyles({
         textAlign: 'center',
     },
     container: {
-        marginTop: '260px',
+        padding: 100,
+        height: 'calc(100vh - 100px)',
     },
     title: {
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',

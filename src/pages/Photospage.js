@@ -4,7 +4,7 @@ import NavigationBar from 'components/NavigationBar'
 import PhotoCard from 'components/PhotoCard'
 import Footer from 'components/Footer'
 import {Modal} from 'common/Modal'
-import {getPostList} from 'DemoPhotoData'
+import {useCollection} from 'store'
 
 const Photospage = () => {
     const classes = useStyles()
@@ -14,8 +14,7 @@ const Photospage = () => {
     const [photoDescription, setPhotoDescription] = useState('')
     const [photoAuthor, setPhotoAuthor] = useState('')
 
-    const [photoList] = useState(getPostList())
-
+    const {data: photos, loading, error} = useCollection({name: 'photos'})
     const toggleModal = () => {
         if (isModalVisible) {
             document.body.style.overflow = 'auto'
@@ -46,7 +45,7 @@ const Photospage = () => {
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
                         {/* <h2>June 14, 2021</h2> */}
-                        {photoList.map((photo) => (
+                        {photos?.map((photo) => (
                             <PhotoCard
                                 key={photo.id}
                                 src={photo.image_url}

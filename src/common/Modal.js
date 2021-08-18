@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
-import iconCloseButton from '../assets/icons/closeButton.svg'
+import iconCloseButton from 'assets/icons/closeButton.svg'
 
 export const Modal = ({photoUrl, photoAlt, photoDescription, photoAuthor, visible, toggleModal}) => {
     const classes = useStyles(visible)

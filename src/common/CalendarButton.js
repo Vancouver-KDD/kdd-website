@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import {createUseStyles, useTheme} from 'react-jss'
-import btnCalendarImg from '../assets/images/btn-calendar.svg'
+import btnCalendarImg from 'assets/images/btn-calendar.svg'
 
 function CalendarButton({onClick, disabled}) {
     const theme = useTheme()
