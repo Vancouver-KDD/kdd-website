@@ -27,7 +27,7 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <img className={classes.divider} src={ellipse} />
+            <img className={classes.divider} src={ellipse} alt="ellipse divider" />
         </div>
     )
 }
