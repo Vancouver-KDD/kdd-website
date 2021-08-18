@@ -45,6 +45,8 @@ const Photospage = () => {
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
                         {/* <h2>June 14, 2021</h2> */}
+                        {loading && <span>loading...</span>}
+                        {!!error && <span>ERROR: {error.message}</span>}
                         {photos?.map((photo) => (
                             <PhotoCard
                                 key={photo.id}

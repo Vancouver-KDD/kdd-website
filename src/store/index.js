@@ -27,8 +27,10 @@ export function useCollection({name, defaultData = null} = {}) {
                         setError(e)
                     })
                 break
+            default:
+                break
         }
-    }, [])
+    }, [name])
 
     return {loading, data, error}
 }

@@ -30,6 +30,8 @@ function PhotoCards() {
                 </div>
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
+                        {loading && <span>loading...</span>}
+                        {!!error && <span>ERROR: {error.message}</span>}
                         {photos?.map((photo) => (
                             <PhotoCard
                                 key={photo.id}
