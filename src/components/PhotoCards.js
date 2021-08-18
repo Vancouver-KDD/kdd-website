@@ -32,6 +32,7 @@ function PhotoCards() {
                     <div className={classes.photoCardList}>
                         {photos?.map((photo) => (
                             <PhotoCard
+                                key={photo.id}
                                 src={photo.image_url}
                                 alt={photo.description}
                                 description={photo.description}
