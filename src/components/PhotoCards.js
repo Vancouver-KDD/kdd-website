@@ -12,7 +12,6 @@ function PhotoCards() {
     const [cardListSize] = useState(listSize)
     const classes = useStyles(currentCardNo)
 
-    /* eslint-disable no-param-reassign */
     const handleClick = (index) => {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1

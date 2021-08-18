@@ -10,7 +10,6 @@ function EventCards() {
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo)
 
-    /* eslint-disable no-param-reassign */
     const handleClick = (index) => {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1

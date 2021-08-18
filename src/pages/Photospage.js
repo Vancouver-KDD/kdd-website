@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import NavigationBar from 'components/NavigationBar'

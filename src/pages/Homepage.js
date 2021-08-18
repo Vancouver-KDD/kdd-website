@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
 import {Hero} from 'components/Hero'
@@ -16,7 +15,7 @@ const Homepage = () => {
 
     return (
         <div>
-            <NavigationBar pathname={location.pathname} />
+            <NavigationBar pathname={window.location.pathname} />
             <Hero />
             <img className={classes.divider} src={ellipse} />
             <div className={classes.stat} />
