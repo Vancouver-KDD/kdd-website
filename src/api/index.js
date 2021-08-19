@@ -1,8 +1,15 @@
-export const getPostList = () => {
-    return DemoPhotoData
+/**
+ * @param  {String=} {startHash} use this one to query more photos
+ * @param  {Number} [limit=30] number of photos to fetch
+ * @returns {Promise} a promise that resolves to array of photos
+ */
+export async function getPhotos({startHash, limit = 30} = {}) {
+    // Artifitial 1 second delay
+    await new Promise((r) => setTimeout(r, 1000))
+    return mockPhotos
 }
 
-export const DemoPhotoData = [
+const mockPhotos = [
     {
         id: 1,
         image_url: 'temp_photo1.png',

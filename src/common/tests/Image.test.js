@@ -8,7 +8,7 @@ test('should render', () => {
 })
 
 test('should render hyperlinked image', () => {
-    render(<Image altText="hello" img="hello" url="google.com" />)
+    render(<Image alt="hello" img="hello" url="google.com" />)
 
     expect(screen.getByRole('link')).toBeTruthy()
     expect(screen.getByAltText('hello')).toBeTruthy()

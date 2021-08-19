@@ -2,8 +2,8 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
-import leftArrorButtonImg from '../assets/images/btn-arror-left.svg'
-import rightArrorButtonImg from '../assets/images/btn-arror-right.svg'
+import leftArrorButtonImg from 'assets/images/btn-arror-left.svg'
+import rightArrorButtonImg from 'assets/images/btn-arror-right.svg'
 
 export const ArrowButton = ({direction, onClick, disabled}) => {
     const classes = useStyles()

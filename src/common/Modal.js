@@ -1,14 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/button-has-type */
 import React from 'react'
 import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
-import iconCloseButton from '../assets/icons/closeButton.svg'
+import iconCloseButton from 'assets/icons/closeButton.svg'
 
 export const Modal = ({photoUrl, photoAlt, photoDescription, photoAuthor, visible, toggleModal}) => {
     const classes = useStyles(visible)

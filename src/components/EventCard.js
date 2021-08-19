@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import SignupButton from 'common/SignupButton'
 import CalendarButton from 'common/CalendarButton'
 import CalendarTooltip from 'common/CalendarTooltip'
-import tempEventImg from '../assets/images/temp-event.png'
+import tempEventImg from 'assets/images/temp-event.png'
 
 function EventCard({title, date, location}) {
     const classes = useStyles()

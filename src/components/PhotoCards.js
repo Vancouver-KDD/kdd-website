@@ -3,16 +3,14 @@ import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
 import {ArrowButton} from 'common/ArrowButton'
 import PhotoCard from './PhotoCard'
-import {getPostList} from '../DemoPhotoData'
+import {useCollection} from 'store'
 
 function PhotoCards() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
-    const [photoList] = useState(getPostList())
-    const listSize = photoList.length
-    const [cardListSize] = useState(listSize)
+    const {data: photos, loading, error} = useCollection({name: 'photos'})
+    const cardListSize = photos?.length ?? 0
     const classes = useStyles(currentCardNo)
 
-    /* eslint-disable no-param-reassign */
     const handleClick = (index) => {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1
@@ -32,8 +30,11 @@ function PhotoCards() {
                 </div>
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
-                        {photoList.map((photo) => (
+                        {loading && <span>loading...</span>}
+                        {!!error && <span>ERROR: {error.message}</span>}
+                        {photos?.map((photo) => (
                             <PhotoCard
+                                key={photo.id}
                                 src={photo.image_url}
                                 alt={photo.description}
                                 description={photo.description}
