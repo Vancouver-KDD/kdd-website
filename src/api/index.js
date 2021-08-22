@@ -17,3 +17,5 @@ export async function getPhotos({startHash, limit = 30} = {}) {
     const data = await res.json()
     return data
 }
+
+export { API } from './requester';
