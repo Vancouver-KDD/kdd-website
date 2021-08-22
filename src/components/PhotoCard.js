@@ -93,6 +93,8 @@ const useStyles = createUseStyles(() => ({
         },
     },
     photoAuthor: {
+        position: 'absolute',
+        bottom: '20px',
         width: '330px',
         fontSize: '1.4rem',
         fontWeight: '700',
