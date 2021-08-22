@@ -21,7 +21,12 @@ export default function Sponsor() {
                     const imageUrl = sponsor?.logo?.[0]?.formats?.small?.url || sponsor?.logo?.[0]?.url
                     return (
                         <div style={{padding: 10}}>
-                            <Image key={sponsor.id} className={classes.sponsorImage} img={imageUrl} alt="Foodly" />
+                            <Image
+                                key={sponsor.id}
+                                className={classes.sponsorImage}
+                                img={imageUrl}
+                                url={sponsor.url}
+                                alt={`${sponsor.name} logo`} />
                         </div>
                     )
                 })}
