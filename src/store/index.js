@@ -1,5 +1,5 @@
 import React from 'react'
-import {getPhotos} from 'api'
+import {getPhotos, getSponsors} from 'api'
 
 export function useCollection({name, defaultData = null} = {}) {
     const [loading, setLoading] = React.useState(true)
@@ -14,10 +14,23 @@ export function useCollection({name, defaultData = null} = {}) {
 
     React.useEffect(() => {
         switch (name) {
+            case 'sponsors':
+                getSponsors()
+                    .then((data) => {
+                        setData(data)
+                        setLoading(false)
+                        setError(null)
+                    })
+                    .catch((e) => {
+                        setData(null)
+                        setLoading(false)
+                        setError(e)
+                    })
+                break
             case 'photos':
                 getPhotos()
-                    .then((photos) => {
-                        setData(photos)
+                    .then((data) => {
+                        setData(data)
                         setLoading(false)
                         setError(null)
                     })
