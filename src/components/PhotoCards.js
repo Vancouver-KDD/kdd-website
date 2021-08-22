@@ -32,15 +32,18 @@ function PhotoCards() {
                     <div className={classes.photoCardList}>
                         {loading && <span>loading...</span>}
                         {!!error && <span>ERROR: {error.message}</span>}
-                        {photos?.map((photo) => (
-                            <PhotoCard
-                                key={photo.id}
-                                src={photo.image_url}
-                                alt={photo.description}
-                                description={photo.description}
-                                author={photo.uploader_name}
-                            />
-                        ))}
+                        {photos?.map((photo) => {
+                            const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
+                            return (
+                                <PhotoCard
+                                    key={photo.id}
+                                    src={imageUrl}
+                                    alt={photo.description}
+                                    description={photo.description}
+                                    author={photo.uploader_name}
+                                />
+                            )
+                        })}
                     </div>
                 </div>
             </div>

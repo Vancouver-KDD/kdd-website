@@ -47,16 +47,19 @@ const Photospage = () => {
                         {/* <h2>June 14, 2021</h2> */}
                         {loading && <span>loading...</span>}
                         {!!error && <span>ERROR: {error.message}</span>}
-                        {photos?.map((photo) => (
-                            <PhotoCard
-                                key={photo.id}
-                                src={photo.image_url}
-                                alt={photo.description}
-                                description={photo.description}
-                                author={photo.uploader_name}
-                                onClick={() => handlPhroCardClick(photo.image_url, photo.description, photo.uploader_name)}
-                            />
-                        ))}
+                        {photos?.map((photo) => {
+                            const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
+                            return (
+                                <PhotoCard
+                                    key={photo.id}
+                                    src={imageUrl}
+                                    alt={photo.description}
+                                    description={photo.description}
+                                    author={photo.uploader_name}
+                                    onClick={() => handlPhroCardClick(imageUrl, photo.description, photo.uploader_name)}
+                                />
+                            )
+                        })}
                     </div>
                 </div>
             </div>
