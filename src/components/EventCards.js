@@ -19,7 +19,7 @@ function EventCards() {
     return (
         <div className={classes.events}>
             <div>
-                <h1>Upcomming Events</h1>
+                <h1>Upcoming Events</h1>
                 <div className={classes.groupArrowButton}>
                     <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
                     <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
