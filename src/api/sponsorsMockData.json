@@ -1,0 +1,120 @@
+[
+    {
+        "id": 2,
+        "sponsor_name": null,
+        "sponsor_url": null,
+        "sponsor_image_url": null,
+        "ID": null,
+        "published_at": "2021-08-22T01:05:58.434Z",
+        "created_at": "2021-08-22T01:05:56.058Z",
+        "updated_at": "2021-08-22T01:05:58.463Z",
+        "name": "foodly",
+        "url": "https://foodly.ca/",
+        "uid": "sponsors",
+        "logo": [
+            {
+                "id": 9,
+                "name": "https://res.cloudinary.com/foodlytech/image/upload/f_auto,q_auto:good/foodly/foodlyLogo-Large.png",
+                "alternativeText": "",
+                "caption": "",
+                "width": 512,
+                "height": 166,
+                "formats": {
+                    "small": {
+                        "ext": ".png",
+                        "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594319/small_foodly_Logo_Large_35e788b13a.png",
+                        "hash": "small_foodly_Logo_Large_35e788b13a",
+                        "mime": "image/png",
+                        "name": "small_https://res.cloudinary.com/foodlytech/image/upload/f_auto,q_auto:good/foodly/foodlyLogo-Large.png",
+                        "path": null,
+                        "size": 45.28,
+                        "width": 500,
+                        "height": 162,
+                        "provider_metadata": {"public_id": "small_foodly_Logo_Large_35e788b13a", "resource_type": "image"}
+                    },
+                    "thumbnail": {
+                        "ext": ".png",
+                        "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594319/thumbnail_foodly_Logo_Large_35e788b13a.png",
+                        "hash": "thumbnail_foodly_Logo_Large_35e788b13a",
+                        "mime": "image/png",
+                        "name": "thumbnail_https://res.cloudinary.com/foodlytech/image/upload/f_auto,q_auto:good/foodly/foodlyLogo-Large.png",
+                        "path": null,
+                        "size": 16.62,
+                        "width": 245,
+                        "height": 79,
+                        "provider_metadata": {"public_id": "thumbnail_foodly_Logo_Large_35e788b13a", "resource_type": "image"}
+                    }
+                },
+                "hash": "foodly_Logo_Large_35e788b13a",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 4.41,
+                "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594318/foodly_Logo_Large_35e788b13a.png",
+                "previewUrl": null,
+                "provider": "cloudinary",
+                "provider_metadata": {"public_id": "foodly_Logo_Large_35e788b13a", "resource_type": "image"},
+                "created_at": "2021-08-22T01:05:19.650Z",
+                "updated_at": "2021-08-22T01:05:19.662Z"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "sponsor_name": null,
+        "sponsor_url": null,
+        "sponsor_image_url": null,
+        "ID": null,
+        "published_at": "2021-08-22T01:07:23.049Z",
+        "created_at": "2021-08-22T01:07:20.681Z",
+        "updated_at": "2021-08-22T01:07:23.072Z",
+        "name": "Consulate General of the Republic of Korea",
+        "url": "https://www.minwonreservation.com/",
+        "uid": "sponsors-1",
+        "logo": [
+            {
+                "id": 10,
+                "name": "https://static.wixstatic.com/media/91c789_50b12a164c6f454f90efe914e783058c~mv2.png/v1/fill/w_568,h_124,al_c,q_85,usm_0.66_1.00_0.01/logo_vancouver3.webp",
+                "alternativeText": "",
+                "caption": "",
+                "width": 568,
+                "height": 124,
+                "formats": {
+                    "small": {
+                        "ext": ".webp",
+                        "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594402/small_logo_vancouver3_52d27ed9e6.webp",
+                        "hash": "small_logo_vancouver3_52d27ed9e6",
+                        "mime": "image/webp",
+                        "name": "small_https://static.wixstatic.com/media/91c789_50b12a164c6f454f90efe914e783058c~mv2.png/v1/fill/w_568,h_124,al_c,q_85,usm_0.66_1.00_0.01/logo_vancouver3.webp",
+                        "path": null,
+                        "size": 14.36,
+                        "width": 500,
+                        "height": 109,
+                        "provider_metadata": {"public_id": "small_logo_vancouver3_52d27ed9e6", "resource_type": "image"}
+                    },
+                    "thumbnail": {
+                        "ext": ".webp",
+                        "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594402/thumbnail_logo_vancouver3_52d27ed9e6.webp",
+                        "hash": "thumbnail_logo_vancouver3_52d27ed9e6",
+                        "mime": "image/webp",
+                        "name": "thumbnail_https://static.wixstatic.com/media/91c789_50b12a164c6f454f90efe914e783058c~mv2.png/v1/fill/w_568,h_124,al_c,q_85,usm_0.66_1.00_0.01/logo_vancouver3.webp",
+                        "path": null,
+                        "size": 5.45,
+                        "width": 245,
+                        "height": 53,
+                        "provider_metadata": {"public_id": "thumbnail_logo_vancouver3_52d27ed9e6", "resource_type": "image"}
+                    }
+                },
+                "hash": "logo_vancouver3_52d27ed9e6",
+                "ext": ".webp",
+                "mime": "image/webp",
+                "size": 13.31,
+                "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629594402/logo_vancouver3_52d27ed9e6.webp",
+                "previewUrl": null,
+                "provider": "cloudinary",
+                "provider_metadata": {"public_id": "logo_vancouver3_52d27ed9e6", "resource_type": "image"},
+                "created_at": "2021-08-22T01:06:43.129Z",
+                "updated_at": "2021-08-22T01:06:43.153Z"
+            }
+        ]
+    }
+]
