@@ -24,7 +24,7 @@ export default function Hero() {
                         <div className={classes.btnContainer}>
                             <Button
                                 href="https://www.linkedin.com/company/vancouver-kdd"
-                                target="_blank"
+                                newTab
                                 Icon={<Image img={linkedInIcon} alt="LinkedIn" />}
                                 text="LinkedIn"
                             />
@@ -32,7 +32,7 @@ export default function Hero() {
                         <div className={classes.btnContainer}>
                             <Button
                                 href="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g"
-                                target="_blank"
+                                newTab
                                 Icon={<Image img={slackLogo} alt="Join Slack" />}
                                 text="Join Slack"
                             />

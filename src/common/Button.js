@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {createUseStyles, useTheme} from 'react-jss'
 
-export const Button = ({className, to, href, target, Icon, text, children, onClick, disabled}) => {
+export const Button = ({className, to, href, newTab, Icon, text, children, onClick, disabled}) => {
     const theme = useTheme()
     const classes = useStyles({theme})
 
@@ -24,7 +24,8 @@ export const Button = ({className, to, href, target, Icon, text, children, onCli
             className={classnames('kdd-button', className, classes.default, disabled && classes.disabled)}
             to={to}
             href={href}
-            target={target}
+            target={newTab ? '_blank' : undefined}
+            rel={newTab ? 'noreferrer' : undefined}
             type="button"
             onClick={handlClick}
             disabled={disabled}>
