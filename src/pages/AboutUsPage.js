@@ -7,28 +7,28 @@ import aboutUsCareer from 'assets/icons/aboutUsCareer.svg'
 import aboutUsSoftLanding from 'assets/icons/aboutUsSoftLanding.svg'
 
 export default function AboutUsPage() {
-    // const classes = useStyles()
+    const classes = useStyles()
 
     return (
         <div>
             <NavigationBar />
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <h1>KDD's Mission</h1>
+                <h1 style={{marginBottom: 40}}><font className={classes.missionTitle}>KDD's</font> Mission</h1>
                 <div style={{display: 'flex', width: 1024, maxWidth: '100%', justifyContent: 'space-between'}}>
                     <Mission
                         Image={<img style={{width: 70, height: 106}} src={aboutUsNetworking} alt={''} />}
                         title="Networking"
-                        description={'BBQ Party\nMonthly Meetup\nStudy Groups\nand many more...'}
+                        description={'BBQ Party \n Monthly Meetup \n Study Groups \n and many more...'}
                     />
                     <Mission
                         Image={<img style={{width: 103, height: 84}} src={aboutUsCareer} alt={''} />}
                         title="Career"
-                        description={'hello'}
+                        description={'Referral \n Internal job posting \n Resume review \n Career Talk Workshops'}
                     />
                     <Mission
                         Image={<img style={{width: 98, height: 89}} src={aboutUsSoftLanding} alt={''} />}
                         title="Soft-Landing"
-                        description={'hello'}
+                        description={'Learn Canadian culture \n Sharing housing \n financial tips'}
                     />
                 </div>
             </div>
@@ -42,8 +42,14 @@ const useStyles = createUseStyles((theme) => ({
         color: theme.colorPrimary,
     },
     missionDescription: {
-        //
+        marginTop: 5,
+        whiteSpace: 'pre-wrap',
+        fontSize: '2rem'
+
     },
+    title: {
+        color: theme.colorPrimary,
+    }
 }))
 
 const Mission = ({Image, title, description}) => {
@@ -62,7 +68,7 @@ const Mission = ({Image, title, description}) => {
                 }}
             />
             <h4 className={classes.missionTitle}>{title}</h4>
-            <h5>{description}</h5>
+            <h5 className={classes.missionDescription}>{description}</h5>
         </div>
     )
 }
