@@ -13,22 +13,22 @@ export default function AboutUsPage() {
         <div>
             <NavigationBar />
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <h1 style={{marginBottom: 40}}><font className={classes.missionTitle}>KDD's</font> Mission</h1>
+                <h1 style={{marginBottom: 40}}><h1 className={classes.missionTitle}>KDD's</h1> Mission</h1>
                 <div style={{display: 'flex', width: 1024, maxWidth: '100%', justifyContent: 'space-between'}}>
                     <Mission
                         Image={<img style={{width: 70, height: 106}} src={aboutUsNetworking} alt={''} />}
                         title="Networking"
-                        description={'BBQ Party \n Monthly Meetup \n Study Groups \n and many more...'}
+                        description={'BBQ Party\nMonthly Meetup\nStudy Group\nand many more...'}
                     />
                     <Mission
                         Image={<img style={{width: 103, height: 84}} src={aboutUsCareer} alt={''} />}
                         title="Career"
-                        description={'Referral \n Internal job posting \n Resume review \n Career Talk Workshops'}
+                        description={'Referral\nInternal Job Posting\nResume Review\nWorkshop'}
                     />
                     <Mission
                         Image={<img style={{width: 98, height: 89}} src={aboutUsSoftLanding} alt={''} />}
                         title="Soft-Landing"
-                        description={'Learn Canadian culture \n Sharing housing \n financial tips'}
+                        description={'Learn Canadian Culture\nShare Housing\nFinancial Tips'}
                     />
                 </div>
             </div>
@@ -40,6 +40,7 @@ export default function AboutUsPage() {
 const useStyles = createUseStyles((theme) => ({
     missionTitle: {
         color: theme.colorPrimary,
+        display: 'inline-block',
     },
     missionDescription: {
         marginTop: 5,
