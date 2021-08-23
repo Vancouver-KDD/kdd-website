@@ -6,15 +6,29 @@ import PhotoCard from './PhotoCard'
 import {useCollection} from 'store'
 
 function PhotoCards() {
+    const TODO_NUM = 1
     const [currentCardNo, setCurrentCardNo] = useState(0)
+    const [leftDisabled, setLeftDisabled] = useState(true)
+    const [rightDisabled, setRightDisabled] = useState(false)
     const {data: photos, loading, error} = useCollection({name: 'photos'})
     const cardListSize = photos?.length ?? 0
     const classes = useStyles(currentCardNo)
 
     const handleClick = (index) => {
-        if (cardListSize <= index) index = 0
-        if (index < 0) index = cardListSize - 1
-        setCurrentCardNo(index)
+        if (0 <= index && index < cardListSize - TODO_NUM) {
+            setCurrentCardNo(index)
+        }
+
+        if (cardListSize - 1 === index) {
+            setLeftDisabled(false)
+            setRightDisabled(true)
+        } else if (0 === index) {
+            setLeftDisabled(true)
+            setRightDisabled(false)
+        } else {
+            setLeftDisabled(false)
+            setRightDisabled(false)
+        }
     }
 
     return (
@@ -24,8 +38,8 @@ function PhotoCards() {
                     <h1>Photos</h1>
                     <div className={classes.groupArrowButton}>
                         <Link to="/photos">VIEW ALL</Link>
-                        <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
-                        <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
+                        <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} disabled={leftDisabled} />
+                        <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} disabled={rightDisabled} />
                     </div>
                 </div>
                 <div className={classes.photoBox}>
