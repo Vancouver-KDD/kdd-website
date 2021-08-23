@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
+import {Button} from 'common/Button'
 import NavigationBar from 'components/NavigationBar'
 import PhotoCard from 'components/PhotoCard'
 import Footer from 'components/Footer'
@@ -14,7 +15,7 @@ const Photospage = () => {
     const [photoDescription, setPhotoDescription] = useState('')
     const [photoAuthor, setPhotoAuthor] = useState('')
 
-    const {data: photos, loading, error} = useCollection({name: 'photos'})
+    const {data: photos, loading, error, loadMore} = useCollection({name: 'photos'})
     const toggleModal = () => {
         if (isModalVisible) {
             document.body.style.overflow = 'auto'
@@ -45,8 +46,6 @@ const Photospage = () => {
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
                         {/* <h2>June 14, 2021</h2> */}
-                        {loading && <span>loading...</span>}
-                        {!!error && <span>ERROR: {error.message}</span>}
                         {photos?.map((photo) => {
                             const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
                             return (
@@ -62,6 +61,11 @@ const Photospage = () => {
                         })}
                     </div>
                 </div>
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                {loading && <span>loading...</span>}
+                {!!error && <span>ERROR: {error.message}</span>}
+                <Button onClick={loadMore} text={'Load More Photos'} />
             </div>
             <Footer />
         </div>
