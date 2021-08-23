@@ -6,6 +6,7 @@ import PhotoCards from 'components/PhotoCards'
 import Footer from 'components/Footer'
 import NavigationBar from 'components/NavigationBar'
 import Stat from 'components/Stat'
+import Contact from 'components/Contact';
 
 export default function Homepage() {
     return (
@@ -16,6 +17,7 @@ export default function Homepage() {
             <Sponsor />
             <EventCards />
             <PhotoCards />
+            <Contact />
             <Footer />
         </div>
     )
