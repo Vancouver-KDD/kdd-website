@@ -40,6 +40,9 @@ const useStyles = createUseStyles({
             '&:hover:enabled': {
                 backgroundColor: '#BDBDBD',
             },
+            '&:hover:disabled': {
+                cursor: 'not-allowed',
+            },
         },
     },
     left: {

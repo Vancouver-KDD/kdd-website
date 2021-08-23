@@ -13,7 +13,9 @@ export const Modal = ({photoUrl, photoAlt, photoDescription, photoAuthor, visibl
         <div className={classes.modal} onClick={closeModal}>
             <div className={classes.modalBody}>
                 {/* <input className={classes.closeButton} type="button" onClick={closeModal} /> */}
-                <img src={photoUrl} alt={photoAlt} />
+                <div>
+                    <img src={photoUrl} alt={photoAlt} />
+                </div>
                 <p className={classes.photoDescription}>
                     {photoDescription}
                     <p>by {photoAuthor}</p>
@@ -55,6 +57,10 @@ const useStyles = createUseStyles(() => ({
         // borderRadius: '10px',
         // boxShadow: '0 2px 3px 0 rgba(34, 36, 38, 0.15)',
         zIndex: '99',
+        '& div': {
+            display: 'flex',
+            backgroundColor: 'black',
+        },
         '& img': {
             width: '375px',
             maxHeight: '540px',
@@ -75,28 +81,32 @@ const useStyles = createUseStyles(() => ({
         },
     },
     photoDescription: {
-        margin: '0 auto',
+        margin: '1rem auto',
         width: '375px',
         color: '#fff',
-        fontSize: '2rem',
+        fontSize: '1.4rem',
         fontWeight: '700',
         textAlign: 'left',
         '& p': {
-            fontSize: '2rem',
+            fontSize: '1rem',
             fontWeight: '700',
             textAlign: 'right',
         },
         '@media (min-width: 800px)': {
+            padding: '0 4rem',
             width: '760px',
             fontSize: '2rem',
             '& p': {
+                fontSize: '1.6rem',
                 textAlign: 'right',
             },
         },
         '@media (min-width: 1024px)': {
+            padding: '0 8rem',
             width: '1024px',
             fontSize: '2.4rem',
             '& p': {
+                fontSize: '1.8rem',
                 textAlign: 'right',
             },
         },

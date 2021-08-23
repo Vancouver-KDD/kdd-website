@@ -36,7 +36,7 @@ const useStyles = createUseStyles(() => ({
         margin: '2px 0px',
         cursor: 'pointer',
         '&:hover div': {
-            opacity: '0.5',
+            backgroundColor: 'rgba(40, 40, 40, 0.5)',
         },
         '& img': {
             width: '375px',
@@ -49,9 +49,8 @@ const useStyles = createUseStyles(() => ({
             left: '0',
             width: '375px',
             height: '215px',
-            backgroundColor: '#000000',
-            opacity: '0',
             transition: 'all .4s linear',
+            backgroundColor: 'rgba(255, 255, 255, 0)',
         },
         '@media (min-width: 800px)': {
             margin: '2px 2px',
@@ -81,10 +80,14 @@ const useStyles = createUseStyles(() => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        color: '#FFFFFF',
+        color: 'rgba(255, 255, 255, 0)',
+        '&:hover p': {
+            color: 'rgba(255, 255, 255, 1)',
+        },
     },
     photoDescription: {
         width: '330px',
+        textAlign: 'left',
         fontSize: '1.8rem',
         fontWeight: '700',
         wordBreak: 'break-all',
@@ -93,9 +96,11 @@ const useStyles = createUseStyles(() => ({
         },
     },
     photoAuthor: {
+        position: 'absolute',
+        bottom: '20px',
         width: '330px',
         fontSize: '1.4rem',
-        fontWeight: '700',
+        fontWeight: '500',
         textAlign: 'right',
         '@media (min-width: 1024px)': {
             width: '437px',
