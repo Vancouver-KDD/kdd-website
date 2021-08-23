@@ -1,9 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import {createUseStyles, useTheme} from 'react-jss'
 
-export const Button = ({className, children, onClick, disabled}) => {
+export const Button = ({className, to, href, target, Icon, text, children, onClick, disabled}) => {
     const theme = useTheme()
     const classes = useStyles({theme})
 
@@ -11,14 +12,26 @@ export const Button = ({className, children, onClick, disabled}) => {
         onClick?.()
     }
 
+    let Wrapper = 'button'
+    if (to) {
+        Wrapper = Link
+    } else if (href) {
+        Wrapper = 'a'
+    }
+
     return (
-        <button
+        <Wrapper
             className={classnames('kdd-button', className, classes.default, disabled && classes.disabled)}
+            to={to}
+            href={href}
+            target={target}
             type="button"
             onClick={handlClick}
             disabled={disabled}>
+            {Icon}
+            {!!text && <span style={{marginLeft: Icon ? 6 : 0}}>{text}</span>}
             {children}
-        </button>
+        </Wrapper>
     )
 }
 
@@ -31,6 +44,9 @@ Button.propTypes = {
 
 const useStyles = createUseStyles((theme) => ({
     default: {
+        textDecoration: 'none',
+        fontWeight: '600',
+        fontSize: '2rem',
         backgroundColor: theme.colorPrimary,
         display: 'flex',
         justifyContent: 'center',
@@ -39,6 +55,7 @@ const useStyles = createUseStyles((theme) => ({
         borderRadius: '10rem',
         border: 'none',
         color: 'white',
+        cursor: 'pointer',
         '&:hover': {
             backgroundColor: theme.colorPrimaryHover,
         },

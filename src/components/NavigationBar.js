@@ -40,6 +40,7 @@ const NavigationBar = () => {
 
 const useStyles = createUseStyles(() => ({
     default: {
+        zIndex: 1000,
         height: '250px',
         display: 'flex',
         width: '100%',
