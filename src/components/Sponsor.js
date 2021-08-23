@@ -14,6 +14,8 @@ export default function Sponsor() {
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
                 }}>
                 {loading && <span>loading...</span>}
                 {!!error && <span>ERROR: {error.message}</span>}
@@ -42,7 +44,9 @@ const useStyles = createUseStyles({
         alignItems: 'center',
         flexDirection: 'column',
         width: '100%',
-        height: '214px',
+        minHeight: 214,
+        paddingTop: 20,
+        paddingBottom: 20,
         backgroundColor: 'hsla(0, 0%, 92%, 1)',
     },
     title: {
