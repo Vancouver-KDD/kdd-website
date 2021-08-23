@@ -1,16 +1,19 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import Trophy from 'assets/images/trophy.png'
+import StatSmall from 'assets/images/stat-small.png'
+import StatLarge from 'assets/images/stat-large.png'
 
 export default function Stat() {
     const classes = useStyles()
 
     return (
         <section className={classes.default}>
-            <img className="Trophy" alt="trophy" src={Trophy} />
-            <div className={classes.since}>Since July 2017</div>
-            <div className={classes.meetup}>37 Meetups</div>
-            <div className={classes.member}>1,150 Members</div>
+            <div className={classes.image} alt="Statistic image" />
+            <div className={classes.statInfo}>
+                <div>Since July 2017</div>
+                <div>37 Meetups</div>
+                <div>1,150 Members</div>
+            </div>
         </section>
     )
 }
@@ -25,25 +28,42 @@ const useStyles = createUseStyles({
         height: '543px',
         backgroundColor: 'hsla(0, 0%, 100%, 1)',
         textAlign: 'center',
+        '@media (min-width: 768px)': {
+            display: 'grid',
+            gridTemplateColumns: "1fr 1fr",
+        },
     },
-    since: {
-        fontSize: '2.25rem',
+    image: {
+        backgroundImage: `url(${StatSmall})`,
+        backgroundColor: 'white',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        height: '250px',
+        width: '250px',
+        '@media (min-width: 768px)': {
+            width: 'unset',
+            height: 'inherit',
+        },
+        '@media (min-width: 1440px)': {
+            backgroundImage: `url(${StatLarge})`,
+        },
+    },
+    statInfo: {
+        fontSize: '3.6rem',
         fontWeight: '900',
         marginTop: '2.5rem',
         marginBottom: '2.5rem',
         color: 'rgba(14, 14, 44, 1)',
-    },
-    meetup: {
-        fontSize: '2.25rem',
-        fontWeight: '900',
-        marginBottom: '2.5rem',
-        color: 'rgba(14, 14, 44, 1)',
-    },
-
-    member: {
-        fontSize: '2.25rem',
-        fontWeight: '900',
-        marginBottom: '2.5rem',
-        color: 'rgba(14, 14, 44, 1)',
+        '& > div': {
+            marginTop: '2.5rem',
+            marginBottom: '2.5rem',
+        },
+        '@media (min-width: 768px)': {
+            fontSize: '4.8rem',
+            '& > div': {
+                marginTop: '5rem',
+                marginBottom: '5rem',
+            },
+        },
     },
 })
