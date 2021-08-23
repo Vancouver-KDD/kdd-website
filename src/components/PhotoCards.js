@@ -19,7 +19,7 @@ function PhotoCards() {
             setCurrentCardNo(index)
         }
 
-        if (cardListSize - 1 === index) {
+        if (cardListSize - 1 - TODO_NUM === index) {
             setLeftDisabled(false)
             setRightDisabled(true)
         } else if (0 === index) {
