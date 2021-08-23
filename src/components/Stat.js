@@ -30,7 +30,7 @@ const useStyles = createUseStyles({
         textAlign: 'center',
         '@media (min-width: 768px)': {
             display: 'grid',
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: '1fr 1fr',
         },
     },
     image: {
@@ -44,7 +44,7 @@ const useStyles = createUseStyles({
             width: 'unset',
             height: 'inherit',
         },
-        '@media (min-width: 1440px)': {
+        '@media (min-width: 1024px)': {
             backgroundImage: `url(${StatLarge})`,
         },
     },
