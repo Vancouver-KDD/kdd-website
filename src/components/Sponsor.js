@@ -28,7 +28,8 @@ export default function Sponsor() {
                                 className={classes.sponsorImage}
                                 img={imageUrl}
                                 url={sponsor.url}
-                                alt={`${sponsor.name} logo`} />
+                                alt={`${sponsor.name} logo`}
+                            />
                         </div>
                     )
                 })}
@@ -55,7 +56,7 @@ const useStyles = createUseStyles({
         marginBottom: '3rem',
     },
     sponsorImage: {
-        width: 300,
+        width: 260,
         maxHeight: 80,
         objectFit: 'contain',
     },

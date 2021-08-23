@@ -8,36 +8,28 @@ import LinkedinIcon from 'assets/icons/coolicon-linkedin.png'
 
 function Contact() {
     const theme = useTheme()
-    const classes = useStyles({ theme })
+    const classes = useStyles({theme})
     return (
         <section className={classes.default}>
-            <h1 className={classes.title}>Contact Us</h1>
+            <h3 className={classes.title}>Contact Us</h3>
             <div className={classes.content}>
                 <div>
-                    <h2>Email</h2>
-                    <a
-                        className={classes.email}
-                        href="mailto:vancouverkdd@gmail.com">
+                    <h4>Email</h4>
+                    <a className={classes.email} href="mailto:vancouverkdd@gmail.com">
                         vancouverkdd@gmail.com
                     </a>
                 </div>
                 <div>
-                    <h2>Social Media</h2>
+                    <h4>Social Media</h4>
                     <div className={classes.icons}>
                         <Image
                             img={SlackIcon}
                             alt="slack icon"
-                            url="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g" />
-                        <Image
-                            img={LinkedinIcon} alt="linkedin icon"
-                            url="https://www.linkedin.com/company/vancouver-kdd" />
-                        <Image
-                            img={FaceBookIcon} alt="facebook icon"
-                            url="https://www.facebook.com/groups/VancouverKDD" />
-                        <Image
-                            img={MeetupIcon}
-                            alt="meetup icon"
-                            url="https://www.meetup.com/Vancouver-KDD" />
+                            url="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g"
+                        />
+                        <Image img={LinkedinIcon} alt="linkedin icon" url="https://www.linkedin.com/company/vancouver-kdd" />
+                        <Image img={FaceBookIcon} alt="facebook icon" url="https://www.facebook.com/groups/VancouverKDD" />
+                        <Image img={MeetupIcon} alt="meetup icon" url="https://www.meetup.com/Vancouver-KDD" />
                     </div>
                 </div>
             </div>
@@ -45,18 +37,17 @@ function Contact() {
     )
 }
 
-const useStyles = createUseStyles (() => ({
+const useStyles = createUseStyles(() => ({
     default: {
         margin: 'auto',
         position: 'relative',
         textAlign: 'center',
     },
     title: {
-        fontSize: '3.6rem',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: "4rem",
+        marginBottom: '4rem',
     },
     content: {
         display: 'flex',
@@ -64,13 +55,14 @@ const useStyles = createUseStyles (() => ({
         alignItems: 'center',
         fontSize: '3.6rem',
         fontWeight: '900',
-        "& > div": {
+        flexWrap: 'wrap',
+        '& > div': {
             marginBottom: '4rem',
-            margin: 'auto'
+            margin: 'auto',
         },
-        "@media (max-width: 375px)": {
+        '@media (max-width: 375px)': {
             flexDirection: 'column',
-        }
+        },
     },
     email: {
         display: 'flex',
@@ -84,12 +76,12 @@ const useStyles = createUseStyles (() => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        "& img": {
+        '& img': {
             width: 50,
             height: 50,
-            margin: 10
-        }
-    }
+            margin: 10,
+        },
+    },
 }))
 
 export default Contact
