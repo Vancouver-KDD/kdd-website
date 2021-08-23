@@ -15,7 +15,9 @@ export const Image = ({className, img, url, alt = '', fallbackImg = ''}) => {
     if (typeof img === 'string') {
         if (url) {
             return (
-                <a href={url}>
+                <a href={url}
+                    target="_blank"
+                    rel="noreferrer">
                     <img className={classnames('kdd-image', className)} src={img} alt={alt} onError={handleError} />
                 </a>
             )
