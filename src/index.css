@@ -84,8 +84,6 @@ video {
     border: 0;
     vertical-align: baseline;
     box-sizing: border-box;
-}
-body {
     font-size: 62.5%; /* 16px x 62.5% = 10 px = 1 rem */
     font-family: Open Sans;
 }

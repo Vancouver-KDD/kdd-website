@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
+import moment from 'moment'
 import {Button} from 'common/Button'
 import NavigationBar from 'components/NavigationBar'
 import PhotoCard from 'components/PhotoCard'
@@ -45,18 +46,24 @@ export default function Photospage() {
                 <h1>Photos</h1>
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
-                        {/* <h2>June 14, 2021</h2> */}
-                        {photos?.map((photo) => {
+                        {photos?.map((photo, index) => {
                             const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
                             return (
-                                <PhotoCard
-                                    key={photo.id}
-                                    src={imageUrl}
-                                    alt={photo.description}
-                                    description={photo.description}
-                                    author={photo.uploader_name}
-                                    onClick={() => handlPhroCardClick(imageUrl, photo.description, photo.uploader_name)}
-                                />
+                                <>
+                                    {!!index || <h2>{moment(photo.created_at).format('LL')}</h2>}
+                                    {moment(moment(photo.created_at).format('LL')).isSame(
+                                        moment(photos[Math.max(index - 1, 0)].created_at).format('LL'),
+                                        'day',
+                                    ) || <h2>{moment(photo.created_at).format('LL')}</h2>}
+                                    <PhotoCard
+                                        key={photo.id}
+                                        src={imageUrl}
+                                        alt={photo.description}
+                                        description={photo.description}
+                                        author={photo.uploader_name}
+                                        onClick={() => handlPhroCardClick(imageUrl, photo.description, photo.uploader_name)}
+                                    />
+                                </>
                             )
                         })}
                     </div>
