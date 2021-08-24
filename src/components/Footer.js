@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {createUseStyles} from 'react-jss'
 
 export default function Footer() {
@@ -8,18 +7,18 @@ export default function Footer() {
         <footer className={classes.footer}>
             <p>
                 Developed
-                <a href="https://www.linkedin.com/in/bosung90">Eric Kim</a>
-                <Link to="#">ABC</Link>
-                <Link href="#">123</Link>
-                <Link href="#">DDD</Link>
-                <Link href="#">event_date</Link>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Eric Kim</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">ABC</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">123</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">DDD</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">event_date</a>
             </p>
             <p>
                 Special thanks to
-                <Link href="#">PM</Link>
-                <Link href="#">Coordinator</Link>
-                <Link href="#">Mentors</Link>
-                <Link href="#">CCC</Link>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">PM</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Coordinator</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Mentors</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">CCC</a>
             </p>
         </footer>
     )

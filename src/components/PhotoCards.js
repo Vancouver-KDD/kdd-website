@@ -93,30 +93,22 @@ const useStyles = createUseStyles(() => ({
     photoCardList: {
         display: 'flex',
         transition: 'all 300ms ease 0s',
-        transform: (currentCardNo) => `translate3d(${currentCardNo * -379}px, 0px, 0px)`,
+        transform: (currentCardNo) => `translate3d(${currentCardNo * -375}px, 0px, 0px)`,
         '@media (min-width: 1024px)': {
             transform: (currentCardNo) => `translate3d(${currentCardNo * -512}px, 0px, 0px)`,
         },
     },
     groupArrowButton: {
-        position: 'relative',
-        display: 'inline-block',
-        top: '0',
-        left: '26%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        marginBottom: '4px',
         '& a': {
-            fontSize: '1.7rem',
+            fontSize: '1.3rem',
+            fontWeight: '600',
         },
         '& button': {
             marginLeft: '7px',
-        },
-        '@media (min-width: 800px)': {
-            left: '38.3%',
-        },
-        '@media (min-width: 1024px)': {
-            left: '41%',
-            '& button': {
-                marginLeft: '12px',
-            },
         },
     },
 }))
