@@ -52,7 +52,10 @@ const Photospage = () => {
                             return (
                                 <>
                                     {!!index||<h2>{moment(photo.created_at).format('LL')}</h2>}
-                                    {moment(photo.created_at).format('LL') === moment(photos[Math.max(index - 1, 0)].created_at).format('LL')||<h2>{moment(photo.created_at).format('LL')}</h2>}
+                                    {moment(moment(photo.created_at).format('LL')).isSame(
+                                        moment(photos[Math.max(index - 1, 0)].created_at).format('LL'),
+                                        'day',
+                                    ) || <h2>{moment(photo.created_at).format('LL')}</h2>}
                                     <PhotoCard
                                         key={photo.id}
                                         src={imageUrl}
