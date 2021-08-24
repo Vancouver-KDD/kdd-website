@@ -1,13 +1,12 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
-import moment from 'moment';
+import moment from 'moment'
 import {Button} from 'common/Button'
 import NavigationBar from 'components/NavigationBar'
 import PhotoCard from 'components/PhotoCard'
 import Footer from 'components/Footer'
 import {Modal} from 'common/Modal'
 import {useCollection} from 'store'
-
 
 const Photospage = () => {
     const classes = useStyles()
@@ -51,11 +50,10 @@ const Photospage = () => {
                             const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
                             return (
                                 <>
-                                    {!!index||<h2>{moment(photo.created_at).format('LL')}</h2>}
-                                    {moment(moment(photo.created_at).format('LL')).isSame(
-                                        moment(photos[Math.max(index - 1, 0)].created_at).format('LL'),
-                                        'day',
-                                    ) || <h2>{moment(photo.created_at).format('LL')}</h2>}
+                                    {!!index || <h2>{moment(photo.created_at).format('LL')}</h2>}
+                                    {moment(photo.created_at).isSame(moment(photos[Math.max(index - 1, 0)].created_at), 'day') || (
+                                        <h2>{moment(photo.created_at).format('LL')}</h2>
+                                    )}
                                     <PhotoCard
                                         key={photo.id}
                                         src={imageUrl}
