@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
 import Homepage from './pages/Homepage'

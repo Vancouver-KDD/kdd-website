@@ -1,22 +1,25 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {createUseStyles} from 'react-jss'
 
 export default function Footer() {
     const classes = useStyles()
     return (
         <footer className={classes.footer}>
-            <p>Developed     
-                <a href="#">Eric Kim</a>
-                <a href="#">ABC</a>
-                <a href="#">123</a>
-                <a href="#">DDD</a>
-                <a href="#">event_date</a>
+            <p>
+                Developed
+                <a href="https://www.linkedin.com/in/bosung90">Eric Kim</a>
+                <Link to="#">ABC</Link>
+                <Link href="#">123</Link>
+                <Link href="#">DDD</Link>
+                <Link href="#">event_date</Link>
             </p>
-            <p>Special thanks to 
-                <a href="#">PM</a>
-                <a href="#">Coordinator</a>
-                <a href="#">Mentors</a>
-                <a href="#">CCC</a>
+            <p>
+                Special thanks to
+                <Link href="#">PM</Link>
+                <Link href="#">Coordinator</Link>
+                <Link href="#">Mentors</Link>
+                <Link href="#">CCC</Link>
             </p>
         </footer>
     )
