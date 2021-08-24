@@ -6,18 +6,20 @@ function Footer(props) {
     const classes = useStyles({...props, theme})
     return (
         <footer className={classes.footer}>
-            <p>Developed     
-                <a href="#">Eric Kim</a>
-                <a href="#">ABC</a>
-                <a href="#">123</a>
-                <a href="#">DDD</a>
-                <a href="#">event_date</a>
+            <p>
+                Developed
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Eric Kim</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">ABC</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">123</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">DDD</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">event_date</a>
             </p>
-            <p>Special thanks to 
-                <a href="#">PM</a>
-                <a href="#">Coordinator</a>
-                <a href="#">Mentors</a>
-                <a href="#">CCC</a>
+            <p>
+                Special thanks to
+                <a href="//www.linkedin.com/company/vancouver-kdd/">PM</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Coordinator</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">Mentors</a>
+                <a href="//www.linkedin.com/company/vancouver-kdd/">CCC</a>
             </p>
         </footer>
     )
