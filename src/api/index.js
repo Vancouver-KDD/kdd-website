@@ -17,3 +17,10 @@ export async function getPhotos({startHash, limit = 30} = {}) {
     const data = await res.json()
     return data
 }
+
+
+export async function getProfiles({startHash, limit = 30} = {}) {
+    const res = await fetch('https://kdd-server.herokuapp.com/volunteers')
+    const data = await res.json()
+    return data
+}
