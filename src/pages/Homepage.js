@@ -9,7 +9,7 @@ import Contact from 'components/Contact'
 
 export default function Homepage() {
     return (
-        <div>
+        <>
             <NavigationBar />
             <Hero />
             <Stat />
@@ -17,6 +17,6 @@ export default function Homepage() {
             <PhotoCards />
             <Contact />
             <Footer />
-        </div>
+        </>
     )
 }

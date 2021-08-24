@@ -10,26 +10,14 @@ export default function Sponsor() {
     return (
         <section className={classes.default}>
             <div className={classes.title}>Proudly sponsored by</div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                }}>
+            <div className={classes.sponsorContainer}>
                 {loading && <span>loading...</span>}
                 {!!error && <span>ERROR: {error.message}</span>}
                 {data?.map((sponsor) => {
                     const imageUrl = sponsor?.logo?.[0]?.formats?.small?.url || sponsor?.logo?.[0]?.url
                     return (
-                        <div style={{padding: 10}}>
-                            <Image
-                                key={sponsor.id}
-                                className={classes.sponsorImage}
-                                img={imageUrl}
-                                url={sponsor.url}
-                                alt={`${sponsor.name} logo`}
-                            />
+                        <div key={sponsor.id} className={classes.pad10}>
+                            <Image className={classes.sponsorImage} img={imageUrl} url={sponsor.url} alt={`${sponsor.name} logo`} />
                         </div>
                     )
                 })}
@@ -39,6 +27,7 @@ export default function Sponsor() {
 }
 
 const useStyles = createUseStyles({
+    pad10: {padding: 10},
     default: {
         display: 'flex',
         justifyContent: 'center',
@@ -49,6 +38,13 @@ const useStyles = createUseStyles({
         paddingTop: 20,
         paddingBottom: 20,
         backgroundColor: 'hsla(0, 0%, 92%, 1)',
+    },
+    sponsorContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     title: {
         fontSize: '2.4rem',

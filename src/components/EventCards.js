@@ -5,7 +5,7 @@ import EventCard from './EventCard'
 
 const TEMP_LIST_SIZE = 4
 
-function EventCards() {
+export default function EventCards() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo)
@@ -110,5 +110,3 @@ const useStyles = createUseStyles({
         },
     },
 })
-
-export default EventCards

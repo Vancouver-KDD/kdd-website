@@ -3,7 +3,7 @@ import EventCards from 'components/EventCards'
 import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
 
-const Eventspage = () => {
+export default function Eventspage() {
     return (
         <div>
             <NavigationBar />
@@ -12,5 +12,3 @@ const Eventspage = () => {
         </div>
     )
 }
-
-export default Eventspage

@@ -7,7 +7,7 @@ import Footer from 'components/Footer'
 import {Modal} from 'common/Modal'
 import {useCollection} from 'store'
 
-const Photospage = () => {
+export default function Photospage() {
     const classes = useStyles()
 
     const [isModalVisible, setIsModalVisible] = useState(false)
@@ -108,5 +108,3 @@ const useStyles = createUseStyles(() => ({
         color: 'black',
     },
 }))
-
-export default Photospage

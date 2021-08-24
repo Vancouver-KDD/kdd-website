@@ -5,7 +5,7 @@ import {ArrowButton} from 'common/ArrowButton'
 import PhotoCard from './PhotoCard'
 import {useCollection} from 'store'
 
-function PhotoCards() {
+export default function PhotoCards() {
     const TODO_NUM = 1
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [leftDisabled, setLeftDisabled] = useState(true)
@@ -69,6 +69,7 @@ const useStyles = createUseStyles(() => ({
     photos: {
         position: 'relative',
         width: '375px',
+        maxWidth: '100%',
         height: '370px',
         textAlign: 'center',
         margin: 'auto',
@@ -119,5 +120,3 @@ const useStyles = createUseStyles(() => ({
         },
     },
 }))
-
-export default PhotoCards

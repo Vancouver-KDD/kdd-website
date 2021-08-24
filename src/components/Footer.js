@@ -1,9 +1,8 @@
 import React from 'react'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 
-function Footer(props) {
-    const theme = useTheme()
-    const classes = useStyles({...props, theme})
+export default function Footer() {
+    const classes = useStyles()
     return (
         <footer className={classes.footer}>
             <p className={classes.text_developer}>Developed Eric Kim ABC 123 DDD event_date</p>
@@ -42,5 +41,3 @@ const useStyles = createUseStyles({
         fontSize: '2rem',
     },
 })
-
-export default Footer
