@@ -20,7 +20,7 @@
         "react-native-web": "^0.17.1",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "^4.0.3",
+        "react-scripts": "4.0.3",
         "web-vitals": "^1.0.1"
     },
     "scripts": {
@@ -48,6 +48,6 @@
         ]
     },
     "devDependencies": {
-        "prettier": "^2.3.2"
+        "prettier": "2.3.2"
     }
 }
