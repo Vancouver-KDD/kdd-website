@@ -22,7 +22,6 @@ export function useCollection({name, defaultData = null} = {}) {
                 setError(null)
                 getPhotos({offset: offsetRef.current})
                     .then((data) => {
-                        console.log(data)
                         offsetRef.current += data.length
                         setData((_prevData) => [..._prevData, ...data])
                         setLoading(false)
