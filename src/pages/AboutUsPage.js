@@ -2,9 +2,10 @@ import React from 'react'
 import {createUseStyles} from 'react-jss'
 import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
-import aboutUsNetworking from 'assets/icons/aboutUsNetworking.svg'
-import aboutUsCareer from 'assets/icons/aboutUsCareer.svg'
-import aboutUsSoftLanding from 'assets/icons/aboutUsSoftLanding.svg'
+import about0 from 'assets/images/about-us-0.jpg'
+import about1 from 'assets/images/about-us-1.jpg'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { View, Image, StyleSheet } from 'react-native';
 
 export default function AboutUsPage() {
     const classes = useStyles()
@@ -12,45 +13,139 @@ export default function AboutUsPage() {
     return (
         <div>
             <NavigationBar />
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <h1 style={{marginBottom: 40}}><h1 className={classes.missionTitle}>KDD's</h1> Mission</h1>
-                <div style={{display: 'flex', width: 1024, maxWidth: '100%', justifyContent: 'space-between'}}>
-                    <Mission
-                        Image={<img style={{width: 70, height: 106}} src={aboutUsNetworking} alt={''} />}
-                        title="Networking"
-                        description={'BBQ Party\nMonthly Meetup\nStudy Group\nand many more...'}
-                    />
-                    <Mission
-                        Image={<img style={{width: 103, height: 84}} src={aboutUsCareer} alt={''} />}
-                        title="Career"
-                        description={'Referral\nInternal Job Posting\nResume Review\nWorkshop'}
-                    />
-                    <Mission
-                        Image={<img style={{width: 98, height: 89}} src={aboutUsSoftLanding} alt={''} />}
-                        title="Soft-Landing"
-                        description={'Learn Canadian Culture\nShare Housing\nFinancial Tips'}
-                    />
+            <div className={classes.title}>
+                Korean Developer & Designer
+            </div>
+            <div className={classes.contents}>
+                KDD는 Korean Developer and Designer 그룹으로 캐나다 서부지역 IT분야 한인들의 비영리 모임입니다. 
+                KDD는 2017년 부터 한인 IT분야 종사자들의 교류와 지역사회 발전을 위해 노력하고 있습니다. 
+            </div>
+            <img src={about0} width="100%" height="auto" alt={''}/>
+            <div className={classes.titleRight}>
+                About Us
+            </div>
+            <div className={classes.contentsRight}>
+                KDD는 밴쿠버지역의 IT에 종사하는 한인들이 모여 교류할 수 있는 모임으로 2017년 7월에 처음으로 모임을 시작했습니다.
+                현재 KDD는 광역 밴쿠버 뿐만 아니라 빅토리아, 캘거리, 토론토 등 다양한 지역의 회원들도 모임에 참여하여 총 회원이 1000명 이상이며, 
+                매달 30여분의 신규 회원이 가입하고 있습니다. 매월 정기 온라인 모임을 개최하여 한인들간의 친목과 교류를 도모하고 있습니다. 
+                지난 4년년간 KDD는 IT세미나, 워크샵, 커리어코칭, 멘토링 등 38회의 다양한 이벤트를 개최해왔고, 많은 분들이 KDD를 통해 직장을 구하고, 
+                캐나다 정착에 성공하였습니다. 또한 KDD는 한인 소상공인과의 협력을 통한 주니어 개발자, 디자이너들의 성장을 도모하는 스텝업 프로그램을 시작하여 지역사회에 도움이 되는 모임으로 성장하고 있습니다
+            </div>
+            <div style={{margin: "0%", height: 'auto', backgroundColor:'#EAEAEA'}}>
+                <h1 style={{paddingTop: RFPercentage(2)}} className={classes.title}>
+                    KDD Mission
+                </h1>
+                <h2 style={{paddingBottom: RFPercentage(2)}} className={classes.contents}> 
+                    KDD는 한인 IT인들의 기술적, 사교적 교류를 도모합니다.{'\n'}
+                    KDD는 한인 IT인들의 구직, 구인과 경력개발을 돕습니다.{'\n'}
+                    KDD는 한인 IT인들의 안전한 캐나다 정착을 돕습니다.      
+                </h2>
+            </div>
+            <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
+                <div > 
+                    <h1 className={classes.title}>
+                        Message From Members    
+                    </h1>
+                    <h2 className={classes.contents}> 
+                        “KDD 회원분의 리퍼럴 덕분에 풀타임 취업에 성공했습니다. 4개월간 취업을 못해 고생했는데 KDD를 진작 알았다면 하는 아쉬움이 드네요.”
+                        {'\n'}{'\n'}“어디로 거주지를 정할지 고민이었는데 모임에서 들은 팁을 바탕으로 살 곳을 정하게 됐어요.”
+                        {'\n'}{'\n'}“밴쿠버에서 또래 친구를 만나게 돼서 더 좋았어요”
+                        {'\n'}{'\n'}“졸업후 잡을 찾지 못해서 고생했는데 KDD회원분이 사내 채용정보를 알려주셔서 취업하게 됐습니다. 네트워킹이 정말 중요한것 같아요.”
+                    </h2>
+                    
+                </div>
+                <img src={about1} className={classes.bulb} alt={''}/>
+            </div>
+            <div style={{padding: RFPercentage(2), marginTop: RFPercentage(5), backgroundColor:'#EAEAEA', textAlign: 'center'}}>
+                <h1  style={{padding: 0, margin: 5}} className={classes.title}>
+                    Wanted
+                </h1>
+                <div style={{padding: 5,  margin: 5}} className={classes.contents}> 
+                    KDD의 모든 행사는 자원봉사 및 재능기부로 이루어지고 있습니다. 멘토링, 세미나등 모임에 도움을 주고자 하는 분들은 언제든 vancouverkdd@gmail.com 로 연락주세요. 
                 </div>
             </div>
+
             <Footer />
         </div>
     )
 }
 
 const useStyles = createUseStyles((theme) => ({
-    missionTitle: {
-        color: theme.colorPrimary,
-        display: 'inline-block',
-    },
-    missionDescription: {
-        marginTop: 5,
-        whiteSpace: 'pre-wrap',
-        fontSize: '2rem'
-
-    },
     title: {
-        color: theme.colorPrimary,
-    }
+        fontSize: '2rem',
+        fontWeight: '700',
+        marginTop: '3rem',
+        marginBottom: '1.5rem',
+        marginLeft: '10%',
+        whiteSpace: 'pre-wrap',
+        '@media (min-width: 1024px)': {
+            whiteSpace: 'pre-wrap',
+            marginLeft: '15%',
+            marginBottom: '3rem',
+            fontSize: '4rem',
+        },
+    },
+    contents: {
+        fontSize: '1.2rem',
+        fontWeight: '500',
+        marginTop: '2rem',
+        marginBottom: '2.5rem',
+        marginLeft: '10%',
+        paddingRight: '15%',
+        whiteSpace: 'pre-wrap',
+        '@media (min-width: 1024px)': {
+            marginLeft: '15%',
+            marginBottom: '6rem',
+            fontSize: '1.5rem',
+            paddingRight: '35%',
+            whiteSpace: 'pre-wrap',
+        },
+    },
+    titleRight: {
+        fontSize: '2rem',
+        fontWeight: '700',
+        marginTop: '3rem',
+        marginBottom: '1.5rem',
+        marginLeft: '10%',
+        display: 'flex',
+        '@media (min-width: 1024px)': {
+            marginLeft: '35%',
+            marginBottom: '3rem',
+            fontSize: '4rem',
+        },
+    },
+    contentsRight: {
+        fontSize: '1.2rem',
+        fontWeight: '500',
+        marginTop: '2rem',
+        marginBottom: '2.5rem',
+        marginLeft: '10%',
+        paddingRight: '15%',
+        whiteSpace: 'pre-wrap',
+        display: 'flex',
+        '@media (min-width: 1024px)': {
+            marginLeft: '35%',
+            marginBottom: '6rem',
+            fontSize: '1.5rem',
+            paddingRight: '20%',
+            whiteSpace: 'pre-wrap',
+        },
+    },
+    bulb: {
+        marginTop: '3rem',
+        marginBottom: '1.5rem',
+        align: 'center',
+        marginLeft: '10%',
+        width: '30rem',
+        height: '30rem',
+        '@media (min-width: 1024px)': {
+            width: '40rem',
+            height: '100%',
+            marginLeft: '-5rem',
+            marginBottom: '3rem',
+            fontSize: '4rem',
+        },
+    },
 }))
 
 const Mission = ({Image, title, description}) => {
