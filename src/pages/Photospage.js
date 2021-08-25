@@ -8,7 +8,7 @@ import Footer from 'components/Footer'
 import {Modal} from 'common/Modal'
 import {useCollection} from 'store'
 
-const Photospage = () => {
+export default function Photospage() {
     const classes = useStyles()
 
     const [isModalVisible, setIsModalVisible] = useState(false)
@@ -47,19 +47,18 @@ const Photospage = () => {
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
                         {photos?.map((photo, index) => {
-                            const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
+                            const imageUrl = photo.photo?.[0]?.formats?.medium?.url || photo.photo?.[0]?.url
                             return (
-                                <>
+                                <React.Fragment key={photo.id}>
                                     {isDisplayCreateDate(index, photos) && <h2>{moment(photo.created_at).format('LL')}</h2>}
                                     <PhotoCard
-                                        key={photo.id}
                                         src={imageUrl}
                                         alt={photo.description}
                                         description={photo.description}
                                         author={photo.uploader_name}
                                         onClick={() => handlPhroCardClick(imageUrl, photo.description, photo.uploader_name)}
                                     />
-                                </>
+                                </React.Fragment>
                             )
                         })}
                     </div>
@@ -120,5 +119,3 @@ const useStyles = createUseStyles(() => ({
         color: 'black',
     },
 }))
-
-export default Photospage

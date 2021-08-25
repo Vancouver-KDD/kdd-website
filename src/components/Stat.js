@@ -7,28 +7,37 @@ export default function Stat() {
     const classes = useStyles()
 
     return (
-        <section className={classes.default}>
-            <div className={classes.image} alt="Statistic image" />
-            <div className={classes.statInfo}>
-                <div>Since July 2017</div>
-                <div>37 Meetups</div>
-                <div>1,150 Members</div>
+        <section className={classes.container}>
+            <div className={classes.containerContent}>
+                <div className={classes.image} alt="Statistic image" />
+                <div className={classes.statInfo}>
+                    <div>Since July 2017</div>
+                    <div>37 Meetups</div>
+                    <div>1,150 Members</div>
+                </div>
             </div>
         </section>
     )
 }
 
 const useStyles = createUseStyles({
-    default: {
+    container: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        width: '100%',
-        height: '543px',
         backgroundColor: 'hsla(0, 0%, 100%, 1)',
         textAlign: 'center',
+    },
+    containerContent: {
+        height: 543,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: 1024,
+        maxWidth: '100%',
         '@media (min-width: 768px)': {
+            alignItems: 'initial',
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
         },
@@ -60,10 +69,9 @@ const useStyles = createUseStyles({
         },
         '@media (min-width: 768px)': {
             fontSize: '4.8rem',
-            '& > div': {
-                marginTop: '5rem',
-                marginBottom: '5rem',
-            },
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
         },
     },
 })

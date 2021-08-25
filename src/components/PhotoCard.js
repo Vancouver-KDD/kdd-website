@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
 
-function PhotoCard({src, alt, description, author, onClick}) {
+export default function PhotoCard({src, alt, description, author, onClick}) {
     const classes = useStyles()
 
     const handlClick = () => {
@@ -107,5 +107,3 @@ const useStyles = createUseStyles(() => ({
         },
     },
 }))
-
-export default PhotoCard

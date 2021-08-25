@@ -1,9 +1,8 @@
 import React from 'react'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 
-function Footer(props) {
-    const theme = useTheme()
-    const classes = useStyles({...props, theme})
+export default function Footer() {
+    const classes = useStyles()
     return (
         <footer className={classes.footer}>
             <p>
@@ -64,5 +63,3 @@ const useStyles = createUseStyles({
         },
     },
 })
-
-export default Footer

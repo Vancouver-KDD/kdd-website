@@ -1,25 +1,24 @@
 import React from 'react'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 import {Image} from 'common/Image'
-import SlackIcon from 'assets/icons/coolicon-slack-purple.png'
-import FaceBookIcon from 'assets/icons/coolicon-fb.png'
-import MeetupIcon from 'assets/icons/coolicon-meetup.png'
-import LinkedinIcon from 'assets/icons/coolicon-linkedin.png'
+import SlackIcon from 'assets/icons/slack.svg'
+import FaceBookIcon from 'assets/icons/facebook.svg'
+import MeetupIcon from 'assets/icons/meetup1.svg'
+import LinkedinIcon from 'assets/icons/linkedIn1.svg'
 
 function Contact() {
-    const theme = useTheme()
-    const classes = useStyles({theme})
+    const classes = useStyles()
     return (
         <section className={classes.default}>
             <h3 className={classes.title}>Contact Us</h3>
             <div className={classes.content}>
-                <div>
+                <div className={classes.contactSection}>
                     <h4>Email</h4>
                     <a className={classes.email} href="mailto:vancouverkdd@gmail.com">
                         vancouverkdd@gmail.com
                     </a>
                 </div>
-                <div>
+                <div className={classes.contactSection}>
                     <h4>Social Media</h4>
                     <div className={classes.icons}>
                         <Image
@@ -38,10 +37,15 @@ function Contact() {
 }
 
 const useStyles = createUseStyles(() => ({
+    contactSection: {width: 375, maxWidth: '100%'},
+    contactSNSIcon: {
+        width: 50,
+        height: 50,
+    },
     default: {
         margin: 'auto',
         position: 'relative',
-        textAlign: 'center',
+        textAlign: 'left',
     },
     title: {
         display: 'flex',
@@ -66,20 +70,19 @@ const useStyles = createUseStyles(() => ({
     },
     email: {
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
         height: 73,
         fontSize: '2.4rem',
         color: '#0E0E2C',
     },
     icons: {
+        height: 73,
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         '& img': {
             width: 50,
             height: 50,
-            margin: 10,
+            marginTop: 10,
+            marginRight: 10,
         },
     },
 }))
