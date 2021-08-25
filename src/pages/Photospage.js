@@ -50,10 +50,7 @@ const Photospage = () => {
                             const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
                             return (
                                 <>
-                                    {!!index || <h2>{moment(photo.created_at).format('LL')}</h2>}
-                                    {moment(photo.created_at).isSame(moment(photos[Math.max(index - 1, 0)].created_at), 'day') || (
-                                        <h2>{moment(photo.created_at).format('LL')}</h2>
-                                    )}
+                                    {isDisplayCreateDate(index, photos) && <h2>{moment(photo.created_at).format('LL')}</h2>}
                                     <PhotoCard
                                         key={photo.id}
                                         src={imageUrl}
@@ -76,6 +73,15 @@ const Photospage = () => {
             <Footer />
         </div>
     )
+}
+
+const isDisplayCreateDate = (index = 0, photos = null) => {
+    if (!photos || !Array.isArray(photos)) return false
+
+    const currentCreateDate = photos[index].created_at
+    const previousCreateDate = !index ? null : photos[index - 1].created_at
+
+    return !moment(currentCreateDate).isSame(previousCreateDate, 'day')
 }
 
 const useStyles = createUseStyles(() => ({
