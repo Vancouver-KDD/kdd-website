@@ -26,11 +26,11 @@ export default function AboutUsPage() {
                 분들이 KDD를 통해 직장을 구하고, 캐나다 정착에 성공하였습니다. 또한 KDD는 한인 소상공인과의 협력을 통한 주니어 개발자,
                 디자이너들의 성장을 도모하는 스텝업 프로그램을 시작하여 지역사회에 도움이 되는 모임으로 성장하고 있습니다
             </div>
-            <div style={{height: 'auto', backgroundColor: '#EAEAEA'}}>
-                <h1 style={{paddingTop: '2rem'}} className={classes.title}>
+            <div className={classes.divider}>
+                <h1  className={classes.title}>
                     KDD Mission
                 </h1>
-                <h2 style={{paddingBottom: '2rem'}} className={classes.contents}>
+                <h2  className={classes.contents}>
                     KDD는 한인 IT인들의 기술적, 사교적 교류를 도모합니다.{'\n'}
                     KDD는 한인 IT인들의 구직, 구인과 경력개발을 돕습니다.{'\n'}
                     KDD는 한인 IT인들의 안전한 캐나다 정착을 돕습니다.
@@ -53,11 +53,11 @@ export default function AboutUsPage() {
                 </div>
                 <img src={about1} className={classes.bulb} alt={'aboutUsSecondimg'} />
             </div>
-            <div style={{padding: '2rem', marginTop: '2rem', backgroundColor: '#EAEAEA', textAlign: 'center'}}>
-                <h1 style={{padding: 0, margin: 5}} className={classes.title}>
+            <div style={{textAlign: 'center'}} className={classes.divider}>
+                <h1 style={{padding: 10, margin: 5}} className={classes.title}>
                     Wanted
                 </h1>
-                <div style={{padding: 5, margin: 5}} className={classes.contents}>
+                <div style={{padding: 10, margin: 10}} className={classes.contents}>
                     KDD의 모든 행사는 자원봉사 및 재능기부로 이루어지고 있습니다. 멘토링, 세미나등 모임에 도움을 주고자 하는 분들은
                     언제든 vancouverkdd@gmail.com 로 연락주세요.
                 </div>
@@ -134,7 +134,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     bulb: {
         objectFit: 'cover',
-        marginTop: '3rem',
+        margin: '3rem',
         align: 'center',
         width: '100%',
         height: '200px',
@@ -167,5 +167,9 @@ const useStyles = createUseStyles((theme) => ({
             marginBottom: '3rem',
             fontSize: '4rem',
         },
+    },
+    divider:{
+        backgroundColor: '#EAEAEA',
+        padding: 10
     }
 }))
