@@ -3,8 +3,7 @@
  */
 export async function getSponsors() {
     const res = await fetch('https://kdd-server.herokuapp.com/sponsors')
-    const data = await res.json()
-    return data
+    return res.json()
 }
 
 /**
@@ -15,6 +14,10 @@ export async function getSponsors() {
  */
 export async function getPhotos({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
     const res = await fetch(`https://kdd-server.herokuapp.com/photos?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
-    const data = await res.json()
-    return data
+    return res.json()
+}
+
+export async function getStats() {
+    const res = await fetch('https://kdd-server.herokuapp.com/statistics/1')
+    return res.json()
 }

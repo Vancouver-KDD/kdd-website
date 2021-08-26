@@ -2,18 +2,19 @@ import React from 'react'
 import {createUseStyles} from 'react-jss'
 import StatSmall from 'assets/images/stat-small.png'
 import StatLarge from 'assets/images/stat-large.png'
+import {useCollection} from 'store'
 
 export default function Stat() {
     const classes = useStyles()
-
+    const {data} = useCollection({name: 'statistics'})
     return (
         <section className={classes.container}>
             <div className={classes.containerContent}>
                 <div className={classes.image} alt="Statistic image" />
                 <div className={classes.statInfo}>
                     <div>Since July 2017</div>
-                    <div>37 Meetups</div>
-                    <div>1,150 Members</div>
+                    <div>{data?.meetups ?? '37+'} Meetups</div>
+                    <div>{data?.members ?? '1150+'} Members</div>
                 </div>
             </div>
         </section>
