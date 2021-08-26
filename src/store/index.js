@@ -1,5 +1,5 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats} from 'api'
+import {getPhotos, getSponsors, getStats, getMembers} from 'api'
 
 export function useCollection({name, defaultData = null} = {}) {
     const offsetRef = React.useRef(0)
@@ -41,6 +41,20 @@ export function useCollection({name, defaultData = null} = {}) {
     React.useEffect(() => {
         offsetRef.current = 0
         switch (name) {
+            case 'volunteers':
+                getMembers()
+                    .then((data) => {
+                        offsetRef.current += data.length
+                        setData(data)
+                        setLoading(false)
+                        setError(null)
+                    })
+                    .catch((e) => {
+                        setData(null)
+                        setLoading(false)
+                        setError(e)
+                    })
+                break
             case 'statistics':
                 getStats()
                     .then((data) => {

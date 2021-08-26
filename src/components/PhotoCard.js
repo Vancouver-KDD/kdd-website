@@ -4,13 +4,8 @@ import {createUseStyles} from 'react-jss'
 
 export default function PhotoCard({src, alt, description, author, onClick}) {
     const classes = useStyles()
-
-    const handlClick = () => {
-        onClick?.()
-    }
-
     return (
-        <div className={classes.photoCard} onClick={handlClick}>
+        <div className={classes.photoCard} onClick={onClick}>
             <img src={src} loading="lazy" alt={alt} />
             <div>
                 <div className={classes.photoInfo}>
@@ -30,7 +25,7 @@ PhotoCard.propTypes = {
     onClick: PropTypes.func,
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     photoCard: {
         position: 'relative',
         margin: '2px 0px',
@@ -106,4 +101,4 @@ const useStyles = createUseStyles(() => ({
             width: '437px',
         },
     },
-}))
+})
