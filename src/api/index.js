@@ -21,3 +21,8 @@ export async function getStats() {
     const res = await fetch('https://kdd-server.herokuapp.com/statistics/1')
     return res.json()
 }
+
+export async function getMembers() {
+    const res = await fetch('https://kdd-server.herokuapp.com/volunteers')
+    return res.json()
+}

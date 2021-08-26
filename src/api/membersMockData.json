@@ -1,0 +1,59 @@
+[
+    {
+        "id": 2,
+        "profile_url": null,
+        "company": "Foodly",
+        "occupation": "Developer",
+        "name": "Eric Kim",
+        "uid": "2",
+        "social_list": [
+            {"url": "https://github.com/bosung90", "type": "github"},
+            {"url": "https://www.linkedin.com/in/bosung90", "type": "linkedin"}
+        ],
+        "published_at": "2021-08-23T06:11:39.210Z",
+        "created_at": "2021-08-23T06:11:12.786Z",
+        "updated_at": "2021-08-26T02:14:55.273Z",
+        "Title": "Co-Organizer",
+        "Description": "Founder at Foodly",
+        "title": "Co-Organizer",
+        "description": "Founder at Foodly",
+        "socialList": [
+            {"link": "https://github.com/bosung90", "type": "github"},
+            {"link": "https://www.linkedin.com/in/bosung90", "type": "linkedin"}
+        ],
+        "profilePic": [
+            {
+                "id": 30,
+                "name": "eric_kim.jpeg",
+                "alternativeText": "",
+                "caption": "",
+                "width": 200,
+                "height": 200,
+                "formats": {
+                    "thumbnail": {
+                        "ext": ".jpeg",
+                        "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629699566/thumbnail_eric_kim_bafce2f7f7.jpg",
+                        "hash": "thumbnail_eric_kim_bafce2f7f7",
+                        "mime": "image/jpeg",
+                        "name": "thumbnail_eric_kim.jpeg",
+                        "path": null,
+                        "size": 6.27,
+                        "width": 156,
+                        "height": 156,
+                        "provider_metadata": {"public_id": "thumbnail_eric_kim_bafce2f7f7", "resource_type": "image"}
+                    }
+                },
+                "hash": "eric_kim_bafce2f7f7",
+                "ext": ".jpeg",
+                "mime": "image/jpeg",
+                "size": 9.03,
+                "url": "https://res.cloudinary.com/kdd-web/image/upload/v1629699566/eric_kim_bafce2f7f7.jpg",
+                "previewUrl": null,
+                "provider": "cloudinary",
+                "provider_metadata": {"public_id": "eric_kim_bafce2f7f7", "resource_type": "image"},
+                "created_at": "2021-08-23T06:19:26.898Z",
+                "updated_at": "2021-08-23T06:19:26.910Z"
+            }
+        ]
+    }
+]

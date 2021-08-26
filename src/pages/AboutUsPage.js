@@ -4,12 +4,15 @@ import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
 import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
+import {useCollection} from 'store'
+import * as memberSocialIcons from 'assets/members'
 
 export default function AboutUsPage() {
     const classes = useStyles()
+    const {data} = useCollection({name: 'volunteers'})
 
     return (
-        <div>
+        <div className={classes.root}>
             <NavigationBar />
             <div className={classes.title}>Korean Developer & Designer</div>
             <div className={classes.contents}>
@@ -62,13 +65,111 @@ export default function AboutUsPage() {
                     언제든 vancouverkdd@gmail.com 로 연락주세요.
                 </div>
             </div>
-
+            <Section>
+                <h1>Organizers</h1>
+                <div className={classes.membersContainer}>
+                    {data?.map((member) => {
+                        return <Member key={member.id} {...member} />
+                    })}
+                </div>
+            </Section>
             <Footer />
         </div>
     )
 }
 
-const useStyles = createUseStyles((theme) => ({
+const Section = ({children}) => {
+    const classes = useStyles()
+
+    return (
+        <div className={classes.section}>
+            <div className={classes.sectionContent}>{children}</div>
+        </div>
+    )
+}
+
+const Member = ({name, title, description, profilePic, socialList}) => {
+    const classes = useStyles()
+    const imageUrl = profilePic?.[0]?.formats?.small?.url ?? profilePic?.[0]?.url
+
+    return (
+        <div className={classes.member}>
+            <img className={classes.memberImage} src={imageUrl} alt="" />
+            <h5>{name}</h5>
+            <p>{title}</p>
+            <p>{description}</p>
+            <div className={classes.socialContainer}>
+                {socialList?.map((sns) => (
+                    <img key={sns.id} src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+const useStyles = createUseStyles({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    section: {
+        // Centers the sectionContent
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+
+        // Prevents the sectionContent from hitting the sides of the window
+        paddingLeft: 20,
+        paddingRight: 20,
+    },
+    sectionContent: {
+        // Increase the width up to 1024 or 100%
+        width: 1024,
+        maxWidth: '100%',
+        paddingTop: 'calc(4.8828125% + 25px)', // 25px - 75px based on the width
+        paddingBottom: 'calc(4.8828125% + 25px)', // 25px - 75px based on the width
+        textAlign: 'center',
+    },
+    membersContainer: {
+        marginTop: 'calc(2.44140625% + 25px)', // 25px - 50px based on the width
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        columnGap: 20,
+        rowGap: 40,
+        '@media (min-width: 375px)': {
+            gridTemplateColumns: '1fr 1fr',
+        },
+        '@media (min-width: 768px)': {
+            gridTemplateColumns: '1fr 1fr 1fr',
+        },
+    },
+    member: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        fontSize: '3rem',
+        fontWeight: '600',
+        '& > h5': {
+            padding: 10,
+        },
+        '& > p': {
+            paddingBottom: 5,
+        },
+    },
+    memberImage: {
+        width: '100%',
+        borderRadius: 8,
+        objectFit: 'cover',
+    },
+    socialContainer: {
+        marginTop: 5,
+        width: '100%',
+        display: 'grid',
+        justifyContent: 'center', // Centres Horizontally
+        gridTemplateColumns: 'repeat(auto-fit, 60px)', // Causes SocialLinks to wrap when overflows
+        gap: 10,
+    },
     title: {
         fontSize: '2rem',
         fontWeight: '700',
@@ -86,7 +187,6 @@ const useStyles = createUseStyles((theme) => ({
     contents: {
         fontSize: '1.2rem',
         fontWeight: '500',
-        marginTop: '2rem',
         marginBottom: '2.5rem',
         marginLeft: '10%',
         paddingRight: '15%',
@@ -153,9 +253,9 @@ const useStyles = createUseStyles((theme) => ({
             fontSize: '4rem',
         },
     },
-    msgContainer:{
-        display: 'flex', 
-        flexWrap: 'wrap', 
+    msgContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center',
         '@media (min-width: 800px)': {
             marginLeft: '2%',
@@ -167,5 +267,5 @@ const useStyles = createUseStyles((theme) => ({
             marginBottom: '3rem',
             fontSize: '4rem',
         },
-    }
-}))
+    },
+})
