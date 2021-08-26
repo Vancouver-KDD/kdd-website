@@ -12,7 +12,6 @@ export const Modal = ({photoUrl, photoAlt, photoDescription, photoAuthor, visibl
     return (
         <div className={classes.modal} onClick={closeModal}>
             <div className={classes.modalBody}>
-                {/* <input className={classes.closeButton} type="button" onClick={closeModal} /> */}
                 <div>
                     <img src={photoUrl} alt={photoAlt} />
                 </div>
@@ -43,7 +42,7 @@ const useStyles = createUseStyles(() => ({
         height: '100%',
         display: (_isVisible) => (_isVisible ? 'block' : 'none'),
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        zIndex: '98',
+        zIndex: 1100,
     },
     modalBody: {
         position: 'absolute',
@@ -54,9 +53,7 @@ const useStyles = createUseStyles(() => ({
         textAlign: 'center',
         transform: 'translateX(-50%) translateY(-50%)',
         backgroundColor: 'rgba(255, 255, 255, 0)',
-        // borderRadius: '10px',
-        // boxShadow: '0 2px 3px 0 rgba(34, 36, 38, 0.15)',
-        zIndex: '99',
+        zIndex: 1200,
         '& div': {
             display: 'flex',
             backgroundColor: 'black',
@@ -65,7 +62,6 @@ const useStyles = createUseStyles(() => ({
             width: '375px',
             maxHeight: '540px',
             objectFit: 'contain',
-            // borderRadius: '10px'
         },
         '@media (min-width: 800px)': {
             width: '760px',
