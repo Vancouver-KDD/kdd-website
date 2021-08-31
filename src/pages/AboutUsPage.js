@@ -96,8 +96,8 @@ const Member = ({name, title, description, profilePic, socialList}) => {
         <div className={classes.member}>
             <img className={classes.memberImage} src={imageUrl} alt="" />
             <h5>{name}</h5>
-            <p>{title}</p>
-            <p>{description}</p>
+            <p style={{fontSize: '1.8rem'}}>{title}</p>
+            <p style={{fontSize: '1.5rem'}}>{description}</p>
             <div className={classes.socialContainer}>
                 {socialList?.map((sns) => (
                     <img key={sns.id} src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
@@ -163,7 +163,7 @@ const useStyles = createUseStyles({
         objectFit: 'cover',
     },
     socialContainer: {
-        marginTop: 5,
+        marginTop: 10,
         width: '100%',
         display: 'grid',
         justifyContent: 'center', // Centres Horizontally
