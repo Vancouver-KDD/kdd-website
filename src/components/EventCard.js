@@ -6,7 +6,7 @@ import CalendarButton from 'common/CalendarButton'
 import CalendarTooltip from 'common/CalendarTooltip'
 import tempEventImg from 'assets/images/temp-event.png'
 
-function EventCard({title, date, location}) {
+function EventCard({title, date, descrition, location}) {
     const classes = useStyles()
     const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
 

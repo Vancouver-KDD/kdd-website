@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import {ArrowButton} from 'common/ArrowButton'
+import {useCollection} from 'store'
 import EventCard from './EventCard'
+import moment from 'moment'
 
 const TEMP_LIST_SIZE = 4
 
@@ -9,6 +11,7 @@ export default function EventCards() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo)
+    const {data} = useCollection({name: 'events'})
 
     const handleClick = (index) => {
         if (cardListSize <= index) index = 0
@@ -27,30 +30,14 @@ export default function EventCards() {
             </div>
             <div className={classes.eventsBox}>
                 <div className={classes.eventCardList}>
-                    <EventCard
-                        key={0}
-                        title="VANCOVER KDD JULY 2021 MEETUP1"
-                        date="MON, JUL 27, 2021 AT 7 PM PDT"
-                        location="Vancouver Public Library"
-                    />
-                    <EventCard
-                        key={1}
-                        title="VANCOVER KDD JULY 2021 MEETUP2"
-                        date="MON, JUL 27, 2021 AT 7 PM PDT"
-                        location="Vancouver Public Library"
-                    />
-                    <EventCard
-                        key={2}
-                        title="VANCOVER KDD JULY 2021 MEETUP3"
-                        date="MON, JUL 27, 2021 AT 7 PM PDT"
-                        location="Vancouver Public Library"
-                    />
-                    <EventCard
-                        key={3}
-                        title="VANCOVER KDD JULY 2021 MEETUP4"
-                        date="MON, JUL 27, 2021 AT 7 PM PDT"
-                        location="Vancouver Public Library"
-                    />
+                    {data?.map((event) => (
+                        <EventCard
+                            key={event.id}
+                            title={event.title}
+                            date={moment(event.date).format('LL LT')}
+                            location={event.location}
+                        />
+                    ))}
                 </div>
             </div>
         </div>

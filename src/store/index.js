@@ -1,5 +1,20 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats} from 'api'
+import {getPhotos, getSponsors, getStats, getEvents} from 'api'
+
+function getLoadData({name}) {
+    switch (name) {
+        case 'photos':
+            return getPhotos
+        case 'sponsors':
+            return getSponsors
+        case 'statistics':
+            return getStats
+        case 'events':
+            return getEvents
+        default:
+            throw new Error('name does not match')
+    }
+}
 
 export function useCollection({name, defaultData = null} = {}) {
     const offsetRef = React.useRef(0)
@@ -16,76 +31,38 @@ export function useCollection({name, defaultData = null} = {}) {
         if (loading) {
             return
         }
-        switch (name) {
-            case 'photos':
-                setLoading(true)
+        const loadData = getLoadData({name})
+        setLoading(true)
+        setError(null)
+        loadData({offset: offsetRef.current})
+            .then((data) => {
+                offsetRef.current += data.length
+                setData((_prevData) => [..._prevData, ...data])
+                setLoading(false)
                 setError(null)
-                getPhotos({offset: offsetRef.current})
-                    .then((data) => {
-                        offsetRef.current += data.length
-                        setData((_prevData) => [..._prevData, ...data])
-                        setLoading(false)
-                        setError(null)
-                    })
-                    .catch((e) => {
-                        setData(null)
-                        setLoading(false)
-                        setError(e)
-                    })
-                break
-            default:
-                break
-        }
+            })
+            .catch((e) => {
+                setData(null)
+                setLoading(false)
+                setError(e)
+            })
     }
 
     React.useEffect(() => {
         offsetRef.current = 0
-        switch (name) {
-            case 'statistics':
-                getStats()
-                    .then((data) => {
-                        offsetRef.current += data.length
-                        setData(data)
-                        setLoading(false)
-                        setError(null)
-                    })
-                    .catch((e) => {
-                        setData(null)
-                        setLoading(false)
-                        setError(e)
-                    })
-                break
-            case 'sponsors':
-                getSponsors()
-                    .then((data) => {
-                        offsetRef.current += data.length
-                        setData(data)
-                        setLoading(false)
-                        setError(null)
-                    })
-                    .catch((e) => {
-                        setData(null)
-                        setLoading(false)
-                        setError(e)
-                    })
-                break
-            case 'photos':
-                getPhotos()
-                    .then((data) => {
-                        offsetRef.current += data.length
-                        setData(data)
-                        setLoading(false)
-                        setError(null)
-                    })
-                    .catch((e) => {
-                        setData(null)
-                        setLoading(false)
-                        setError(e)
-                    })
-                break
-            default:
-                break
-        }
+        const loadData = getLoadData({name})
+        loadData()
+            .then((data) => {
+                offsetRef.current += data.length
+                setData(data)
+                setLoading(false)
+                setError(null)
+            })
+            .catch((e) => {
+                setData(null)
+                setLoading(false)
+                setError(e)
+            })
     }, [name])
 
     return {loading, data, error, loadMore}
