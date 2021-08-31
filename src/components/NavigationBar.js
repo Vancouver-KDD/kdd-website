@@ -47,7 +47,7 @@ const useStyles = createUseStyles(() => ({
         paddingTop: '3rem',
         zIndex: 1000,
         height: 170,
-        width: '100vw',
+        width: '100%',
         '& a': {
             textDecoration: 'none',
             fontSize: '1.5rem',
@@ -58,7 +58,7 @@ const useStyles = createUseStyles(() => ({
         display: 'flex',
         width: 1024,
         alignItems: 'flex-start',
-        maxWidth: '100vw',
+        maxWidth: '100%',
         justifyContent: 'space-between',
     },
     navAbsolute: {

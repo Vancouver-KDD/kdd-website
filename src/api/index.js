@@ -22,6 +22,11 @@ export async function getStats() {
     return res.json()
 }
 
+export async function getMembers() {
+    const res = await fetch('https://kdd-server.herokuapp.com/volunteers')
+    return res.json()
+}
+
 export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
     const res = await fetch(`https://kdd-server.herokuapp.com/events?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()

@@ -1,5 +1,5 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvents} from 'api'
+import {getPhotos, getSponsors, getStats, getEvents, getMembers} from 'api'
 
 function getLoadData({name}) {
     switch (name) {
@@ -9,6 +9,8 @@ function getLoadData({name}) {
             return getSponsors
         case 'statistics':
             return getStats
+        case 'volunteers':
+            return getMembers
         case 'events':
             return getEvents
         default:

@@ -1,24 +1,28 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
+import {useCollection} from 'store'
 
 export default function Footer() {
     const classes = useStyles()
+    const {data} = useCollection({name: 'statistics'})
+
     return (
         <footer className={classes.footer}>
             <p>
-                Developed
-                <a href="//www.linkedin.com/company/vancouver-kdd/">Eric Kim</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">ABC</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">123</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">DDD</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">event_date</a>
+                Developed by{' '}
+                {data?.developers?.map(({name, link}, i) => (
+                    <a key={i} href={link}>
+                        {name}
+                    </a>
+                ))}
             </p>
             <p>
-                Special thanks to
-                <a href="//www.linkedin.com/company/vancouver-kdd/">PM</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">Coordinator</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">Mentors</a>
-                <a href="//www.linkedin.com/company/vancouver-kdd/">CCC</a>
+                Special thanks to{' '}
+                {data?.supporters?.map(({name, link}, i) => (
+                    <a key={i} href={link}>
+                        {name}
+                    </a>
+                ))}
             </p>
         </footer>
     )
@@ -29,35 +33,34 @@ const useStyles = createUseStyles({
         height: 'auto',
         padding: '1rem',
         color: 'hsla(240, 52%, 11%, 1)',
+        fontWeight: '900',
+        textAlign: 'center',
         '& p': {
-            textAlign: 'left',
-            fontWeight: '600',
             fontSize: '1.2rem',
+            marginTop: 10,
         },
         '& a': {
             padding: '0.5rem',
-            fontWeight: '600',
             fontSize: '1.2rem',
+            color: 'hsla(240, 52%, 11%, 1)',
         },
         '@media (min-width: 800px)': {
             padding: '3rem',
             '& p': {
-                textAlign: 'center',
                 fontSize: '1.6rem',
             },
             '& a': {
-                padding: '0.5rem',
+                padding: '0.75rem',
                 fontSize: '1.6rem',
             },
         },
         '@media (min-width: 1024px)': {
             padding: '6rem',
             '& p': {
-                textAlign: 'center',
                 fontSize: '2rem',
             },
             '& a': {
-                padding: '1rem',
+                padding: '0.75rem',
                 fontSize: '2rem',
             },
         },
