@@ -5,9 +5,13 @@ import SignupButton from 'common/SignupButton'
 import CalendarButton from 'common/CalendarButton'
 import CalendarTooltip from 'common/CalendarTooltip'
 import tempEventImg from 'assets/images/temp-event.png'
+import moment from 'moment'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
-function EventCard({title, date, descrition, location}) {
+function EventCard({title, date, description, location}) {
     const classes = useStyles()
+    const dateStr = moment(date).format('LL LT')
     const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
 
     const handleClick = () => {
@@ -18,8 +22,9 @@ function EventCard({title, date, descrition, location}) {
         <div className={classes.eventCard}>
             <img src={`${tempEventImg}`} alt="Temp Event Card" />
             <div className={classes.eventInfo}>
-                <p className={classes.eventDate}>{date}</p>
+                <p className={classes.eventDate}>{dateStr}</p>
                 <h2>{title}</h2>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
                 <p className={classes.eventLocation}>{location}</p>
             </div>
             <div className={classes.eventBtnGroup}>

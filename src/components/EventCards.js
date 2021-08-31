@@ -3,7 +3,6 @@ import {createUseStyles} from 'react-jss'
 import {ArrowButton} from 'common/ArrowButton'
 import {useCollection} from 'store'
 import EventCard from './EventCard'
-import moment from 'moment'
 
 const TEMP_LIST_SIZE = 4
 
@@ -12,7 +11,6 @@ export default function EventCards() {
     const [cardListSize] = useState(TEMP_LIST_SIZE)
     const classes = useStyles(currentCardNo)
     const {data} = useCollection({name: 'events'})
-
     const handleClick = (index) => {
         if (cardListSize <= index) index = 0
         if (index < 0) index = cardListSize - 1
@@ -31,12 +29,7 @@ export default function EventCards() {
             <div className={classes.eventsBox}>
                 <div className={classes.eventCardList}>
                     {data?.map((event) => (
-                        <EventCard
-                            key={event.id}
-                            title={event.title}
-                            date={moment(event.date).format('LL LT')}
-                            location={event.location}
-                        />
+                        <EventCard {...event} key={event.id} />
                     ))}
                 </div>
             </div>
