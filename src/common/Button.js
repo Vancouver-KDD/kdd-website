@@ -47,15 +47,13 @@ const useStyles = createUseStyles((theme) => ({
     default: {
         textDecoration: 'none',
         fontWeight: '600',
-        fontSize: '1.8rem',
+        fontSize: '1.6rem',
         backgroundColor: theme.colorPrimary,
         display: 'flex',
-        padding: '0.8rem',
         justifyContent: 'center',
         alignItems: 'center',
         height: '5rem',
-        borderRadius: '10rem',
-        border: 'none',
+        borderRadius: '2.5rem',
         color: 'white',
         cursor: 'pointer',
         '&:hover': {
