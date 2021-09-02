@@ -18,19 +18,21 @@ export default function EventCards() {
     }
 
     return (
-        <div className={classes.events}>
-            <div>
-                <h1>Upcoming Events</h1>
-                <div className={classes.groupArrowButton}>
-                    <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
-                    <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
+        <div className={classes.container}>
+            <div className={classes.events}>
+                <div>
+                    <h1>Upcoming Events</h1>
+                    <div className={classes.groupArrowButton}>
+                        <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} />
+                        <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} />
+                    </div>
                 </div>
-            </div>
-            <div className={classes.eventsBox}>
-                <div className={classes.eventCardList}>
-                    {data?.map((event) => (
-                        <EventCard {...event} key={event.id} />
-                    ))}
+                <div className={classes.eventsBox}>
+                    <div className={classes.eventCardList}>
+                        {data?.map((event) => (
+                            <EventCard {...event} key={event.id} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,22 +40,20 @@ export default function EventCards() {
 }
 
 const useStyles = createUseStyles({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
     events: {
         position: 'relative',
-        width: '377px',
-        height: '480px',
+        width: 1024,
+        maxWidth: '100%',
         textAlign: 'center',
-        margin: 'auto',
         '& h1': {
-            marginTop: '4rem',
-            fontSize: '3.5rem',
-        },
-        '@media (min-width: 800px)': {
-            width: '756px',
-        },
-        '@media (min-width: 1024px)': {
-            width: '1024px',
-            height: '558px',
+            fontSize: 'clamp(36px, calc(1.85vw + 29px), 48px)',
         },
     },
     eventsBox: {

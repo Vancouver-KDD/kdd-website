@@ -60,7 +60,6 @@ const useStyles = createUseStyles(() => ({
         alignItems: 'center',
         maxWidth: '100%',
         justifyContent: 'space-between',
-        height: 174,
         '@media (min-width: 375px)': {
             flexDirection: 'row',
             alignItems: 'flex-start',
