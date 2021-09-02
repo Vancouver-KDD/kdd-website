@@ -20,17 +20,19 @@ function EventCard({title, date, description, location}) {
 
     return (
         <div className={classes.eventCard}>
-            <img src={`${tempEventImg}`} alt="Temp Event Card" />
-            <div className={classes.eventInfo}>
-                <p className={classes.eventDate}>{dateStr}</p>
-                <h2>{title}</h2>
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
-                <p className={classes.eventLocation}>{location}</p>
-            </div>
-            <div className={classes.eventBtnGroup}>
-                <SignupButton />
-                {isCalTooltipDisplay && <CalendarTooltip />}
-                <CalendarButton onClick={handleClick} />
+            <img className={classes.eventImage} src={`${tempEventImg}`} alt="Temp Event Card" />
+            <div className={classes.eventInfoContainer}>
+                <div className={classes.eventInfo}>
+                    <p className={classes.eventDate}>{dateStr}</p>
+                    <h2>{title}</h2>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+                    <p className={classes.eventLocation}>{location}</p>
+                </div>
+                <div className={classes.eventBtnGroup}>
+                    <SignupButton />
+                    {isCalTooltipDisplay && <CalendarTooltip />}
+                    <CalendarButton onClick={handleClick} />
+                </div>
             </div>
         </div>
     )
@@ -44,28 +46,38 @@ EventCard.propTypes = {
 
 const useStyles = createUseStyles(() => ({
     eventCard: {
-        width: '375px',
-        height: '390px',
-        margin: '2px 2px',
-        border: '1px solid #7b7b7b',
-        borderRadius: '16px',
-        '& img': {
-            width: '373px',
-            objectFit: 'cover',
-            borderStartStartRadius: '16px',
-            borderStartEndRadius: '16px',
-        },
-        '& h2': {
-            fontSize: '2.2rem',
-        },
-        '@media (min-width: 1024px)': {
-            width: '502px',
-            height: '442px',
-            margin: '2px 5px',
-            '& img': {
-                width: '502px',
-            },
-        },
+        borderRadius: 16,
+        display: 'flex',
+        flexDirection: 'row',
+        overflow: 'hidden',
+        // '& img': {
+        // width: '373px',
+        // objectFit: 'cover',
+        // borderStartStartRadius: '16px',
+        // borderStartEndRadius: '16px',
+        // },
+        // '& h2': {
+        //     fontSize: '2.2rem',
+        // },
+        // '@media (min-width: 1024px)': {
+        // width: '502px',
+        // height: '442px',
+        // margin: '2px 5px',
+        // '& img': {
+        //     width: '502px',
+        // },
+        // },
+    },
+    eventImage: {
+        width: '50%',
+        objectFit: 'cover',
+        aspectRatio: '16 / 10',
+    },
+    eventInfoContainer: {
+        backgroundColor: '#eee',
+        width: '50%',
+        display: 'flex',
+        flexDirection: 'column',
     },
     eventInfo: {
         display: 'flex',
