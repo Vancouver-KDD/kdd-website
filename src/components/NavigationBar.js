@@ -43,10 +43,9 @@ const useStyles = createUseStyles(() => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '1rem',
-        paddingTop: '3rem',
+        padding: 10,
+        paddingTop: 40,
         zIndex: 1000,
-        height: 170,
         width: '100%',
         '& a': {
             textDecoration: 'none',
@@ -56,10 +55,16 @@ const useStyles = createUseStyles(() => ({
     },
     defaultContent: {
         display: 'flex',
+        flexDirection: 'column-reverse',
         width: 1024,
-        alignItems: 'flex-start',
+        alignItems: 'center',
         maxWidth: '100%',
         justifyContent: 'space-between',
+        height: 174,
+        '@media (min-width: 375px)': {
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+        },
     },
     navAbsolute: {
         position: 'absolute',
