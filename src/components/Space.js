@@ -1,24 +1,33 @@
 import React from 'react'
 
 export default function Space(props) {
-    const {vertical, xStart, xEnd, spaceStart = 0, spaceEnd, style, ...restProps} = props
-    const direction = vertical ? 'height' : 'width'
-    const minHeight = vertical ? spaceStart : 0
-    const minWidth = !vertical ? spaceStart : 0
+    const {direction, x1, x2, y1 = 0, y2, style = {}, ...restProps} = props
+    const minWidth = !direction || direction === 'horizontal' ? y1 : 0
+    const minHeight = !direction || direction === 'vertical' ? y1 : 0
 
-    const maxHeight = vertical && spaceEnd ? spaceEnd : undefined
-    const maxWidth = !vertical && spaceEnd ? spaceEnd : undefined
+    const maxWidth = (!direction || direction === 'horizontal') && y2 ? y2 : undefined
+    const maxHeight = (!direction || direction === 'vertical') && y2 ? y2 : undefined
 
-    const slope = (xEnd - xStart) / (spaceEnd - spaceStart)
-    const b = spaceStart - xStart * slope
+    const slope = (x2 - x1) / (y2 - y1)
+    const b = y1 - x1 * slope
+
+    const sizeStyle = `calc(${(slope * 100).toFixed(5)}vw + ${b}px)`
+    const directionStyle = direction
+        ? {
+              [direction]: sizeStyle,
+          }
+        : {
+              width: sizeStyle,
+              height: sizeStyle,
+          }
 
     const _style = {
         minWidth,
         maxWidth,
         minHeight,
         maxHeight,
-        [direction]: `calc(${(slope * 100).toFixed(5)}vw + ${b}px)`,
-        ...(style ?? {}),
+        ...directionStyle,
+        ...style,
     }
 
     return <div {...restProps} style={_style}></div>
