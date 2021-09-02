@@ -4,15 +4,17 @@ import PropTypes from 'prop-types'
 import SignupButton from 'common/SignupButton'
 import CalendarButton from 'common/CalendarButton'
 import CalendarTooltip from 'common/CalendarTooltip'
-import tempEventImg from 'assets/images/temp-event.png'
+import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import {Space} from 'components' 
 
-function EventCard({title, date, description, location}) {
+function EventCard({title, poster, date, joinLink, description, location}) {
     const classes = useStyles()
-    const dateStr = moment(date).format('LL LT')
+    const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
+
+    const dateStr = moment(date).format('MMM DD, LT')
+    const dateLocation = `${dateStr} | ${location}`
     const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
 
     const handleClick = () => {
@@ -21,19 +23,17 @@ function EventCard({title, date, description, location}) {
 
     return (
         <div className={classes.eventCard}>
-            <img className={classes.eventImage} src={`${tempEventImg}`} alt="Temp Event Card" />
+            <img className={classes.eventImage} src={posterImageUrl} alt={title} />
             <div className={classes.eventInfoContainer}>
                 <div className={classes.eventInfo}>
-                    <p className={classes.eventDate}>
-                        {dateStr} | {location}
-                    </p>
+                    <p className={classes.eventDate}>{dateLocation}</p>
                     <h2>{title}</h2>
                     {/* <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown> */}
                     <p className={classes.eventDescription}>{description}</p>
                 </div>
                 <div className={classes.eventBtnGroup}>
-                    <div style={{flex:1}}>
-                        <SignupButton />
+                    <div style={{flex: 1}}>
+                        <SignupButton href={joinLink} />
                     </div>
                     <Space y1={10} />
                     {isCalTooltipDisplay && <CalendarTooltip />}
