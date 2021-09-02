@@ -17,9 +17,7 @@ function CalendarButton({onClick, disabled}) {
             className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
             type="button"
             onClick={handlClick}
-            disabled={disabled}>
-            {}
-        </button>
+            disabled={disabled}></button>
     )
 }
 
@@ -30,6 +28,7 @@ CalendarButton.propTypes = {
 
 const useStyles = createUseStyles((theme) => ({
     btnEventCalendar: {
+        opacity: 0.5,
         background: `url(${btnCalendarImg}) no-repeat`,
         backgroundPosition: 'center',
         border: 'none',

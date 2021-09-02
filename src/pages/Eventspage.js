@@ -50,7 +50,6 @@ const useStyles = createUseStyles((theme) => ({
         paddingRight: 10,
     },
     events: {
-        position: 'relative',
         width: 1024,
         maxWidth: '100%',
         textAlign: 'center',

@@ -81,6 +81,7 @@ const useStyles = createUseStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
         width: 240,
+        paddingBottom: 40,
         '& li:hover': {
             textDecoration: 'underline',
         },

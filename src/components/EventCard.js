@@ -27,12 +27,16 @@ function EventCard({title, poster, date, joinLink, description, location}) {
             <div className={classes.eventInfoContainer}>
                 <div className={classes.eventInfo}>
                     <p className={classes.eventDate}>{dateLocation}</p>
+                    <Space y1={15} />
                     <h2>{title}</h2>
-                    {/* <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown> */}
-                    <p className={classes.eventDescription}>{description}</p>
+                    <Space y1={15} />
+                    <p className={classes.eventDescription}>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+                    </p>
                 </div>
+                <Space y1={15} />
                 <div className={classes.eventBtnGroup}>
-                    <div style={{flex: 1}}>
+                    <div className={classes.signUpButtonContainer}>
                         <SignupButton href={joinLink} />
                     </div>
                     <Space y1={10} />
@@ -54,40 +58,55 @@ const useStyles = createUseStyles(() => ({
     eventCard: {
         borderRadius: 16,
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         overflow: 'hidden',
+        '@media (min-width: 600px)': {
+            flexDirection: 'row',
+        },
     },
     eventImage: {
-        width: '50%',
+        width: '100%',
         objectFit: 'cover',
-        aspectRatio: '16 / 10',
+        aspectRatio: '4 / 3',
+        '@media (min-width: 600px)': {
+            aspectRatio: '16 / 10',
+            width: '50%',
+        },
     },
     eventInfoContainer: {
-        backgroundColor: '#F5F5F5',
-        width: '50%',
         display: 'flex',
+        backgroundColor: '#F5F5F5',
         flexDirection: 'column',
-        padding: 25,
-        flex: 1,
+        padding: 'clamp(15px, calc(0.95vw + 15px), 25px)', // TODO: Fix to 15px-25px
+        width: '100%',
+        '@media (min-width: 600px)': {
+            width: '50%',
+        },
     },
     eventInfo: {
         display: 'flex',
-        height: '12rem',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
         flex: 1,
+        '& h2': {
+            fontSize: '2.4rem',
+        },
     },
     eventDate: {
-        fontSize: '1.8rem',
-    },
-    eventTitle: {
-        fontSize: '2.4rem',
+        fontSize: '1.6rem',
     },
     eventDescription: {
-        fontSize: '1.8rem',
-        flex: 1,
+        fontSize: '160%',
         display: 'flex',
+        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
+        flex: 1,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+    },
+    signUpButtonContainer: {
+        flex: 1,
     },
     eventBtnGroup: {
         display: 'flex',
