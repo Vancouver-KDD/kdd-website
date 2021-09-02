@@ -45,6 +45,7 @@ Button.propTypes = {
 
 const useStyles = createUseStyles((theme) => ({
     default: {
+        padding: 10,
         textDecoration: 'none',
         fontWeight: '600',
         fontSize: '1.6rem',
