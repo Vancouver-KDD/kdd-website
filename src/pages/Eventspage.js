@@ -19,7 +19,10 @@ export default function Eventspage() {
                     <Label text={'Upcoming Events'} />
                     <Space y1={25} y2={50} />
                     {data?.map((event) => (
-                        <EventCard {...event} key={event.id} />
+                        <React.Fragment key={event.id}>
+                            <EventCard {...event} />
+                            <Space y1={15} y2={20} />
+                        </React.Fragment>
                     ))}
                 </div>
             </div>
