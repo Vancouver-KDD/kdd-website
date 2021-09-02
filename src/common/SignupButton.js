@@ -1,26 +1,29 @@
 import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
 
-function SignupButton() {
+function SignupButton({href}) {
     const theme = useTheme()
     const classes = useStyles({theme})
 
     return (
-        <button className={classes.btnEventSignup} type="button">
-            SIGN UP
-        </button>
+        <a href={href} className={classes.btnEventSignup}>
+            Sign Up
+        </a>
     )
 }
 
 const useStyles = createUseStyles((theme) => ({
     btnEventSignup: {
-        width: '270px',
-        height: '47px',
-        border: '0',
-        borderRadius: '30px',
+        height: 48,
+        borderRadius: 24,
         color: '#ffffff',
         backgroundColor: theme.colorPrimary,
-        cursor: 'pointer',
+        textDecoration: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        fontSize: '1.8rem',
+        padding: 10,
         '&:hover': {
             backgroundColor: theme.colorPrimaryHover,
         },
