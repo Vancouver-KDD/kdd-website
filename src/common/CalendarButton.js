@@ -1,48 +1,71 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import {createUseStyles, useTheme} from 'react-jss'
 import btnCalendarImg from 'assets/images/btn-calendar.svg'
+import Popover from '@mui/material/Popover'
+import CalendarTooltip from 'common/CalendarTooltip'
 
-function CalendarButton({onClick, disabled}) {
+function CalendarButton({id, disabled}) {
     const theme = useTheme()
     const classes = useStyles({theme})
-
-    const handlClick = () => {
-        onClick?.()
+    const [calendarAnchor, setCalendarAnchor] = useState(null)
+    const handleClick = (event) => {
+        setCalendarAnchor(event.currentTarget)
     }
+    const handleClose = () => {
+        setCalendarAnchor(null)
+    }
+    const open = Boolean(calendarAnchor)
+    const eventId = open ? id : undefined
 
     return (
-        <button
-            className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
-            type="button"
-            onClick={handlClick}
-            disabled={disabled}></button>
+        <>
+            <Popover
+                id={eventId}
+                open={open}
+                anchorEl={calendarAnchor}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
+                    horizontal: 'right',
+                }}>
+                <CalendarTooltip />
+            </Popover>
+            <button
+                className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
+                type="button"
+                onClick={handleClick}
+                disabled={disabled}
+            />
+        </>
     )
 }
 
 CalendarButton.propTypes = {
-    onClick: PropTypes.func,
+    id: PropTypes.string,
     disabled: PropTypes.bool,
 }
 
 const useStyles = createUseStyles((theme) => ({
     btnEventCalendar: {
-        opacity: 0.5,
         background: `url(${btnCalendarImg}) no-repeat`,
         backgroundPosition: 'center',
         border: 'none',
-        width: '48px',
-        height: '48px',
+        width: 48,
+        height: 48,
         borderRadius: '50%',
-        backgroundColor: '#5D5FEF',
+        backgroundColor: theme.colorSecondary,
         cursor: 'pointer',
         '&:hover': {
-            backgroundColor: '#5DC1EF',
+            backgroundColor: theme.colorSecondaryHover,
         },
     },
     disabled: {
-        backgroundColor: theme.colorPrimaryDisabled,
+        backgroundColor: theme.colorSecondaryDisabled,
     },
 }))
 
