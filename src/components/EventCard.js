@@ -1,25 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {createUseStyles} from 'react-jss'
 import PropTypes from 'prop-types'
 import SignupButton from 'common/SignupButton'
 import CalendarButton from 'common/CalendarButton'
-import CalendarTooltip from 'common/CalendarTooltip'
 import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-function EventCard({title, poster, date, joinLink, description, location}) {
+function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
     const classes = useStyles()
     const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
 
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
-    const [isCalTooltipDisplay, setIsCalTooltipDisplay] = useState(false)
-
-    const handleClick = () => {
-        setIsCalTooltipDisplay((_isCalTooltipDisplay) => !_isCalTooltipDisplay)
-    }
 
     return (
         <div className={classes.eventCard}>
@@ -40,8 +34,16 @@ function EventCard({title, poster, date, joinLink, description, location}) {
                         <SignupButton href={joinLink} />
                     </div>
                     <Space y1={10} />
-                    {isCalTooltipDisplay && <CalendarTooltip />}
-                    <CalendarButton onClick={handleClick} />
+
+                    <CalendarButton
+                        id={id}
+                        title={title}
+                        date={date}
+                        durationVal={durationVal}
+                        durationType={durationType}
+                        location={location}
+                        description={description}
+                    />
                 </div>
             </div>
         </div>

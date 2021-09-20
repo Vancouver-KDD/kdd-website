@@ -1,55 +1,54 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
+import {google, outlook, office365, yahoo, ics} from 'calendar-link'
 
-function CalendarTooltip() {
+export default function CalendarTooltip({title, date, durationVal, durationType, location, description}) {
     const classes = useStyles()
 
+    const event = {
+        title,
+        description,
+        start: date,
+        duration: [durationVal, durationType],
+        location,
+    }
+
     return (
-        <div className={classes.tooltip}>
-            <div className={classes.tooltipContent}>
+        <div className={classes.tooltipContent}>
+            <a href={google(event)}>
                 <div>Google Calendar</div>
+            </a>
+            <a href={ics(event)}>
                 <div>Apple Calendar</div>
+            </a>
+            <a href={outlook(event)}>
                 <div>Outlook</div>
-            </div>
+            </a>
+            <a href={yahoo(event)}>
+                <div>Yahoo</div>
+            </a>
+            <a href={office365(event)}>
+                <div>Office 365</div>
+            </a>
         </div>
     )
 }
 
 const useStyles = createUseStyles(() => ({
-    tooltip: {
-        position: 'absolute',
-        bottom: '130px',
-        left: '125px',
-    },
     tooltipContent: {
-        width: '220px',
-        height: '120px',
-        backgroundColor: '#ffffff',
+        width: 220,
         textAlign: 'center',
-        borderRadius: '8px',
-        boxShadow: '1px 1px 1px #BDBDBD',
-        '& div': {
-            height: '40px',
-            width: '100%',
-            fontSize: '2rem',
-            textAlign: 'center',
-            paddingTop: '5px',
-            '&:hover': {
-                backgroundColor: '#BDBDBD',
-                borderRadius: '8px',
+        fontSize: '1.6rem',
+        '& a': {
+            color: 'inherit',
+            textDecoration: 'inherit',
+            '& div': {
+                padding: 8,
+                cursor: 'pointer',
+                '&:hover': {
+                    backgroundColor: '#eee',
+                },
             },
-        },
-        '&::after': {
-            content: ' ',
-            position: 'absolute',
-            top: '100%',
-            left: '50%',
-            marginLeft: '-10px',
-            borderWidth: '10px',
-            borderStyle: 'solid',
-            borderColor: 'black transparent transparent transparent',
         },
     },
 }))
-
-export default CalendarTooltip
