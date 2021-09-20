@@ -7,14 +7,15 @@ import {useCollection} from 'store'
 export default function Stat() {
     const classes = useStyles()
     const {data} = useCollection({name: 'statistics'})
+
     return (
         <section className={classes.container}>
             <div className={classes.containerContent}>
                 <div className={classes.image} alt="Statistic image" />
                 <div className={classes.statInfo}>
                     <div>Since July 2017</div>
-                    <div>{data?.meetups ?? '37+'} Meetups</div>
-                    <div>{data?.members ?? '1150+'} Members</div>
+                    <div>{data?.meetups ?? '39+'} Meetups</div>
+                    <div>{data?.members ?? '1250+'} Members</div>
                 </div>
             </div>
         </section>
