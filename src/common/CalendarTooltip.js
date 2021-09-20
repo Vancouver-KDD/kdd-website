@@ -2,14 +2,15 @@ import React from 'react'
 import {createUseStyles} from 'react-jss'
 import {google, outlook, office365, yahoo, ics} from 'calendar-link'
 
-export default function CalendarTooltip() {
+export default function CalendarTooltip({title, date, durationVal, durationType, location, description}) {
     const classes = useStyles()
 
     const event = {
-        title: 'My birthday party',
-        description: 'Be there!',
-        start: '2019-12-29 18:00:00 +0100',
-        duration: [3, 'hour'],
+        title,
+        description,
+        start: date,
+        duration: [durationVal, durationType],
+        location,
     }
 
     return (

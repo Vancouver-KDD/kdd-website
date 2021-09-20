@@ -8,7 +8,7 @@ import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-function EventCard({id, title, poster, date, joinLink, description, location}) {
+function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
     const classes = useStyles()
     const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
 
@@ -35,7 +35,15 @@ function EventCard({id, title, poster, date, joinLink, description, location}) {
                     </div>
                     <Space y1={10} />
 
-                    <CalendarButton id={id} title={title} />
+                    <CalendarButton
+                        id={id}
+                        title={title}
+                        date={date}
+                        durationVal={durationVal}
+                        durationType={durationType}
+                        location={location}
+                        description={description}
+                    />
                 </div>
             </div>
         </div>

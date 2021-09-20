@@ -6,7 +6,7 @@ import btnCalendarImg from 'assets/images/btn-calendar.svg'
 import Popover from '@mui/material/Popover'
 import CalendarTooltip from 'common/CalendarTooltip'
 
-function CalendarButton({id, disabled}) {
+function CalendarButton({id, title, date, durationVal, durationType, location, description, disabled}) {
     const theme = useTheme()
     const classes = useStyles({theme})
     const [calendarAnchor, setCalendarAnchor] = useState(null)
@@ -33,7 +33,14 @@ function CalendarButton({id, disabled}) {
                 transformOrigin={{
                     horizontal: 'right',
                 }}>
-                <CalendarTooltip />
+                <CalendarTooltip
+                    title={title}
+                    date={date}
+                    durationVal={durationVal}
+                    durationType={durationType}
+                    location={location}
+                    description={description}
+                />
             </Popover>
             <button
                 className={classnames(classes.btnEventCalendar, disabled && classes.disabled)}
