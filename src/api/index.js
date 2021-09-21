@@ -1,8 +1,12 @@
+export function getBaseUrl() {
+    return (process.env.NODE_ENV === 'production' ? 'https://kdd-server.herokuapp.com' : 'http://localhost:1337')
+}
+
 /**
  * @returns {Promise} a promise that resolves to array of sponsors
  */
 export async function getSponsors() {
-    const res = await fetch('https://kdd-server.herokuapp.com/sponsors')
+    const res = await fetch(getBaseUrl() + '/sponsors')
     return res.json()
 }
 
@@ -13,21 +17,22 @@ export async function getSponsors() {
  * @returns {Promise} a promise that resolves to array of photos
  */
 export async function getPhotos({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
-    const res = await fetch(`https://kdd-server.herokuapp.com/photos?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
+    const res = await fetch(getBaseUrl() + `/photos?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()
 }
 
 export async function getStats() {
-    const res = await fetch('https://kdd-server.herokuapp.com/statistics/1')
+    const res = await fetch(getBaseUrl() + '/statistics/1')
     return res.json()
 }
 
 export async function getMembers() {
-    const res = await fetch('https://kdd-server.herokuapp.com/volunteers')
+    const res = await fetch(getBaseUrl() + '/volunteers')
     return res.json()
 }
 
+
 export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
-    const res = await fetch(`https://kdd-server.herokuapp.com/events?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
+    const res = await fetch(getBaseUrl() + `/events?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()
 }
