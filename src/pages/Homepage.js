@@ -6,6 +6,7 @@ import Footer from 'components/Footer'
 import NavigationBar from 'components/NavigationBar'
 import Stat from 'components/Stat'
 import Contact from 'components/Contact'
+import Event from 'components/Event'
 
 export default function Homepage() {
     return (
@@ -14,6 +15,7 @@ export default function Homepage() {
             <Hero />
             <Stat />
             <Sponsor />
+            <Event/>
             <PhotoCards />
             <Contact />
             <Footer />
