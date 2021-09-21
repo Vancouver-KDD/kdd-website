@@ -33,6 +33,6 @@ export async function getMembers() {
 
 
 export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
-    const res = await fetch(getBaseUrl() + `/events?_sort=created_at:DESC&_start=${offset}&_limit=${limit}`)
+    const res = await fetch(getBaseUrl() + `/events?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()
 }
