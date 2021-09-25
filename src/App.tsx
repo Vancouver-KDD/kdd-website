@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
 import Homepage from './pages/Homepage'
-import Eventspage from './pages/Eventspage'
+import EventsPage from './pages/EventPage'
 import Photospage from './pages/Photospage'
 import AboutUsPage from './pages/AboutUsPage'
 
@@ -24,7 +24,7 @@ export default function App() {
                         <Route exact path="/" component={() => <Homepage />} />
                         <Route path="/photos" component={() => <Photospage />} />
                         <Route exact path="/events/:id" component={() => <p>event id</p>} />
-                        <Route path="/events" component={() => <Eventspage />} />
+                        <Route path="/events" component={() => <EventsPage />} />
                         <Route path="/about-us" component={() => <AboutUsPage />} />
                     </Switch>
                 </main>
