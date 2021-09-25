@@ -58,6 +58,7 @@ EventCard.propTypes = {
 
 const useStyles = createUseStyles(() => ({
     eventCard: {
+        cursor: 'pointer',
         borderRadius: 16,
         display: 'flex',
         flexDirection: 'column',
@@ -65,8 +66,12 @@ const useStyles = createUseStyles(() => ({
         '@media (min-width: 600px)': {
             flexDirection: 'row',
         },
+        '&:hover > img': {
+            transform: 'scale(1.1)',
+        },
     },
     eventImage: {
+        transitionDuration: '0.5s',
         width: '100%',
         objectFit: 'cover',
         aspectRatio: '4 / 3',
@@ -76,6 +81,7 @@ const useStyles = createUseStyles(() => ({
         },
     },
     eventInfoContainer: {
+        zIndex: 1,
         display: 'flex',
         backgroundColor: '#F5F5F5',
         flexDirection: 'column',
