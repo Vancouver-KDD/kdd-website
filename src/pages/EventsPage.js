@@ -6,7 +6,7 @@ import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
 
-export default function EventPage() {
+export default function EventsPage() {
     const classes = useStyles()
     const {data} = useCollection({name: 'events'})
 

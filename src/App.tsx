@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
 import Homepage from './pages/Homepage'
-import EventsPage from './pages/EventPage'
+import EventsPage from './pages/EventsPage'
 import Photospage from './pages/Photospage'
 import AboutUsPage from './pages/AboutUsPage'
 
