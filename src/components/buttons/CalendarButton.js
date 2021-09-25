@@ -11,9 +11,11 @@ function CalendarButton({id, title, date, durationVal, durationType, location, d
     const classes = useStyles({theme})
     const [calendarAnchor, setCalendarAnchor] = useState(null)
     const handleClick = (event) => {
+        event.preventDefault()
         setCalendarAnchor(event.currentTarget)
     }
-    const handleClose = () => {
+    const handleClose = (event) => {
+        event.preventDefault()
         setCalendarAnchor(null)
     }
     const open = Boolean(calendarAnchor)

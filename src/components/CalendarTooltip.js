@@ -15,19 +15,19 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
 
     return (
         <div className={classes.tooltipContent}>
-            <a href={google(event)}>
+            <a onClick={(e) => e.stopPropagation()} href={google(event)}>
                 <div>Google Calendar</div>
             </a>
-            <a href={ics(event)}>
+            <a onClick={(e) => e.stopPropagation()} href={ics(event)}>
                 <div>Apple Calendar</div>
             </a>
-            <a href={outlook(event)}>
+            <a onClick={(e) => e.stopPropagation()} href={outlook(event)}>
                 <div>Outlook</div>
             </a>
-            <a href={yahoo(event)}>
+            <a onClick={(e) => e.stopPropagation()} href={yahoo(event)}>
                 <div>Yahoo</div>
             </a>
-            <a href={office365(event)}>
+            <a onClick={(e) => e.stopPropagation()} href={office365(event)}>
                 <div>Office 365</div>
             </a>
         </div>
@@ -40,8 +40,6 @@ const useStyles = createUseStyles({
         textAlign: 'center',
         fontSize: '1.6rem',
         '& a': {
-            color: 'inherit',
-            textDecoration: 'inherit',
             '& div': {
                 padding: 8,
                 cursor: 'pointer',

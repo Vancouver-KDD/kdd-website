@@ -7,6 +7,7 @@ import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import {Link} from 'react-router-dom'
 
 function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
     const classes = useStyles()
@@ -16,37 +17,39 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
     const dateLocation = `${dateStr} | ${location}`
 
     return (
-        <div className={classes.eventCard}>
-            <img className={classes.eventImage} src={posterImageUrl} alt={title} />
-            <div className={classes.eventInfoContainer}>
-                <div className={classes.eventInfo}>
-                    <p className={classes.eventDate}>{dateLocation}</p>
-                    <Space y1={15} />
-                    <h2>{title}</h2>
-                    <Space y1={15} />
-                    <div className={classes.eventDescription}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+        <Link to={`events/${id}`}>
+            <div className={classes.eventCard}>
+                <img className={classes.eventImage} src={posterImageUrl} alt={title} />
+                <div className={classes.eventInfoContainer}>
+                    <div className={classes.eventInfo}>
+                        <p className={classes.eventDate}>{dateLocation}</p>
+                        <Space y1={15} />
+                        <h2>{title}</h2>
+                        <Space y1={15} />
+                        <div className={classes.eventDescription}>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+                        </div>
                     </div>
-                </div>
-                <Space y1={15} />
-                <div className={classes.eventBtnGroup}>
-                    <div className={classes.signUpButtonContainer}>
-                        <SignupButton href={joinLink} />
-                    </div>
-                    <Space y1={10} />
+                    <Space y1={15} />
+                    <div className={classes.eventBtnGroup}>
+                        <div className={classes.signUpButtonContainer}>
+                            <SignupButton href={joinLink} />
+                        </div>
+                        <Space y1={10} />
 
-                    <CalendarButton
-                        id={id}
-                        title={title}
-                        date={date}
-                        durationVal={durationVal}
-                        durationType={durationType}
-                        location={location}
-                        description={description}
-                    />
+                        <CalendarButton
+                            id={id}
+                            title={title}
+                            date={date}
+                            durationVal={durationVal}
+                            durationType={durationType}
+                            location={location}
+                            description={description}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

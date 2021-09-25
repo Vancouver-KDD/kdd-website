@@ -6,7 +6,7 @@ function SignupButton({href}) {
     const classes = useStyles({theme})
 
     return (
-        <a href={href} className={classes.btnEventSignup}>
+        <a onClick={(e) => e.stopPropagation()} href={href} className={classes.btnEventSignup}>
             Sign Up
         </a>
     )
