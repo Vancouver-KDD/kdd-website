@@ -3,7 +3,7 @@ import {Image} from 'common/Image'
 import {createUseStyles} from 'react-jss'
 import {useCollection} from 'store'
 
-export default function Sponsor() {
+export default function Sponsors() {
     const classes = useStyles()
     const {data, loading, error} = useCollection({name: 'sponsors'})
 

@@ -4,7 +4,7 @@ import StatSmall from 'assets/images/stat-small.png'
 import StatLarge from 'assets/images/stat-large.png'
 import {useCollection} from 'store'
 
-export default function Stat() {
+export default function Stats() {
     const classes = useStyles()
     const {data} = useCollection({name: 'statistics'})
 

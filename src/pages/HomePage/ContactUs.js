@@ -6,7 +6,7 @@ import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
 import LinkedinIcon from 'assets/icons/linkedIn1.svg'
 
-function Contact() {
+export default function ContactUs() {
     const classes = useStyles()
     return (
         <section className={classes.default}>
@@ -86,5 +86,3 @@ const useStyles = createUseStyles(() => ({
         },
     },
 }))
-
-export default Contact

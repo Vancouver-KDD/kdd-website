@@ -1,9 +1,9 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider} from 'react-jss'
-import HomePage from './pages/HomePages'
+import HomePage from './pages/HomePage'
 import EventsPage from './pages/EventsPage'
-import PhotoPage from './pages/PhotoPage'
+import PhotosPage from './pages/PhotosPage'
 import AboutUsPage from './pages/AboutUsPage'
 
 const theme = {
@@ -22,7 +22,7 @@ export default function App() {
                 <main>
                     <Switch>
                         <Route exact path="/" component={() => <HomePage />} />
-                        <Route path="/photos" component={() => <PhotoPage />} />
+                        <Route path="/photos" component={() => <PhotosPage />} />
                         <Route exact path="/events/:id" component={() => <p>event id</p>} />
                         <Route path="/events" component={() => <EventsPage />} />
                         <Route path="/about-us" component={() => <AboutUsPage />} />

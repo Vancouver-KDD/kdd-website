@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
 import {ArrowButton} from 'common/ArrowButton'
-import PhotoCard from './PhotoCard'
+import PhotoCard from '../../components/PhotoCard'
 import {useCollection} from 'store'
 
-export default function PhotoCards() {
-    const TODO_NUM = 1
+const TODO_NUM = 1
+
+export default function HomePhotos() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [leftDisabled, setLeftDisabled] = useState(true)
     const [rightDisabled, setRightDisabled] = useState(false)
