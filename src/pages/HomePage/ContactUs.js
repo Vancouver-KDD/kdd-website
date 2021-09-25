@@ -1,6 +1,6 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import {Image} from 'common/Image'
+import {Image} from 'components/Image'
 import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
@@ -36,7 +36,7 @@ export default function ContactUs() {
     )
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     contactSection: {width: 375, maxWidth: '100%'},
     contactSNSIcon: {
         width: 50,
@@ -85,4 +85,4 @@ const useStyles = createUseStyles(() => ({
             marginRight: 10,
         },
     },
-}))
+})

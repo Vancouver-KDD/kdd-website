@@ -8,18 +8,13 @@ import rightArrorButtonImg from 'assets/images/btn-arror-right.svg'
 export const ArrowButton = ({direction, onClick, disabled}) => {
     const classes = useStyles()
 
-    const handlClick = () => {
-        onClick?.()
-    }
-
     return (
         <button
             className={classnames(classes.default, classes[direction], disabled && classes.disabled)}
             type="button"
-            onClick={handlClick}
-            disabled={disabled}>
-            {}
-        </button>
+            onClick={onClick}
+            disabled={disabled}
+        />
     )
 }
 
@@ -32,8 +27,8 @@ ArrowButton.propTypes = {
 const useStyles = createUseStyles({
     default: {
         border: 'none',
-        width: '40px',
-        height: '40px',
+        width: 40,
+        height: 40,
         borderRadius: '50%',
         cursor: 'pointer',
         '@media (hover: hover) ': {

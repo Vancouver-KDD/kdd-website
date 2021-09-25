@@ -34,7 +34,7 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
     )
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     tooltipContent: {
         width: 220,
         textAlign: 'center',
@@ -51,4 +51,4 @@ const useStyles = createUseStyles(() => ({
             },
         },
     },
-}))
+})

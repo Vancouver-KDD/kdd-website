@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image} from 'common/Image'
+import {Image} from 'components/Image'
 import {createUseStyles} from 'react-jss'
 import {useCollection} from 'store'
 

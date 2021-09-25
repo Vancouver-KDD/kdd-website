@@ -3,22 +3,19 @@ import PropTypes from 'prop-types'
 import {createUseStyles} from 'react-jss'
 import iconCloseButton from 'assets/icons/closeButton.svg'
 
-export const Modal = ({photoUrl, photoAlt, photoDescription, photoAuthor, visible, toggleModal}) => {
+export default function Modal({photoUrl, photoAlt, photoDescription, photoAuthor, visible, toggleModal}) {
     const classes = useStyles(visible)
-    const closeModal = () => {
-        toggleModal?.()
-    }
 
     return (
-        <div className={classes.modal} onClick={closeModal}>
+        <div className={classes.modal} onClick={toggleModal}>
             <div className={classes.modalBody}>
                 <div>
                     <img src={photoUrl} alt={photoAlt} />
                 </div>
-                <p className={classes.photoDescription}>
+                <span className={classes.photoDescription}>
                     {photoDescription}
-                    <p>by {photoAuthor}</p>
-                </p>
+                    <p>by {photoAuthor ?? 'Anonymous'}</p>
+                </span>
             </div>
         </div>
     )
@@ -33,14 +30,14 @@ Modal.propTypes = {
     toggleModal: PropTypes.func,
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     modal: {
         position: 'fixed',
-        top: '0',
-        left: '0',
+        top: 0,
+        left: 0,
         width: '100%',
         height: '100%',
-        display: (_isVisible) => (_isVisible ? 'block' : 'none'),
+        display: (visible) => (visible ? 'block' : 'none'),
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         zIndex: 1100,
     },
@@ -48,8 +45,8 @@ const useStyles = createUseStyles(() => ({
         position: 'absolute',
         top: '45%',
         left: '50%',
-        width: '375px',
-        maxHeight: '680px',
+        width: 375,
+        maxHeight: 680,
         textAlign: 'center',
         transform: 'translateX(-50%) translateY(-50%)',
         backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -59,62 +56,60 @@ const useStyles = createUseStyles(() => ({
             backgroundColor: 'black',
         },
         '& img': {
-            width: '375px',
-            maxHeight: '540px',
+            width: 375,
+            maxHeight: 540,
             objectFit: 'contain',
         },
         '@media (min-width: 800px)': {
-            width: '760px',
+            width: 760,
             '& img': {
-                width: '760px',
+                width: 760,
             },
         },
         '@media (min-width: 1024px)': {
-            width: '1024px',
+            width: 1024,
             '& img': {
-                width: '1024px',
+                width: 1024,
             },
         },
     },
     photoDescription: {
+        display: 'block',
         margin: '1rem auto',
-        width: '375px',
+        width: 375,
         color: '#fff',
         fontSize: '1.4rem',
         fontWeight: '700',
         textAlign: 'left',
         '& p': {
             fontSize: '1rem',
-            fontWeight: '700',
             textAlign: 'right',
         },
         '@media (min-width: 800px)': {
             padding: '0 4rem',
-            width: '760px',
+            width: 760,
             fontSize: '2rem',
             '& p': {
                 fontSize: '1.6rem',
-                textAlign: 'right',
             },
         },
         '@media (min-width: 1024px)': {
             padding: '0 8rem',
-            width: '1024px',
+            width: 1024,
             fontSize: '2.4rem',
             '& p': {
                 fontSize: '1.8rem',
-                textAlign: 'right',
             },
         },
     },
     closeButton: {
         position: 'absolute',
-        top: '15px',
-        right: '15px',
-        width: '30px',
-        height: '30px',
-        border: '0',
+        top: 15,
+        right: 15,
+        width: 30,
+        height: 30,
+        border: 0,
         background: `url(${iconCloseButton}) no-repeat right`,
-        backgroundSize: '30px',
+        backgroundSize: 30,
     },
-}))
+})

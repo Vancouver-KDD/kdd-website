@@ -1,7 +1,7 @@
 // Deprecated
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
-import {ArrowButton} from 'common/ArrowButton'
+import {ArrowButton} from 'components/buttons/ArrowButton'
 import {useCollection} from 'store'
 import EventCard from './EventCard'
 
@@ -63,7 +63,7 @@ const useStyles = createUseStyles({
         overflowX: 'hidden',
     },
     eventCardList: {
-        width: '3500px',
+        width: 3500,
         overflow: 'hidden',
         transition: 'all 300ms ease 0s',
         display: 'flex',
@@ -75,10 +75,10 @@ const useStyles = createUseStyles({
     groupArrowButton: {
         position: 'relative',
         display: 'inline-block',
-        top: '0',
+        top: 0,
         left: '36%',
         '& button': {
-            marginLeft: '8px',
+            marginLeft: 8,
         },
         '@media (min-width: 800px)': {
             left: '43.5%',
@@ -86,7 +86,7 @@ const useStyles = createUseStyles({
         '@media (min-width: 1024px)': {
             left: '45%',
             '& button': {
-                marginLeft: '12px',
+                marginLeft: 12,
             },
         },
     },

@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import moment from 'moment'
-import {Button} from 'common/Button'
+import {Button} from 'components/buttons/Button'
 import NavigationBar from 'components/NavigationBar'
 import PhotoCard from 'components/PhotoCard'
 import Footer from 'components/Footer'
-import {Modal} from 'common/Modal'
+import Modal from 'components/Modal'
 import {useCollection} from 'store'
 
 export default function PhotosPage() {
@@ -83,16 +83,16 @@ const isDisplayCreateDate = (index = 0, photos = null) => {
     return !moment(currentCreateDate).isSame(previousCreateDate, 'day')
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     wrap: {
         position: 'relative',
-        width: '375px',
+        width: 375,
         margin: 'auto',
         '@media (min-width: 800px)': {
-            width: '758px',
+            width: 758,
         },
         '@media (min-width: 1024px)': {
-            width: '1024px',
+            width: 1024,
         },
     },
     photoBox: {
@@ -106,16 +106,16 @@ const useStyles = createUseStyles(() => ({
             fontSize: '2.8rem',
             fontWeight: '600',
             margin: '4px 0px',
-            width: '375px',
+            width: 375,
             '@media (min-width: 800px)': {
-                width: '758px',
+                width: 758,
             },
             '@media (min-width: 1024px)': {
-                width: '1024px',
+                width: 1024,
             },
         },
     },
     photoCardPick: {
         color: 'black',
     },
-}))
+})

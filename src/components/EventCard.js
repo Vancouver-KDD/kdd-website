@@ -1,8 +1,8 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
 import PropTypes from 'prop-types'
-import SignupButton from 'common/SignupButton'
-import CalendarButton from 'common/CalendarButton'
+import SignupButton from 'components/buttons/SignupButton'
+import CalendarButton from 'components/buttons/CalendarButton'
 import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -24,9 +24,9 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                     <Space y1={15} />
                     <h2>{title}</h2>
                     <Space y1={15} />
-                    <p className={classes.eventDescription}>
+                    <div className={classes.eventDescription}>
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
-                    </p>
+                    </div>
                 </div>
                 <Space y1={15} />
                 <div className={classes.eventBtnGroup}>
@@ -56,7 +56,7 @@ EventCard.propTypes = {
     location: PropTypes.string,
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     eventCard: {
         cursor: 'pointer',
         borderRadius: 16,
@@ -124,6 +124,6 @@ const useStyles = createUseStyles(() => ({
         justifyContent: 'center',
         alignItems: 'center',
     },
-}))
+})
 
 export default EventCard

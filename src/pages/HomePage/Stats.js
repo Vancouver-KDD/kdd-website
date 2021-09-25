@@ -49,8 +49,8 @@ const useStyles = createUseStyles({
         backgroundColor: 'white',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        height: '250px',
-        width: '250px',
+        height: 250,
+        width: 250,
         '@media (min-width: 768px)': {
             width: 'unset',
             height: 'inherit',
