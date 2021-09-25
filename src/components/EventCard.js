@@ -90,7 +90,6 @@ const useStyles = createUseStyles(() => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
         flex: 1,
         '& h2': {
             fontSize: '2.4rem',
@@ -101,11 +100,14 @@ const useStyles = createUseStyles(() => ({
     },
     eventDescription: {
         fontSize: '160%',
-        display: 'flex',
-        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
-        flex: 1,
+        display: '-webkit-box',
+        WebkitLineClamp: 10,
+        WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        '@media (min-width: 600px)': {
+            WebkitLineClamp: 5,
+        },
     },
     signUpButtonContainer: {
         flex: 1,
