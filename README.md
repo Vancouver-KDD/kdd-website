@@ -61,3 +61,11 @@ https://code.visualstudio.com/docs/setup/setup-overview
 - ESLint
 - Prettier - Code formatter
 ```
+
+10. If you want to target local server start https://github.com/Vancouver-KDD/kdd-website-server-strapi and target local server url in .env file
+
+11. Start Create React App
+
+```
+yarn start
+```

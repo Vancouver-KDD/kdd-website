@@ -1,5 +1,5 @@
 export function getBaseUrl() {
-    return (process.env.NODE_ENV === 'production' ? 'https://kdd-server.herokuapp.com' : 'http://localhost:1337')
+    return process.env.REACT_APP_SERVER_URL
 }
 
 /**
@@ -30,7 +30,6 @@ export async function getMembers() {
     const res = await fetch(getBaseUrl() + '/volunteers')
     return res.json()
 }
-
 
 export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
     const res = await fetch(getBaseUrl() + `/events?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
