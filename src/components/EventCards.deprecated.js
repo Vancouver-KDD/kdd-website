@@ -1,3 +1,4 @@
+// Deprecated
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import {ArrowButton} from 'common/ArrowButton'

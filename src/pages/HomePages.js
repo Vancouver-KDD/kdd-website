@@ -6,16 +6,16 @@ import Footer from 'components/Footer'
 import NavigationBar from 'components/NavigationBar'
 import Stat from 'components/Stat'
 import Contact from 'components/Contact'
-import Event from 'components/Event'
+import HomeEvent from 'components/HomeEvent'
 
-export default function Homepage() {
+export default function HomePage() {
     return (
         <>
             <NavigationBar />
             <Hero />
             <Stat />
             <Sponsor />
-            <Event/>
+            <HomeEvent />
             <PhotoCards />
             <Contact />
             <Footer />

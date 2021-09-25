@@ -4,9 +4,9 @@ import EventCard from 'components/EventCard'
 import {Space} from 'components'
 import {useCollection} from 'store'
 
-export default function Events() {
+export default function HomeEvent() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events', defaultData: null, limit: 1 })
+    const {data} = useCollection({name: 'events', defaultData: null, limit: 1})
 
     return (
         <>
@@ -27,6 +27,7 @@ export default function Events() {
     )
 }
 
+// TODO: Make this label component reusable
 function Label({text}) {
     const classes = useStyles()
     return (
