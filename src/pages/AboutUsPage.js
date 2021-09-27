@@ -161,6 +161,7 @@ const useStyles = createUseStyles({
         width: '100%',
         borderRadius: 8,
         objectFit: 'cover',
+        aspectRatio: 1,
     },
     socialContainer: {
         marginTop: 10,
