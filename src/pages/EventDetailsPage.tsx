@@ -17,8 +17,7 @@ export default function EventDetailsPage() {
     const classes = useStyles()
     const match = useRouteMatch<{id: string}>('/events/:id')
     const {data} = useCollection({name: 'events', id: match?.params.id})
-    const event = data?.[0] ?? {}
-    const {id, title, date, durationVal, durationType, joinLink, description, location} = event
+    const {id, title, date, poster, durationVal, durationType, joinLink, description, location} = data?.[0] ?? {}
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
@@ -28,7 +27,7 @@ export default function EventDetailsPage() {
             <NavigationBar />
             <div className={classes.container}>
                 <div className={classes.contentContainer}>
-                    <button className={classes.backButton}>
+                    <button className={classes.backButton} onClick={() => window.history.back()}>
                         <span className={classes.backButtonIcon}>
                             <ArrowBackIcon fontSize="inherit" />
                         </span>
@@ -37,8 +36,8 @@ export default function EventDetailsPage() {
                     <div className={classes.content}>
                         <Space direction="vertical" y1={10} y2={30} />
                         <img
-                            src={event.poster?.[0]?.formats.large.url ?? event.poster?.[0]?.url}
-                            alt={event.poster?.[0]?.name}
+                            src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
+                            alt={poster?.[0]?.name}
                             className={classes.infoImage}
                         />
                         <Space y1={10} y2={25} />
