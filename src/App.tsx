@@ -26,7 +26,7 @@ export default function App() {
                         <Route exact path="/" component={() => <HomePage />} />
                         <Route exact path="/photos" component={() => <PhotosPage />} />
                         <Route exact path="/events" component={() => <EventsPage />} />
-                        <Route exact path="/events/:id" component={({id}: {id: string}) => <EventDetailsPage id={id} />} />
+                        <Route exact path="/events/:id" component={() => <EventDetailsPage />} />
                         <Route exact path="/about-us" component={() => <AboutUsPage />} />
                     </Switch>
                 </main>

@@ -6,7 +6,7 @@ import {useCollection} from 'store'
 
 export default function HomeEvent() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events', defaultData: null, limit: 1})
+    const {data} = useCollection({name: 'events', limit: 1})
 
     return (
         <>

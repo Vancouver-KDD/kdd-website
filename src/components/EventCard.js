@@ -17,7 +17,7 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
     const dateLocation = `${dateStr} | ${location}`
 
     return (
-        <Link to={`events/${id}`}>
+        <Link to={`events/${id}`} className={classes.link}>
             <div className={classes.eventCard}>
                 <img className={classes.eventImage} src={posterImageUrl} alt={title} />
                 <div className={classes.eventInfoContainer}>
@@ -60,6 +60,9 @@ EventCard.propTypes = {
 }
 
 const useStyles = createUseStyles({
+    link: {
+        textDecoration: 'inherit',
+    },
     eventCard: {
         cursor: 'pointer',
         borderRadius: 16,

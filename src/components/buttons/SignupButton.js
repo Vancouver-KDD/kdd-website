@@ -24,6 +24,7 @@ const useStyles = createUseStyles((theme) => ({
         justifyContent: 'center',
         fontSize: '1.8rem',
         padding: 10,
+        textAlign: 'center',
         '&:hover': {
             backgroundColor: theme.colorPrimaryHover,
         },

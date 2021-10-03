@@ -16,8 +16,15 @@ html {
 }
 
 a {
-    text-decoration: inherit;
     color: inherit;
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
 ol,
