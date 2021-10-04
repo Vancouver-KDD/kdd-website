@@ -1,4 +1,4 @@
-import {Button} from 'common/Button'
+import {Button} from 'components/buttons/Button'
 import {render, screen, fireEvent} from '@testing-library/react'
 
 test('should render', () => {

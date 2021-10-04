@@ -1,4 +1,4 @@
-import {Image} from 'common/Image'
+import {Image} from 'components/Image'
 import {render, screen, fireEvent} from '@testing-library/react'
 
 test('should render', () => {

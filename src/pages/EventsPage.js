@@ -1,15 +1,18 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
 import EventCard from 'components/EventCard'
+import NavigationBar from 'components/NavigationBar'
+import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
 
-export default function Events() {
+export default function EventsPage() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events', defaultData: null, limit: 1 })
+    const {data} = useCollection({name: 'events'})
 
     return (
         <>
+            <NavigationBar />
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
@@ -23,6 +26,7 @@ export default function Events() {
                     ))}
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
@@ -31,7 +35,7 @@ function Label({text}) {
     const classes = useStyles()
     return (
         <div className={classes.labelContainer}>
-            <h4>{text}</h4>
+            <h1>{text}</h1>
             <Space y1={10} y2={15} />
             <div className={classes.labelLine} />
         </div>

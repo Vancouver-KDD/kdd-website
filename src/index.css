@@ -15,6 +15,18 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    color: inherit;
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
 ol,
 ul {
     list-style: none;

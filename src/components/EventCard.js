@@ -1,12 +1,13 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
 import PropTypes from 'prop-types'
-import SignupButton from 'common/SignupButton'
-import CalendarButton from 'common/CalendarButton'
+import SignupButton from 'components/buttons/SignupButton'
+import CalendarButton from 'components/buttons/CalendarButton'
 import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import {Link} from 'react-router-dom'
 
 function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
     const classes = useStyles()
@@ -16,37 +17,39 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
     const dateLocation = `${dateStr} | ${location}`
 
     return (
-        <div className={classes.eventCard}>
-            <img className={classes.eventImage} src={posterImageUrl} alt={title} />
-            <div className={classes.eventInfoContainer}>
-                <div className={classes.eventInfo}>
-                    <p className={classes.eventDate}>{dateLocation}</p>
-                    <Space y1={15} />
-                    <h2>{title}</h2>
-                    <Space y1={15} />
-                    <p className={classes.eventDescription}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
-                    </p>
-                </div>
-                <Space y1={15} />
-                <div className={classes.eventBtnGroup}>
-                    <div className={classes.signUpButtonContainer}>
-                        <SignupButton href={joinLink} />
+        <Link to={`events/${id}`} className={classes.link}>
+            <div className={classes.eventCard}>
+                <img className={classes.eventImage} src={posterImageUrl} alt={title} />
+                <div className={classes.eventInfoContainer}>
+                    <div className={classes.eventInfo}>
+                        <p className={classes.eventDate}>{dateLocation}</p>
+                        <Space y1={15} />
+                        <h2>{title}</h2>
+                        <Space y1={15} />
+                        <div className={classes.eventDescription}>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
+                        </div>
                     </div>
-                    <Space y1={10} />
+                    <Space y1={15} />
+                    <div className={classes.eventBtnGroup}>
+                        <div className={classes.signUpButtonContainer}>
+                            <SignupButton href={joinLink} />
+                        </div>
+                        <Space y1={10} />
 
-                    <CalendarButton
-                        id={id}
-                        title={title}
-                        date={date}
-                        durationVal={durationVal}
-                        durationType={durationType}
-                        location={location}
-                        description={description}
-                    />
+                        <CalendarButton
+                            id={id}
+                            title={title}
+                            date={date}
+                            durationVal={durationVal}
+                            durationType={durationType}
+                            location={location}
+                            description={description}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
@@ -56,8 +59,12 @@ EventCard.propTypes = {
     location: PropTypes.string,
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
+    link: {
+        textDecoration: 'inherit',
+    },
     eventCard: {
+        cursor: 'pointer',
         borderRadius: 16,
         display: 'flex',
         flexDirection: 'column',
@@ -65,8 +72,12 @@ const useStyles = createUseStyles(() => ({
         '@media (min-width: 600px)': {
             flexDirection: 'row',
         },
+        '&:hover > img': {
+            transform: 'scale(1.1)',
+        },
     },
     eventImage: {
+        transitionDuration: '0.5s',
         width: '100%',
         objectFit: 'cover',
         aspectRatio: '4 / 3',
@@ -76,6 +87,7 @@ const useStyles = createUseStyles(() => ({
         },
     },
     eventInfoContainer: {
+        zIndex: 1,
         display: 'flex',
         backgroundColor: '#F5F5F5',
         flexDirection: 'column',
@@ -90,7 +102,6 @@ const useStyles = createUseStyles(() => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
         flex: 1,
         '& h2': {
             fontSize: '2.4rem',
@@ -101,11 +112,14 @@ const useStyles = createUseStyles(() => ({
     },
     eventDescription: {
         fontSize: '160%',
-        display: 'flex',
-        // TODO: Fix to ensure picture ratio only changes from 16/10 to 4/3
-        flex: 1,
+        display: '-webkit-box',
+        WebkitLineClamp: 10,
+        WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        '@media (min-width: 600px)': {
+            WebkitLineClamp: 5,
+        },
     },
     signUpButtonContainer: {
         flex: 1,
@@ -116,6 +130,6 @@ const useStyles = createUseStyles(() => ({
         justifyContent: 'center',
         alignItems: 'center',
     },
-}))
+})
 
 export default EventCard

@@ -99,8 +99,10 @@ const Member = ({name, title, description, profilePic, socialList}) => {
             <p style={{fontSize: '1.8rem'}}>{title}</p>
             <p style={{fontSize: '1.5rem'}}>{description}</p>
             <div className={classes.socialContainer}>
-                {socialList?.map((sns) => (
-                    <img key={sns.id} src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
+                {socialList?.map((sns, index) => (
+                    <a key={index} href={sns.link}>
+                        <img src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
+                    </a>
                 ))}
             </div>
         </div>
@@ -238,11 +240,11 @@ const useStyles = createUseStyles({
         marginTop: '3rem',
         align: 'center',
         width: '100%',
-        height: '200px',
+        height: 200,
         overflow: 'hidden',
         '@media (min-width: 800px)': {
             width: '0rem',
-            height: '10px',
+            height: 10,
             align: 'center',
             overflow: 'hidden',
         },

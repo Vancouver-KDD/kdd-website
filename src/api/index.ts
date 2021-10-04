@@ -31,6 +31,14 @@ export async function getMembers() {
     return res.json()
 }
 
+export async function getEvent({id}: {id?: string}) {
+    if (!id) {
+        throw new Error('Invalid ID')
+    }
+    const res = await fetch(getBaseUrl() + `/events/${id}`)
+    return res.json()
+}
+
 export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
     const res = await fetch(getBaseUrl() + `/events?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()
