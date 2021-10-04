@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
-import {ArrowButton} from 'common/ArrowButton'
-import PhotoCard from './PhotoCard'
+import {ArrowButton} from 'components/buttons/ArrowButton'
+import PhotoCard from 'components/PhotoCard'
 import {useCollection} from 'store'
 
-export default function PhotoCards() {
-    const TODO_NUM = 1
+const TODO_NUM = 1
+
+export default function HomePhotos() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
     const [leftDisabled, setLeftDisabled] = useState(true)
     const [rightDisabled, setRightDisabled] = useState(false)
@@ -65,12 +66,12 @@ export default function PhotoCards() {
     )
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     photos: {
         position: 'relative',
-        width: '375px',
+        width: 375,
         maxWidth: '100%',
-        height: '370px',
+        height: 370,
         textAlign: 'center',
         margin: 'auto',
         '& h1': {
@@ -78,11 +79,11 @@ const useStyles = createUseStyles(() => ({
             fontSize: '3.5rem',
         },
         '@media (min-width: 800px)': {
-            width: '756px',
+            width: 756,
         },
         '@media (min-width: 1024px)': {
-            width: '1022px',
-            height: '400px',
+            width: 1022,
+            height: 400,
         },
     },
     photoBox: {
@@ -102,13 +103,13 @@ const useStyles = createUseStyles(() => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        marginBottom: '4px',
+        marginBottom: 4,
         '& a': {
             fontSize: '1.3rem',
             fontWeight: '600',
         },
         '& button': {
-            marginLeft: '7px',
+            marginLeft: 7,
         },
     },
-}))
+})

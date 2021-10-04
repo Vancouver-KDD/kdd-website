@@ -4,7 +4,7 @@ import StatSmall from 'assets/images/stat-small.png'
 import StatLarge from 'assets/images/stat-large.png'
 import {useCollection} from 'store'
 
-export default function Stat() {
+export default function Stats() {
     const classes = useStyles()
     const {data} = useCollection({name: 'statistics'})
 
@@ -49,8 +49,8 @@ const useStyles = createUseStyles({
         backgroundColor: 'white',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        height: '250px',
-        width: '250px',
+        height: 250,
+        width: 250,
         '@media (min-width: 768px)': {
             width: 'unset',
             height: 'inherit',

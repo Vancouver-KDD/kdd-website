@@ -8,10 +8,6 @@ export const Button = ({className, to, href, newTab, Icon, text, children, onCli
     const theme = useTheme()
     const classes = useStyles({theme})
 
-    const handlClick = () => {
-        onClick?.()
-    }
-
     let Wrapper = 'button'
     if (to) {
         Wrapper = Link
@@ -27,7 +23,7 @@ export const Button = ({className, to, href, newTab, Icon, text, children, onCli
             target={newTab ? '_blank' : undefined}
             rel={newTab ? 'noreferrer' : undefined}
             type="button"
-            onClick={handlClick}
+            onClick={onClick}
             disabled={disabled}>
             {Icon}
             {!!text && <span style={{marginLeft: Icon ? 6 : 0}}>{text}</span>}

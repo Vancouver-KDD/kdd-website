@@ -1,18 +1,15 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
 import EventCard from 'components/EventCard'
-import NavigationBar from 'components/NavigationBar'
-import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
 
-export default function Eventspage() {
+export default function HomeEvent() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events'})
+    const {data} = useCollection({name: 'events', limit: 1})
 
     return (
         <>
-            <NavigationBar />
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
@@ -26,16 +23,16 @@ export default function Eventspage() {
                     ))}
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
 
+// TODO: Make this label component reusable
 function Label({text}) {
     const classes = useStyles()
     return (
         <div className={classes.labelContainer}>
-            <h1>{text}</h1>
+            <h4>{text}</h4>
             <Space y1={10} y2={15} />
             <div className={classes.labelLine} />
         </div>

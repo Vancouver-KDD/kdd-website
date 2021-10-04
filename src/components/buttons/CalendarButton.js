@@ -4,16 +4,18 @@ import PropTypes from 'prop-types'
 import {createUseStyles, useTheme} from 'react-jss'
 import btnCalendarImg from 'assets/images/btn-calendar.svg'
 import Popover from '@mui/material/Popover'
-import CalendarTooltip from 'common/CalendarTooltip'
+import CalendarTooltip from 'components/CalendarTooltip'
 
 function CalendarButton({id, title, date, durationVal, durationType, location, description, disabled}) {
     const theme = useTheme()
     const classes = useStyles({theme})
     const [calendarAnchor, setCalendarAnchor] = useState(null)
     const handleClick = (event) => {
+        event.preventDefault()
         setCalendarAnchor(event.currentTarget)
     }
-    const handleClose = () => {
+    const handleClose = (event) => {
+        event.preventDefault()
         setCalendarAnchor(null)
     }
     const open = Boolean(calendarAnchor)
@@ -31,6 +33,7 @@ function CalendarButton({id, title, date, durationVal, durationType, location, d
                     horizontal: 'center',
                 }}
                 transformOrigin={{
+                    vertical: 'top',
                     horizontal: 'right',
                 }}>
                 <CalendarTooltip
@@ -53,7 +56,7 @@ function CalendarButton({id, title, date, durationVal, durationType, location, d
 }
 
 CalendarButton.propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.number,
     disabled: PropTypes.bool,
 }
 

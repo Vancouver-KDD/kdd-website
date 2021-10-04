@@ -47,7 +47,7 @@ export default function NavigationBar() {
     )
 }
 
-const useStyles = createUseStyles(() => ({
+const useStyles = createUseStyles({
     default: {
         display: 'flex',
         flexDirection: 'column',
@@ -95,4 +95,4 @@ const useStyles = createUseStyles(() => ({
             textDecoration: 'underline',
         },
     },
-}))
+})

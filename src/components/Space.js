@@ -8,13 +8,13 @@ export default function Space(props) {
     const maxWidth = (!direction || direction === 'horizontal') && y2 ? y2 : undefined
     const maxHeight = (!direction || direction === 'vertical') && y2 ? y2 : undefined
 
-    const slope = (x2 - x1) / (y2 - y1)
+    const slope = (y2 - y1) / (x2 - x1)
     const b = y1 - x1 * slope
 
     const sizeStyle = `calc(${(slope * 100).toFixed(5)}vw + ${b}px)`
     const directionStyle = direction
         ? {
-              [direction]: sizeStyle,
+              [direction === 'vertical' ? 'height' : 'width']: sizeStyle,
           }
         : {
               width: sizeStyle,

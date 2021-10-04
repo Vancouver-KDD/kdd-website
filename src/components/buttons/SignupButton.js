@@ -6,7 +6,7 @@ function SignupButton({href}) {
     const classes = useStyles({theme})
 
     return (
-        <a href={href} className={classes.btnEventSignup}>
+        <a onClick={(e) => e.stopPropagation()} href={href} className={classes.btnEventSignup}>
             Sign Up
         </a>
     )
@@ -24,6 +24,7 @@ const useStyles = createUseStyles((theme) => ({
         justifyContent: 'center',
         fontSize: '1.8rem',
         padding: 10,
+        textAlign: 'center',
         '&:hover': {
             backgroundColor: theme.colorPrimaryHover,
         },
