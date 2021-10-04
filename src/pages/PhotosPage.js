@@ -46,7 +46,7 @@ export default function PhotosPage() {
                 <h1>Photos</h1>
                 <div className={classes.photoBox}>
                     <div className={classes.photoCardList}>
-                        {photos?.map((photo, index) => {
+                        {photos?.map?.((photo, index) => {
                             const imageUrl = photo.photo?.[0]?.formats?.medium?.url || photo.photo?.[0]?.url
                             return (
                                 <React.Fragment key={photo.id}>

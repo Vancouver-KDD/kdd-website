@@ -47,7 +47,7 @@ export default function HomePhotos() {
                     <div className={classes.photoCardList}>
                         {loading && <span>loading...</span>}
                         {!!error && <span>ERROR: {error.message}</span>}
-                        {photos?.map((photo) => {
+                        {photos?.map?.((photo) => {
                             const imageUrl = photo?.photo?.[0]?.formats?.medium?.url || photo?.photo?.[0]?.url
                             return (
                                 <PhotoCard

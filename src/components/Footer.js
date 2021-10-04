@@ -10,7 +10,7 @@ export default function Footer() {
         <footer className={classes.footer}>
             <p>
                 Developed by{' '}
-                {data?.developers?.map(({name, link}, i) => (
+                {data?.developers?.map?.(({name, link}, i) => (
                     <a key={i} href={link}>
                         {name}
                     </a>
@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
             <p>
                 Special thanks to{' '}
-                {data?.supporters?.map(({name, link}, i) => (
+                {data?.supporters?.map?.(({name, link}, i) => (
                     <a key={i} href={link}>
                         {name}
                     </a>

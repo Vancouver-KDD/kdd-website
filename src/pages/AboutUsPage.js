@@ -68,7 +68,7 @@ export default function AboutUsPage() {
             <Section>
                 <h1>Organizers</h1>
                 <div className={classes.membersContainer}>
-                    {data?.map((member) => {
+                    {data?.map?.((member) => {
                         return <Member key={member.id} {...member} />
                     })}
                 </div>
@@ -99,7 +99,7 @@ const Member = ({name, title, description, profilePic, socialList}) => {
             <p style={{fontSize: '1.8rem'}}>{title}</p>
             <p style={{fontSize: '1.5rem'}}>{description}</p>
             <div className={classes.socialContainer}>
-                {socialList?.map((sns, index) => (
+                {socialList?.map?.((sns, index) => (
                     <a key={index} href={sns.link}>
                         <img src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
                     </a>
