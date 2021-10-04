@@ -35,3 +35,18 @@ export async function getEvents({offset = 0, limit = 6} = {offset: 0, limit: 6})
     const res = await fetch(getBaseUrl() + `/events?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
     return res.json()
 }
+//project page
+export async function getProjects({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
+    const res = await fetch(getBaseUrl() + `/projects`)
+    return res.json()
+}
+//blog page
+// export async function getBlog{offset = 0, limit = 6} = {offset: 0, limit: 6}) {
+//     const res = await fetch(getBaseUrl() + `/projects?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
+//     return res.json()
+// }
+//jobs page
+// export async function getJobs({offset = 0, limit = 6} = {offset: 0, limit: 6}) {
+//     const res = await fetch(getBaseUrl() + `/projects?_sort=date:DESC&_start=${offset}&_limit=${limit}`)
+//     return res.json()
+// }
