@@ -3,6 +3,7 @@ import {createUseStyles} from 'react-jss'
 import PropTypes from 'prop-types'
 import SignupButton from 'components/buttons/SignupButton'
 import CalendarButton from 'components/buttons/CalendarButton'
+import ClosedButton from 'components/buttons/ClosedButton'
 import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -15,6 +16,8 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
 
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
+    const todayDate= moment.utc()
+    const eventDate = moment.utc(date)
 
     return (
         <Link to={`events/${id}`} className={classes.link}>
@@ -33,10 +36,12 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                     <Space y1={15} />
                     <div className={classes.eventBtnGroup}>
                         <div className={classes.signUpButtonContainer}>
-                            <SignupButton href={joinLink} />
+                        { todayDate.isSameOrBefore(eventDate) ?  <SignupButton href={joinLink} /> : (<ClosedButton />) } 
                         </div>
+                        
+                        { todayDate.isSameOrBefore(eventDate) &&
+                        <>
                         <Space y1={10} />
-
                         <CalendarButton
                             id={id}
                             title={title}
@@ -46,6 +51,8 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                             location={location}
                             description={description}
                         />
+                        </> 
+                        }
                     </div>
                 </div>
             </div>

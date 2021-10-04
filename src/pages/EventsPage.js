@@ -8,8 +8,9 @@ import {useCollection} from 'store'
 
 export default function EventsPage() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events'})
-
+    //const {data} = useCollection({name: 'events'})
+    const upcomingData = useCollection({name: 'events', defaultData: null, limit: 1}).data
+    const pastData = useCollection({name: 'events', defaultData: null, limit: 6, offset: 1}).data
     return (
         <>
             <NavigationBar />
@@ -18,7 +19,20 @@ export default function EventsPage() {
                 <div className={classes.events}>
                     <Label text={'Upcoming Events'} />
                     <Space y1={25} y2={50} />
-                    {data?.map((event) => (
+                    {upcomingData?.map((event) => (
+                        <React.Fragment key={event.id}>
+                            <EventCard {...event} />
+                            <Space y1={15} y2={20} />
+                        </React.Fragment>
+                    ))}
+                </div>
+            </div>
+
+            <div className={classes.container}>
+                <div className={classes.events}>
+                    <Label text={'Past Events'} />
+                    <Space y1={25} y2={50} />
+                    {pastData?.map((event) => (
                         <React.Fragment key={event.id}>
                             <EventCard {...event} />
                             <Space y1={15} y2={20} />

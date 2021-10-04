@@ -12,6 +12,7 @@ import moment from 'moment'
 import SignupButton from 'components/buttons/SignupButton'
 import CalendarButton from 'components/buttons/CalendarButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import ClosedButton from 'components/buttons/ClosedButton'
 
 export default function EventDetailsPage() {
     const classes = useStyles()
@@ -21,7 +22,8 @@ export default function EventDetailsPage() {
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
-
+    const todayDate= moment.utc()
+    const eventDate = moment.utc(date)
     return (
         <>
             <NavigationBar />
@@ -54,10 +56,12 @@ export default function EventDetailsPage() {
                             <Space y1={15} />
                             <div className={classes.eventBtnGroup}>
                                 <div className={classes.signUpButtonContainer}>
-                                    <SignupButton href={joinLink} />
+                                { todayDate.isSameOrBefore(eventDate) ?   <SignupButton href={joinLink} /> : (<ClosedButton/>)} 
                                 </div>
-                                <Space y1={10} />
 
+                                { todayDate.isSameOrBefore(eventDate) &&
+                                <>
+                                <Space y1={10} />
                                 <CalendarButton
                                     id={id}
                                     title={title}
@@ -67,6 +71,8 @@ export default function EventDetailsPage() {
                                     location={location}
                                     description={description}
                                 />
+                                </> 
+                                }
                             </div>
                         </div>
                         <Space y1={10} y2={30} />
