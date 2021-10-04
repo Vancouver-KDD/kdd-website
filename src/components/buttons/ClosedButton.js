@@ -1,12 +1,13 @@
 import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
+import { Button } from './Button'
 
 function ClosedButton() {
     const theme = useTheme()
     const classes = useStyles({theme})
 
     return (
-        <a className={classes.btnEventClose}>
+        <a href={void(0)} className={classes.btnEventClose}>
             Closed
         </a>
     )
