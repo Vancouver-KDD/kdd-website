@@ -5,6 +5,9 @@ import Homepage from './pages/Homepage'
 import Eventspage from './pages/Eventspage'
 import Photospage from './pages/Photospage'
 import AboutUsPage from './pages/AboutUsPage'
+import ProjectsPage from './pages/ProjectsPage'
+import BlogPage from './pages/BlogPage'
+import JobsPage from './pages/JobsPage'
 
 const theme = {
     colorPrimary: 'hsl(343, 91%, 56%)',
@@ -26,6 +29,9 @@ export default function App() {
                         <Route exact path="/events/:id" component={() => <p>event id</p>} />
                         <Route path="/events" component={() => <Eventspage />} />
                         <Route path="/about-us" component={() => <AboutUsPage />} />
+                        <Route path="/projects" component={() => <ProjectsPage />} />
+                        <Route path="/blog" component={() => <BlogPage />} />
+                        <Route path="/jobs" component={() => <JobsPage />} />
                     </Switch>
                 </main>
             </Router>
