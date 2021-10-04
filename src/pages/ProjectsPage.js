@@ -10,12 +10,17 @@ export default function Projectspage() {
     const classes = useStyles()
     const {data} = useCollection({name: 'events'})
     console.log('data', data)
+    // if (!data) {
+    //     console.log('yes')
+    // } else {
+    //     console.log('no')
+    // }
     return (
         <>
             <NavigationBar />
             <Space y1={50} y2={75} />
             <div className={classes.container}>
-                <h4 style={{color: 'orange'}}>Projects page is processing</h4>
+                <h4 style={{color: 'orange'}}>blog page is processing</h4>
 
                 {/* <div className={classes.events}>
                     <Label text={'Upcoming Events'} />
