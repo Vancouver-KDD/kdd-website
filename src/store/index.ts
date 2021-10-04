@@ -1,5 +1,5 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers} from 'api'
+import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers, getProjects} from 'api'
 
 function getLoadData({name}: {name?: string}) {
     switch (name) {
@@ -15,6 +15,12 @@ function getLoadData({name}: {name?: string}) {
             return getEvents
         case 'event':
             return getEvent
+        case 'projects':
+            return getProjects
+        // case 'event':
+        //     return getEvent
+        // case 'event':
+        //     return getEvent
         default:
             throw new Error('name does not match')
     }

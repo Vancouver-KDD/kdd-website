@@ -8,7 +8,7 @@ import {useCollection} from 'store'
 
 export default function Projectspage() {
     const classes = useStyles()
-    const {data} = useCollection({name: 'events'})
+    const {data} = useCollection({name: 'projects'})
     console.log('data', data)
     // if (!data) {
     //     console.log('yes')
@@ -22,7 +22,7 @@ export default function Projectspage() {
             <div className={classes.container}>
                 <h4 style={{color: 'orange'}}>blog page is processing</h4>
 
-                {/* <div className={classes.events}>
+                <div className={classes.projects}>
                     <Label text={'Upcoming Events'} />
                     <Space y1={25} y2={50} />
                     {data?.map((event) => (
@@ -31,7 +31,7 @@ export default function Projectspage() {
                             <Space y1={15} y2={20} />
                         </React.Fragment>
                     ))}
-                </div> */}
+                </div>
             </div>
             <Footer />
         </>
@@ -59,7 +59,7 @@ const useStyles = createUseStyles((theme) => ({
         paddingLeft: 10,
         paddingRight: 10,
     },
-    events: {
+    projects: {
         width: 1024,
         maxWidth: '100%',
         textAlign: 'center',
