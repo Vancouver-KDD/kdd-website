@@ -30,7 +30,7 @@ export default function EventCards() {
                 </div>
                 <div className={classes.eventsBox}>
                     <div className={classes.eventCardList}>
-                        {data?.map((event) => (
+                        {data?.map?.((event) => (
                             <EventCard {...event} key={event.id} />
                         ))}
                     </div>

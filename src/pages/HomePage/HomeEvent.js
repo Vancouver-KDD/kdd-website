@@ -15,7 +15,7 @@ export default function HomeEvent() {
                 <div className={classes.events}>
                     <Label text={'Upcoming Events'} />
                     <Space y1={25} y2={50} />
-                    {data?.map((event) => (
+                    {data?.map?.((event) => (
                         <React.Fragment key={event.id}>
                             <EventCard {...event} />
                             <Space y1={15} y2={20} />

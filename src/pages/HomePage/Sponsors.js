@@ -13,7 +13,7 @@ export default function Sponsors() {
             <div className={classes.sponsorContainer}>
                 {loading && <span>loading...</span>}
                 {!!error && <span>ERROR: {error.message}</span>}
-                {data?.map((sponsor) => {
+                {data?.map?.((sponsor) => {
                     const imageUrl = sponsor?.logo?.[0]?.formats?.small?.url || sponsor?.logo?.[0]?.url
                     return (
                         <div key={sponsor.id} className={classes.pad10}>
