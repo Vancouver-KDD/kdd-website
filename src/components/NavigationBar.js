@@ -32,6 +32,15 @@ export default function NavigationBar() {
                     <li>
                         <Link to="/photos">Photos</Link>
                     </li>
+                    <li>
+                        <Link to="/projects">Projects</Link>
+                    </li>
+                    <li>
+                        <Link to="/blog">Blog</Link>
+                    </li>
+                    <li>
+                        <Link to="/jobs">Jobs</Link>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -80,7 +89,7 @@ const useStyles = createUseStyles(() => ({
     nav_menu: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: 240,
+        width: 380,
         paddingBottom: 40,
         '& li:hover': {
             textDecoration: 'underline',
