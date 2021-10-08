@@ -1,19 +1,14 @@
 import React from 'react'
 import {createUseStyles, useTheme} from 'react-jss'
-import { Button } from './Button'
 
 function ClosedButton() {
     const theme = useTheme()
     const classes = useStyles({theme})
 
-    return (
-        <a href={void(0)} className={classes.btnEventClose}>
-            Closed
-        </a>
-    )
+    return <span className={classes.btnEventClose}>Closed</span>
 }
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
     btnEventClose: {
         height: 48,
         borderRadius: 24,
@@ -26,7 +21,9 @@ const useStyles = createUseStyles((theme) => ({
         fontSize: '1.8rem',
         pointerEvents: 'none',
         padding: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        width: '100%',
+        fontWeight: '500',
     },
 }))
 

@@ -20,8 +20,8 @@ function getLoadData({name}: {name?: string}) {
     }
 }
 
-export function useCollection({name, limit = 6, id, offset = 0}: {name?: string; limit?: number; id?: string, offset?: number} = {}) {
-    const offsetRef = React.useRef(offset)
+export function useCollection({name, limit = 6, id}: {name: string; limit?: number; id?: string}) {
+    const offsetRef = React.useRef(0)
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
     const [data, setData] = React.useState<null | Array<any>>(null)
@@ -39,7 +39,7 @@ export function useCollection({name, limit = 6, id, offset = 0}: {name?: string;
         setLoading(true)
         setError(null)
 
-        loadData({offset: offsetRef.current, limit: limit, id})
+        loadData({offset: offsetRef.current, limit, id})
             .then((data) => {
                 offsetRef.current += data.length
                 setData((_prevData) => [...(_prevData ?? []), ...data])
@@ -56,7 +56,7 @@ export function useCollection({name, limit = 6, id, offset = 0}: {name?: string;
     React.useEffect(() => {
         //offsetRef.current = 0
         const loadData = getLoadData({name})
-        loadData({offset: offsetRef.current, limit: limit, id})
+        loadData({offset: offsetRef.current, limit, id})
             .then((data) => {
                 offsetRef.current += data.length
                 setData(data)

@@ -1,5 +1,6 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import SignupButton from 'components/buttons/SignupButton'
 import CalendarButton from 'components/buttons/CalendarButton'
@@ -8,7 +9,6 @@ import {Space} from 'components'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import {Link} from 'react-router-dom'
 
 function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
     const classes = useStyles()
@@ -16,7 +16,7 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
 
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
-    const todayDate= moment.utc()
+    const todayDate = moment.utc()
     const eventDate = moment.utc(date)
 
     return (
@@ -36,23 +36,23 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                     <Space y1={15} />
                     <div className={classes.eventBtnGroup}>
                         <div className={classes.signUpButtonContainer}>
-                        { todayDate.isSameOrBefore(eventDate) ?  <SignupButton href={joinLink} /> : (<ClosedButton />) } 
+                            {todayDate.isSameOrBefore(eventDate) ? <SignupButton href={joinLink} /> : <ClosedButton />}
                         </div>
-                        
-                        { todayDate.isSameOrBefore(eventDate) &&
-                        <>
-                        <Space y1={10} />
-                        <CalendarButton
-                            id={id}
-                            title={title}
-                            date={date}
-                            durationVal={durationVal}
-                            durationType={durationType}
-                            location={location}
-                            description={description}
-                        />
-                        </> 
-                        }
+
+                        {todayDate.isSameOrBefore(eventDate) && (
+                            <>
+                                <Space y1={10} />
+                                <CalendarButton
+                                    id={id}
+                                    title={title}
+                                    date={date}
+                                    durationVal={durationVal}
+                                    durationType={durationType}
+                                    location={location}
+                                    description={description}
+                                />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

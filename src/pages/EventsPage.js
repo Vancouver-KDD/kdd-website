@@ -5,39 +5,35 @@ import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
+import moment from 'moment'
+import NoUpcomingEventCard from 'components/NoUpcomingEventCard'
 
 export default function EventsPage() {
     const classes = useStyles()
-    //const {data} = useCollection({name: 'events'})
-    const upcomingData = useCollection({name: 'events', defaultData: null, limit: 1}).data
-    const pastData = useCollection({name: 'events', defaultData: null, limit: 6, offset: 1}).data
+    const {data} = useCollection({name: 'events'})
+
+    const pastEvents = data?.filter((event) => {
+        const currentDate = moment()
+        const isPastEvent = currentDate.isSameOrAfter(event.date)
+
+        return isPastEvent
+    })
+
+    const upcomingEvents = data?.filter((event) => {
+        const currentDate = moment()
+        const isUpcomingEvent = currentDate.isSameOrBefore(event.date)
+
+        return isUpcomingEvent
+    })
+
     return (
         <>
             <NavigationBar />
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
-                    <Label text={'Upcoming Events'} />
-                    <Space y1={25} y2={50} />
-                    {upcomingData?.map((event) => (
-                        <React.Fragment key={event.id}>
-                            <EventCard {...event} />
-                            <Space y1={15} y2={20} />
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
-
-            <div className={classes.container}>
-                <div className={classes.events}>
-                    <Label text={'Past Events'} />
-                    <Space y1={25} y2={50} />
-                    {pastData?.map((event) => (
-                        <React.Fragment key={event.id}>
-                            <EventCard {...event} />
-                            <Space y1={15} y2={20} />
-                        </React.Fragment>
-                    ))}
+                    <UpcomingEventSection data={upcomingEvents} label="Upcoming Events" isUpcomingEvent />
+                    <PastEventSection data={pastEvents} label="Past Events" isPastEvent />
                 </div>
             </div>
             <Footer />
@@ -47,6 +43,7 @@ export default function EventsPage() {
 
 function Label({text}) {
     const classes = useStyles()
+
     return (
         <div className={classes.labelContainer}>
             <h1>{text}</h1>
@@ -75,3 +72,41 @@ const useStyles = createUseStyles((theme) => ({
         },
     },
 }))
+
+function PastEventSection({data, label, isPastEvent}) {
+    return (
+        <>
+            <Label text={label} />
+            {data?.map((event) => (
+                <React.Fragment key={event.id}>
+                    <Space y1={25} y2={50} />
+                    <EventCard {...event} isPastEvent={isPastEvent} />
+                    <Space y1={15} y2={20} />
+                </React.Fragment>
+            ))}
+        </>
+    )
+}
+
+function UpcomingEventSection({data, label, isUpcomingEvent}) {
+    return (
+        <>
+            <Label text={label} />
+            {!data?.[0] ? (
+                <>
+                    <Space y1={25} y2={50} />
+                    <NoUpcomingEventCard />
+                    <Space y1={15} y2={20} />
+                </>
+            ) : (
+                data?.map((event) => (
+                    <React.Fragment key={event.id}>
+                        <Space y1={25} y2={50} />
+                        <EventCard {...event} isUpcomingEvent={isUpcomingEvent} />
+                        <Space y1={15} y2={20} />
+                    </React.Fragment>
+                ))
+            )}
+        </>
+    )
+}
