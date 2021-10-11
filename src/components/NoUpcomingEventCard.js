@@ -6,19 +6,19 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import calender from 'assets/images/no-event.png'
 
-function NoUpcomingEventCard() {
+function NoUpcomingEventCard({label}) {
     const classes = useStyles()
-
+    const {text} = 'We have no'
     return (
         <div className={classes.eventCard}>
-            <img className={classes.eventImage} src={calender} alt={'No Upcoming Events'} />
+            <img className={classes.eventImage} src={calender} alt={''} />
             <div className={classes.eventInfoContainer}>
                 <div className={classes.eventInfo}>
                     <Space y1={15} />
-                    <h2>No Upcoming Events</h2>
+                    <h2>No {label}</h2>
                     <Space y1={15} />
                     <div className={classes.eventDescription}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>We have no upcoming Events</ReactMarkdown>
+                        <ReactMarkdown>Check Back Soon!</ReactMarkdown>
                     </div>
                 </div>
                 <Space y1={15} />

@@ -11,19 +11,15 @@ import NoUpcomingEventCard from 'components/NoUpcomingEventCard'
 export default function EventsPage() {
     const classes = useStyles()
     const {data} = useCollection({name: 'events'})
-
-    const pastEvents = data?.filter((event) => {
-        const currentDate = moment()
-        const isPastEvent = currentDate.isSameOrAfter(event.date)
-
-        return isPastEvent
-    })
-
-    const upcomingEvents = data?.filter((event) => {
-        const currentDate = moment()
-        const isUpcomingEvent = currentDate.isSameOrBefore(event.date)
-
-        return isUpcomingEvent
+    const pastEvents = []
+    const upcomingEvents = []
+    const currentDate = moment()
+    data?.forEach?.((event) => {
+        if (currentDate.isSameOrAfter(event.date)) {
+            pastEvents.push(event)
+        } else {
+            upcomingEvents.push(event)
+        }
     })
 
     return (
@@ -32,8 +28,8 @@ export default function EventsPage() {
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
-                    <UpcomingEventSection data={upcomingEvents} label="Upcoming Events" isUpcomingEvent />
-                    <PastEventSection data={pastEvents} label="Past Events" isPastEvent />
+                    {upcomingEvents && <EventSection data={upcomingEvents} label="Upcoming Events" />}
+                    {pastEvents && <EventSection data={pastEvents} label="Past Events" />}
                 </div>
             </div>
             <Footer />
@@ -73,36 +69,21 @@ const useStyles = createUseStyles((theme) => ({
     },
 }))
 
-function PastEventSection({data, label, isPastEvent}) {
-    return (
-        <>
-            <Label text={label} />
-            {data?.map((event) => (
-                <React.Fragment key={event.id}>
-                    <Space y1={25} y2={50} />
-                    <EventCard {...event} isPastEvent={isPastEvent} />
-                    <Space y1={15} y2={20} />
-                </React.Fragment>
-            ))}
-        </>
-    )
-}
-
-function UpcomingEventSection({data, label, isUpcomingEvent}) {
+function EventSection({data, label}) {
     return (
         <>
             <Label text={label} />
             {!data?.[0] ? (
                 <>
                     <Space y1={25} y2={50} />
-                    <NoUpcomingEventCard />
+                    <NoUpcomingEventCard label={label} />
                     <Space y1={15} y2={20} />
                 </>
             ) : (
-                data?.map((event) => (
+                data?.map?.((event) => (
                     <React.Fragment key={event.id}>
                         <Space y1={25} y2={50} />
-                        <EventCard {...event} isUpcomingEvent={isUpcomingEvent} />
+                        {label === 'Past Events' ? <EventCard {...event} /> : <EventCard {...event} />}
                         <Space y1={15} y2={20} />
                     </React.Fragment>
                 ))

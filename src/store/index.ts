@@ -54,7 +54,6 @@ export function useCollection({name, limit = 6, id}: {name: string; limit?: numb
     }
 
     React.useEffect(() => {
-        //offsetRef.current = 0
         const loadData = getLoadData({name})
         loadData({offset: offsetRef.current, limit, id})
             .then((data) => {
