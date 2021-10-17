@@ -15,7 +15,8 @@ export default function EventsPage() {
     const upcomingEvents = []
     const currentDate = moment()
     data?.forEach?.((event) => {
-        if (currentDate.isSameOrAfter(event.date)) {
+        const isPastEvent = currentDate.isSameOrAfter(event.date)
+        if (isPastEvent) {
             pastEvents.push(event)
         } else {
             upcomingEvents.push(event)
@@ -28,8 +29,8 @@ export default function EventsPage() {
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
-                    {upcomingEvents && <EventSection data={upcomingEvents} label="Upcoming Events" />}
-                    {pastEvents && <EventSection data={pastEvents} label="Past Events" />}
+                    <EventSection data={upcomingEvents} label="Upcoming Events" isPastEvent={false} />
+                    <EventSection data={pastEvents} label="Past Events" isPastEvent />
                 </div>
             </div>
             <Footer />
@@ -69,11 +70,11 @@ const useStyles = createUseStyles((theme) => ({
     },
 }))
 
-function EventSection({data, label}) {
+function EventSection({data, label, isPastEvent}) {
     return (
         <>
             <Label text={label} />
-            {!data?.[0] ? (
+            {!isPastEvent && !data?.[0] ? (
                 <>
                     <Space y1={25} y2={50} />
                     <NoUpcomingEventCard label={label} />
@@ -83,7 +84,11 @@ function EventSection({data, label}) {
                 data?.map?.((event) => (
                     <React.Fragment key={event.id}>
                         <Space y1={25} y2={50} />
-                        {label === 'Past Events' ? <EventCard {...event} /> : <EventCard {...event} />}
+                        {isPastEvent ? (
+                            <EventCard {...event} isPastEvent={isPastEvent} />
+                        ) : (
+                            <EventCard {...event} isPastEvent={isPastEvent} />
+                        )}
                         <Space y1={15} y2={20} />
                     </React.Fragment>
                 ))

@@ -3,12 +3,11 @@ import {createUseStyles} from 'react-jss'
 import PropTypes from 'prop-types'
 import {Space} from 'components'
 import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import calender from 'assets/images/no-event.png'
 
 function NoUpcomingEventCard({label}) {
     const classes = useStyles()
-    const {text} = 'We have no'
+
     return (
         <div className={classes.eventCard}>
             <img className={classes.eventImage} src={calender} alt={''} />
@@ -78,9 +77,6 @@ const useStyles = createUseStyles({
             fontSize: '2.4rem',
         },
     },
-    eventDate: {
-        fontSize: '1.6rem',
-    },
     eventDescription: {
         fontSize: '160%',
         display: '-webkit-box',
@@ -91,15 +87,6 @@ const useStyles = createUseStyles({
         '@media (min-width: 600px)': {
             WebkitLineClamp: 5,
         },
-    },
-    signUpButtonContainer: {
-        flex: 1,
-    },
-    eventBtnGroup: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 })
 

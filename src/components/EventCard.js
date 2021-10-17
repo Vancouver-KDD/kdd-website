@@ -10,13 +10,11 @@ import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location}) {
+function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location, isPastEvent}) {
     const classes = useStyles()
     const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
-
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
-    const isEnabledSignUp = moment().isSameOrBefore(date)
 
     return (
         <Link to={`events/${id}`} className={classes.link}>
@@ -35,10 +33,10 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                     <Space y1={15} />
                     <div className={classes.eventBtnGroup}>
                         <div className={classes.signUpButtonContainer}>
-                            {isEnabledSignUp ? <SignupButton href={joinLink} /> : <ClosedButton />}
+                            {!isPastEvent ? <SignupButton href={joinLink} /> : <ClosedButton />}
                         </div>
 
-                        {isEnabledSignUp && (
+                        {!isPastEvent && (
                             <>
                                 <Space y1={10} />
                                 <CalendarButton
