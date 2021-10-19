@@ -84,11 +84,7 @@ function EventSection({data, label, isPastEvent}) {
                 data?.map?.((event) => (
                     <React.Fragment key={event.id}>
                         <Space y1={25} y2={50} />
-                        {isPastEvent ? (
-                            <EventCard {...event} isPastEvent={isPastEvent} />
-                        ) : (
-                            <EventCard {...event} isPastEvent={isPastEvent} />
-                        )}
+                        <EventCard {...event} isPastEvent={isPastEvent} />
                         <Space y1={15} y2={20} />
                     </React.Fragment>
                 ))
