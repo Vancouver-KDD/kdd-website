@@ -10,6 +10,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import moment from 'moment'
 import SignupButton from 'components/buttons/SignupButton'
+import ClosedButton from 'components/buttons/ClosedButton'
 import CalendarButton from 'components/buttons/CalendarButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
@@ -21,7 +22,7 @@ export default function EventDetailsPage() {
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
-
+    const isEnabledSignUp = moment().isSameOrBefore(date)
     return (
         <>
             <NavigationBar />
@@ -54,19 +55,23 @@ export default function EventDetailsPage() {
                             <Space y1={15} />
                             <div className={classes.eventBtnGroup}>
                                 <div className={classes.signUpButtonContainer}>
-                                    <SignupButton href={joinLink} />
+                                    {isEnabledSignUp ? <SignupButton href={joinLink} /> : <ClosedButton />}
                                 </div>
-                                <Space y1={10} />
 
-                                <CalendarButton
-                                    id={id}
-                                    title={title}
-                                    date={date}
-                                    durationVal={durationVal}
-                                    durationType={durationType}
-                                    location={location}
-                                    description={description}
-                                />
+                                {isEnabledSignUp && (
+                                    <>
+                                        <Space y1={10} />
+                                        <CalendarButton
+                                            id={id}
+                                            title={title}
+                                            date={date}
+                                            durationVal={durationVal}
+                                            durationType={durationType}
+                                            location={location}
+                                            description={description}
+                                        />
+                                    </>
+                                )}
                             </div>
                         </div>
                         <Space y1={10} y2={30} />

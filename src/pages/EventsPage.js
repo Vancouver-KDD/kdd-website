@@ -5,10 +5,23 @@ import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
+import moment from 'moment'
+import NoUpcomingEventCard from 'components/NoUpcomingEventCard'
 
 export default function EventsPage() {
     const classes = useStyles()
     const {data} = useCollection({name: 'events'})
+    const pastEvents = []
+    const upcomingEvents = []
+    const currentDate = moment()
+    data?.forEach?.((event) => {
+        const isPastEvent = currentDate.isSameOrAfter(event.date)
+        if (isPastEvent) {
+            pastEvents.push(event)
+        } else {
+            upcomingEvents.push(event)
+        }
+    })
 
     return (
         <>
@@ -16,14 +29,8 @@ export default function EventsPage() {
             <Space y1={50} y2={75} />
             <div className={classes.container}>
                 <div className={classes.events}>
-                    <Label text={'Upcoming Events'} />
-                    <Space y1={25} y2={50} />
-                    {data?.map?.((event) => (
-                        <React.Fragment key={event.id}>
-                            <EventCard {...event} />
-                            <Space y1={15} y2={20} />
-                        </React.Fragment>
-                    ))}
+                    <EventSection data={upcomingEvents} label="Upcoming Events" isPastEvent={false} />
+                    <EventSection data={pastEvents} label="Past Events" isPastEvent />
                 </div>
             </div>
             <Footer />
@@ -33,6 +40,7 @@ export default function EventsPage() {
 
 function Label({text}) {
     const classes = useStyles()
+
     return (
         <div className={classes.labelContainer}>
             <h1>{text}</h1>
@@ -61,3 +69,26 @@ const useStyles = createUseStyles((theme) => ({
         },
     },
 }))
+
+function EventSection({data, label, isPastEvent}) {
+    return (
+        <>
+            <Label text={label} />
+            {!isPastEvent && !data?.[0] ? (
+                <>
+                    <Space y1={25} y2={50} />
+                    <NoUpcomingEventCard label={label} />
+                    <Space y1={15} y2={20} />
+                </>
+            ) : (
+                data?.map?.((event) => (
+                    <React.Fragment key={event.id}>
+                        <Space y1={25} y2={50} />
+                        <EventCard {...event} isPastEvent={isPastEvent} />
+                        <Space y1={15} y2={20} />
+                    </React.Fragment>
+                ))
+            )}
+        </>
+    )
+}
