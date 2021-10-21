@@ -100,7 +100,7 @@ const Member = ({name, title, description, profilePic, socialList}) => {
             <p style={{fontSize: '1.5rem'}}>{description}</p>
             <div className={classes.socialContainer}>
                 {socialList?.map?.((sns, index) => (
-                    <a key={index} href={sns.link}>
+                    <a key={index} href={sns.link} target="_blank" rel="noreferrer">
                         <img src={memberSocialIcons[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
                     </a>
                 ))}
