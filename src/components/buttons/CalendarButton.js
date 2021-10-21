@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 import btnCalendarImg from 'assets/images/btn-calendar.svg'
 import Popover from '@mui/material/Popover'
 import CalendarTooltip from 'components/CalendarTooltip'
 
 function CalendarButton({id, title, date, durationVal, durationType, location, description, disabled}) {
-    const theme = useTheme()
-    const classes = useStyles({theme})
+    const classes = useStyles({})
     const [calendarAnchor, setCalendarAnchor] = useState(null)
     const handleClick = (event) => {
         event.preventDefault()
@@ -60,7 +59,7 @@ CalendarButton.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
     btnEventCalendar: {
         background: `url(${btnCalendarImg}) no-repeat`,
         backgroundPosition: 'center',
@@ -68,14 +67,14 @@ const useStyles = createUseStyles((theme) => ({
         width: 48,
         height: 48,
         borderRadius: '50%',
-        backgroundColor: theme.colorSecondary,
+        backgroundColor: 'hsl(239, 82%, 65%)',
         cursor: 'pointer',
         '&:hover': {
-            backgroundColor: theme.colorSecondaryHover,
+            backgroundColor: 'hsl(240, 81%, 71%)',
         },
     },
     disabled: {
-        backgroundColor: theme.colorSecondaryDisabled,
+        backgroundColor: 'hsl(239, 82%, 81%)',
     },
 }))
 

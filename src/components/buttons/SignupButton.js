@@ -1,9 +1,8 @@
 import React from 'react'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 
 function SignupButton({href}) {
-    const theme = useTheme()
-    const classes = useStyles({theme})
+    const classes = useStyles({})
 
     return (
         <a onClick={(e) => e.stopPropagation()} href={href} className={classes.btnEventSignup}>
@@ -12,12 +11,12 @@ function SignupButton({href}) {
     )
 }
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
     btnEventSignup: {
         height: 48,
         borderRadius: 24,
         color: '#ffffff',
-        backgroundColor: theme.colorPrimary,
+        backgroundColor: 'hsl(343, 91%, 56%)',
         textDecoration: 'none',
         display: 'flex',
         flexDirection: 'column',
@@ -26,7 +25,7 @@ const useStyles = createUseStyles((theme) => ({
         padding: 10,
         textAlign: 'center',
         '&:hover': {
-            backgroundColor: theme.colorPrimaryHover,
+            backgroundColor: 'hsl(343, 87%, 61%)',
         },
     },
 }))

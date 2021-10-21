@@ -1,14 +1,13 @@
 import React from 'react'
 import classnames from 'classnames'
 import {Link} from 'react-router-dom'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 import kddLogo1 from 'assets/images/KDD-Logo1.svg'
 import kddLogo2 from 'assets/images/KDD-Logo2.svg'
 
 export default function NavigationBar() {
     const pathname = window.location.pathname
-    const theme = useTheme()
-    const classes = useStyles({theme})
+    const classes = useStyles({})
     let isHome = true
     let navPosition = 'navAbsolute'
     if (pathname !== '/') {

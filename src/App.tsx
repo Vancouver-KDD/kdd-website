@@ -1,21 +1,22 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {ThemeProvider} from 'react-jss'
 import HomePage from './pages/HomePage'
 import EventsPage from './pages/EventsPage'
 import EventDetailsPage from './pages/EventDetailsPage'
 import PhotosPage from './pages/PhotosPage'
 import AboutUsPage from './pages/AboutUsPage'
+import {ThemeProvider, createTheme} from '@mui/material/styles'
 
-const theme = {
-    colorPrimary: 'hsl(343, 91%, 56%)',
-    colorPrimaryHover: 'hsl(343, 87%, 61%)',
-    colorPrimaryDisabled: 'hsl(343, 100%, 80%)',
-    colorSecondary: 'hsl(239, 82%, 65%)',
-    colorSecondaryHover: 'hsl(240, 81%, 71%)',
-    colorSecondaryDisabled: 'hsl(239, 82%, 81%)',
-}
-export type themeType = typeof theme
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: 'hsl(343, 91%, 56%)',
+        },
+        secondary: {
+            main: 'hsl(239, 82%, 65%)',
+        },
+    },
+})
 
 export default function App() {
     return (

@@ -2,11 +2,10 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import {createUseStyles, useTheme} from 'react-jss'
+import {createUseStyles} from 'react-jss'
 
 export const Button = ({className, to, href, newTab, Icon, text, children, onClick, disabled}) => {
-    const theme = useTheme()
-    const classes = useStyles({theme})
+    const classes = useStyles({})
 
     let Wrapper = 'button'
     if (to) {
@@ -39,13 +38,13 @@ Button.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
     default: {
         padding: 10,
         textDecoration: 'none',
         fontWeight: '600',
         fontSize: '1.6rem',
-        backgroundColor: theme.colorPrimary,
+        backgroundColor: 'hsl(343, 91%, 56%)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -54,10 +53,10 @@ const useStyles = createUseStyles((theme) => ({
         color: 'white',
         cursor: 'pointer',
         '&:hover': {
-            backgroundColor: theme.colorPrimaryHover,
+            backgroundColor: 'hsl(343, 87%, 61%)',
         },
     },
     disabled: {
-        backgroundColor: theme.colorPrimaryDisabled,
+        backgroundColor: 'hsl(343, 100%, 80%)',
     },
 }))

@@ -5,7 +5,6 @@ import NavigationBar from 'components/NavigationBar'
 import Footer from 'components/Footer'
 import {Space} from 'components'
 import {useCollection} from 'store'
-import type {themeType} from 'App'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import moment from 'moment'
@@ -83,9 +82,9 @@ export default function EventDetailsPage() {
     )
 }
 
-const useStyles = createUseStyles((theme: themeType) => ({
+const useStyles = createUseStyles(() => ({
     labelContainer: {display: 'flex', flexDirection: 'column', alignItems: 'center'},
-    labelLine: {height: 2, backgroundColor: theme.colorPrimary, width: 143},
+    labelLine: {height: 2, backgroundColor: 'hsl(343, 91%, 56%)', width: 143},
     container: {
         display: 'flex',
         flexDirection: 'column',

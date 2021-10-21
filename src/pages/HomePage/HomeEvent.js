@@ -41,7 +41,7 @@ function Label({text}) {
 
 const useStyles = createUseStyles((theme) => ({
     labelContainer: {display: 'flex', flexDirection: 'column', alignItems: 'center'},
-    labelLine: {height: 2, backgroundColor: theme.colorPrimary, width: 143},
+    labelLine: {height: 2, backgroundColor: 'hsl(343, 91%, 56%)', width: 143},
     container: {
         display: 'flex',
         flexDirection: 'column',
