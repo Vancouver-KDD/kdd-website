@@ -7,6 +7,7 @@ import slackLogo from 'assets/icons/coolicon-slack.svg'
 import linkedInIcon from 'assets/icons/LinkedIn.svg'
 import heroBG from 'assets/images/hero-bg.jpg'
 import ellipse from 'assets/images/ellipse.svg'
+import {Typography} from '@mui/material'
 
 export default function Hero() {
     const classes = useStyles()
@@ -15,10 +16,19 @@ export default function Hero() {
         <div className={classes.container}>
             <div className={classnames('kdd-hero', classes.default)}>
                 <div className={classes.contentContainer}>
-                    <h1 className={classes.title}>Vancouver KDD</h1>
-                    <p className={classes.subtitle}>
+                    <Typography
+                        variant="h3"
+                        sx={{
+                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            color: 'white',
+                            fontWeight: '900',
+                            marginBottom: '2rem',
+                        }}>
+                        Vancouver KDD
+                    </Typography>
+                    <h3 className={classes.subtitle}>
                         저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
-                    </p>
+                    </h3>
 
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                         <div className={classes.btnContainer}>
@@ -74,12 +84,12 @@ const useStyles = createUseStyles({
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         color: 'white',
         fontWeight: '900',
-        fontSize: '3.6rem',
+        // fontSize: '3.6rem',
         marginBottom: '3rem',
     },
     subtitle: {
         color: 'white',
-        fontSize: '1.8rem',
+        // fontSize: '1.8rem',
         fontWeight: '700',
         marginBottom: '3rem',
     },

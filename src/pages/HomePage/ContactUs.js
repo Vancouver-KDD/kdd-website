@@ -57,7 +57,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '3.6rem',
+        // fontSize: '3.6rem',
         fontWeight: '900',
         flexWrap: 'wrap',
         '& > div': {
@@ -72,7 +72,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         alignItems: 'center',
         height: 73,
-        fontSize: '2.4rem',
+        // fontSize: '2.4rem',
         color: '#0E0E2C',
     },
     icons: {

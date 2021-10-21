@@ -36,32 +36,32 @@ const useStyles = createUseStyles({
         fontWeight: '900',
         textAlign: 'center',
         '& p': {
-            fontSize: '1.2rem',
+            // fontSize: '1.2rem',
             marginTop: 10,
         },
         '& a': {
             padding: '0.5rem',
-            fontSize: '1.2rem',
+            // fontSize: '1.2rem',
             color: 'hsla(240, 52%, 11%, 1)',
         },
         '@media (min-width: 800px)': {
             padding: '3rem',
             '& p': {
-                fontSize: '1.6rem',
+                // fontSize: '1.6rem',
             },
             '& a': {
                 padding: '0.75rem',
-                fontSize: '1.6rem',
+                // fontSize: '1.6rem',
             },
         },
         '@media (min-width: 1024px)': {
             padding: '6rem',
             '& p': {
-                fontSize: '2rem',
+                // fontSize: '2rem',
             },
             '& a': {
                 padding: '0.75rem',
-                fontSize: '2rem',
+                // fontSize: '2rem',
             },
         },
     },

@@ -5,32 +5,38 @@ import EventsPage from './pages/EventsPage'
 import EventDetailsPage from './pages/EventDetailsPage'
 import PhotosPage from './pages/PhotosPage'
 import AboutUsPage from './pages/AboutUsPage'
-import {ThemeProvider, createTheme} from '@mui/material/styles'
+import {ThemeProvider, createTheme, responsiveFontSizes} from '@mui/material/styles'
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: 'hsl(343, 91%, 56%)',
+const theme = responsiveFontSizes(
+    createTheme({
+        components: {
+            MuiLink: {
+                styleOverrides: {},
+            },
         },
-        secondary: {
-            main: 'hsl(239, 82%, 65%)',
+        palette: {
+            primary: {
+                main: 'hsl(343, 91%, 56%)',
+            },
+            secondary: {
+                main: 'hsl(239, 82%, 65%)',
+            },
         },
-    },
-})
+        typography: {},
+    }),
+)
 
 export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <main>
-                    <Switch>
-                        <Route exact path="/" component={() => <HomePage />} />
-                        <Route exact path="/photos" component={() => <PhotosPage />} />
-                        <Route exact path="/events" component={() => <EventsPage />} />
-                        <Route exact path="/events/:id" component={() => <EventDetailsPage />} />
-                        <Route exact path="/about-us" component={() => <AboutUsPage />} />
-                    </Switch>
-                </main>
+                <Switch>
+                    <Route exact path="/" component={() => <HomePage />} />
+                    <Route exact path="/photos" component={() => <PhotosPage />} />
+                    <Route exact path="/events" component={() => <EventsPage />} />
+                    <Route exact path="/events/:id" component={() => <EventDetailsPage />} />
+                    <Route exact path="/about-us" component={() => <AboutUsPage />} />
+                </Switch>
             </Router>
         </ThemeProvider>
     )

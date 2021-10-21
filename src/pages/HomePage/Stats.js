@@ -13,7 +13,7 @@ export default function Stats() {
             <div className={classes.containerContent}>
                 <div className={classes.image} alt="Statistic image" />
                 <div className={classes.statInfo}>
-                    <div>Since July 2017</div>
+                    <h1>Since July 2017</h1>
                     <div>{data?.meetups ?? '39+'} Meetups</div>
                     <div>{data?.members ?? '1250+'} Members</div>
                 </div>
@@ -60,7 +60,7 @@ const useStyles = createUseStyles({
         },
     },
     statInfo: {
-        fontSize: '3.6rem',
+        // fontSize: '3.6rem',
         fontWeight: '900',
         marginTop: '2.5rem',
         marginBottom: '2.5rem',
@@ -70,7 +70,7 @@ const useStyles = createUseStyles({
             marginBottom: '2.5rem',
         },
         '@media (min-width: 768px)': {
-            fontSize: '4.8rem',
+            // fontSize: '4.8rem',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',

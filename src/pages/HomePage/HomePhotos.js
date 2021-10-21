@@ -76,7 +76,7 @@ const useStyles = createUseStyles({
         margin: 'auto',
         '& h1': {
             marginTop: '4rem',
-            fontSize: '3.5rem',
+            // fontSize: '3.5rem',
         },
         '@media (min-width: 800px)': {
             width: 756,
@@ -105,7 +105,7 @@ const useStyles = createUseStyles({
         justifyContent: 'flex-end',
         marginBottom: 4,
         '& a': {
-            fontSize: '1.3rem',
+            // fontSize: '1.3rem',
             fontWeight: '600',
         },
         '& button': {
