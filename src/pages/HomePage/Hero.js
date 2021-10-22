@@ -22,13 +22,20 @@ export default function Hero() {
                             textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                             color: 'white',
                             fontWeight: '900',
-                            marginBottom: '2rem',
+                            mb: '2rem',
                         }}>
                         Vancouver KDD
                     </Typography>
-                    <h3 className={classes.subtitle}>
+
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            color: 'white',
+                            fontWeight: '700',
+                            mb: '2rem',
+                        }}>
                         저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
-                    </h3>
+                    </Typography>
 
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                         <div className={classes.btnContainer}>
