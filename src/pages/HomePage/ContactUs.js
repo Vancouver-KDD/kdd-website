@@ -5,22 +5,71 @@ import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
 import LinkedinIcon from 'assets/icons/linkedIn1.svg'
+import {Typography, Box} from '@mui/material'
 
 export default function ContactUs() {
     const classes = useStyles()
     return (
-        <section className={classes.default}>
-            <h3 className={classes.title}>Contact Us</h3>
-            <div className={classes.content}>
-                <div className={classes.contactSection}>
-                    <h4>Email</h4>
+        <Box
+            component="section"
+            sx={{
+                margin: 'auto',
+                position: 'relative',
+                textAlign: 'left',
+            }}>
+            <Typography
+                variant="h4"
+                mt={4}
+                mb={4}
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: 700,
+                }}>
+                Contact Us
+            </Typography>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    // fontSize: '3.6rem',
+                    fontWeight: '900',
+                    flexWrap: 'wrap',
+                    '& > div': {
+                        marginBottom: '4rem',
+                        margin: 'auto',
+                    },
+                    '@media (max-width: 375px)': {
+                        flexDirection: 'column',
+                    },
+                }}>
+                <Box width={375} maxWidth="100%">
+                    <Typography variant="h4" fontWeight={700}>
+                        Email
+                    </Typography>
                     <a className={classes.email} href="mailto:vancouverkdd@gmail.com">
                         vancouverkdd@gmail.com
                     </a>
-                </div>
-                <div className={classes.contactSection}>
-                    <h4>Social Media</h4>
-                    <div className={classes.icons}>
+                </Box>
+                <Box width={375} maxWidth="100%">
+                    <Typography variant="h4" fontWeight={700}>
+                        Social Media
+                    </Typography>
+                    <Box
+                        sx={{
+                            height: 73,
+                            display: 'flex',
+                            flexDirection: 'row',
+                            '& img': {
+                                width: 50,
+                                height: 50,
+                                marginTop: 2,
+                                marginRight: 2,
+                            },
+                        }}>
                         <Image
                             img={SlackIcon}
                             alt="slack icon"
@@ -29,10 +78,10 @@ export default function ContactUs() {
                         <Image img={LinkedinIcon} alt="linkedin icon" url="https://www.linkedin.com/company/vancouver-kdd" />
                         <Image img={FaceBookIcon} alt="facebook icon" url="https://www.facebook.com/groups/VancouverKDD" />
                         <Image img={MeetupIcon} alt="meetup icon" url="https://www.meetup.com/Vancouver-KDD" />
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 
