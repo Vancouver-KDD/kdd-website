@@ -3,10 +3,13 @@ import {createUseStyles} from 'react-jss'
 import EventCard from 'components/EventCard'
 import {Space} from 'components'
 import {useCollection} from 'store'
+import moment from 'moment'
+import NoUpcomingEventCard from 'components/NoUpcomingEventCard'
 
 export default function HomeEvent() {
     const classes = useStyles()
     const {data} = useCollection({name: 'events', limit: 1})
+    const isUpcomingEvent = moment().isSameOrBefore(data?.[0].date)
 
     return (
         <>
@@ -15,12 +18,16 @@ export default function HomeEvent() {
                 <div className={classes.events}>
                     <Label text={'Upcoming Events'} />
                     <Space y1={25} y2={50} />
-                    {data?.map((event) => (
-                        <React.Fragment key={event.id}>
-                            <EventCard {...event} />
-                            <Space y1={15} y2={20} />
-                        </React.Fragment>
-                    ))}
+                    {isUpcomingEvent ? (
+                        data?.map((event) => (
+                            <React.Fragment key={event.id}>
+                                <EventCard {...event} />
+                                <Space y1={15} y2={20} />
+                            </React.Fragment>
+                        ))
+                    ) : (
+                        <NoUpcomingEventCard label={'Upcoming Events'} />
+                    )}
                 </div>
             </div>
         </>
