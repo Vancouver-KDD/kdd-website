@@ -32,6 +32,9 @@ export default function NavigationBar() {
                     <li>
                         <Link to="/photos">Photos</Link>
                     </li>
+                    <li>
+                        <Link to="/blog">Blog</Link>
+                    </li>
                 </ul>
             </div>
         </nav>
