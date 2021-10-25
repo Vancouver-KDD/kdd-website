@@ -1,6 +1,5 @@
 import {Image} from 'components/Image'
 import {Button} from 'components/buttons/Button'
-import {createUseStyles} from 'react-jss'
 import slackLogo from 'assets/icons/coolicon-slack.svg'
 import linkedInIcon from 'assets/icons/LinkedIn.svg'
 import heroBG from 'assets/images/hero-bg.jpg'
@@ -8,8 +7,6 @@ import ellipse from 'assets/images/ellipse.svg'
 import {Typography, Box} from '@mui/material'
 
 export default function Hero() {
-    const classes = useStyles()
-
     return (
         <Box height="100vh" minHeight={68} position="relative">
             <Box
@@ -18,16 +15,7 @@ export default function Hero() {
                     backgroundSize: 'cover',
                     height: '100%',
                 }}>
-                <Box
-                    sx={{
-                        textAlign: 'center',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        padding: 2,
-                        paddingTop: 14,
-                        justifyContent: 'center',
-                        height: '100%',
-                    }}>
+                <Box textAlign="center" p={2} pt={14} justifyContent="center" height="100%">
                     <Typography
                         variant="h3"
                         sx={{
@@ -39,59 +27,27 @@ export default function Hero() {
                         Vancouver KDD
                     </Typography>
 
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: 'white',
-                            fontWeight: '700',
-                            mb: '2rem',
-                        }}>
+                    <Typography variant="h6" color="white" fontWeight="700" mb={'2rem'}>
                         저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
                     </Typography>
 
-                    <Box justifyContent="center" flexDirection="row">
-                        <Box
-                            sx={{
-                                marginLeft: 1,
-                                marginRight: 1,
-
-                                display: 'flex',
-                                flexDirection: 'column',
-                            }}>
-                            <Button
-                                href="https://www.linkedin.com/company/vancouver-kdd"
-                                newTab
-                                Icon={<Image img={linkedInIcon} alt="LinkedIn" />}
-                                text="LinkedIn"
-                            />
-                        </Box>
-                        <Box
-                            sx={{
-                                marginLeft: 1,
-                                marginRight: 1,
-
-                                display: 'flex',
-                                flexDirection: 'column',
-                            }}>
-                            <Button
-                                href="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g"
-                                newTab
-                                Icon={<Image img={slackLogo} alt="Join Slack" />}
-                                text="Join Slack"
-                            />
-                        </Box>
+                    <Box justifyContent="center" flexDirection="row" mx={1} gap={2}>
+                        <Button
+                            href="https://www.linkedin.com/company/vancouver-kdd"
+                            newTab
+                            Icon={<Image img={linkedInIcon} alt="LinkedIn" />}
+                            text="LinkedIn"
+                        />
+                        <Button
+                            href="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g"
+                            newTab
+                            Icon={<Image img={slackLogo} alt="Join Slack" />}
+                            text="Join Slack"
+                        />
                     </Box>
                 </Box>
             </Box>
-            <img className={classes.divider} src={ellipse} alt="ellipse divider" />
+            <Box component={'img'} width="100%" position="absolute" bottom={'-1px'} src={ellipse} alt="ellipse divider" />
         </Box>
     )
 }
-
-const useStyles = createUseStyles({
-    divider: {
-        width: '100%',
-        position: 'absolute',
-        bottom: -1,
-    },
-})

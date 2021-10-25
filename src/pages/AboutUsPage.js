@@ -6,15 +6,18 @@ import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
 import * as memberSocialIcons from 'assets/members'
+import {Box, Typography} from '@mui/material'
 
 export default function AboutUsPage() {
     const classes = useStyles()
     const {data} = useCollection({name: 'volunteers'})
 
     return (
-        <div className={classes.root}>
+        <Box>
             <NavigationBar />
-            <div className={classes.title}>Korean Developer & Designer</div>
+            <Typography variant="h4" fontWeight="700" my={6} ml={10} whiteSpace={'pre-wrap'}>
+                Korean Developer & Designer
+            </Typography>
             <div className={classes.contents}>
                 KDD는 Korean Developer and Designer 그룹으로 캐나다 서부지역 IT분야 한인들의 비영리 모임입니다. KDD는 2017년 부터 한인
                 IT분야 종사자들의 교류와 지역사회 발전을 위해 노력하고 있습니다.
@@ -74,7 +77,7 @@ export default function AboutUsPage() {
                 </div>
             </Section>
             <Footer />
-        </div>
+        </Box>
     )
 }
 
@@ -110,10 +113,6 @@ const Member = ({name, title, description, profilePic, socialList}) => {
 }
 
 const useStyles = createUseStyles({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
     section: {
         // Centers the sectionContent
         display: 'flex',

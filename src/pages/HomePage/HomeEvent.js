@@ -1,5 +1,4 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
 import EventCard from 'components/EventCard'
 import {Space} from 'components'
 import {useCollection} from 'store'
