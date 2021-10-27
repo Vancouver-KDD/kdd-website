@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
 import {ArrowButton} from 'components/buttons/ArrowButton'
 import PhotoCard from 'components/PhotoCard'
@@ -14,7 +13,6 @@ export default function HomePhotos() {
     const [rightDisabled, setRightDisabled] = useState(false)
     const {data: photos, loading, error} = useCollection({name: 'photos'})
     const cardListSize = photos?.length ?? 0
-    const classes = useStyles(currentCardNo)
 
     const handleClick = (index) => {
         if (0 <= index && index < cardListSize - TODO_NUM) {
@@ -120,51 +118,3 @@ export default function HomePhotos() {
         </Box>
     )
 }
-
-const useStyles = createUseStyles({
-    photos: {
-        position: 'relative',
-        width: 375,
-        maxWidth: '100%',
-        height: 370,
-        textAlign: 'center',
-        margin: 'auto',
-        '& h1': {
-            marginTop: '4rem',
-            // fontSize: '3.5rem',
-        },
-        '@media (min-width: 800px)': {
-            width: 756,
-        },
-        '@media (min-width: 1024px)': {
-            width: 1022,
-            height: 400,
-        },
-    },
-    photoBox: {
-        position: 'relative',
-        margin: 'auto',
-        overflowX: 'hidden',
-    },
-    photoCardList: {
-        display: 'flex',
-        transition: 'all 300ms ease 0s',
-        transform: (currentCardNo) => `translate3d(${currentCardNo * -375}px, 0px, 0px)`,
-        '@media (min-width: 1024px)': {
-            transform: (currentCardNo) => `translate3d(${currentCardNo * -512}px, 0px, 0px)`,
-        },
-    },
-    groupArrowButton: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        marginBottom: 4,
-        '& a': {
-            // fontSize: '1.3rem',
-            fontWeight: '600',
-        },
-        '& button': {
-            marginLeft: 7,
-        },
-    },
-})
