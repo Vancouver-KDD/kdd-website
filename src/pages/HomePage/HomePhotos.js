@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {createUseStyles} from 'react-jss'
 import {Link} from 'react-router-dom'
 import {ArrowButton} from 'components/buttons/ArrowButton'
 import PhotoCard from 'components/PhotoCard'

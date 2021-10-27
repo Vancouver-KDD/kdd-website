@@ -3,9 +3,29 @@ import EventCard from 'components/EventCard'
 import {Space} from 'components'
 import {useCollection} from 'store'
 import {Typography, Box} from '@mui/material'
+import moment from 'moment'
 
 export default function HomeEvent() {
-    const {data} = useCollection({name: 'events', limit: 1})
+    const {data} = useCollection({name: 'events'})
+    const currentDate = moment()
+
+    const _showEventData = data?.reduce(
+        (acc, event) => {
+            if (currentDate.isSameOrBefore(event.date)) {
+                acc.upcoming.push(event)
+                event.isPastEvent = false
+            } else {
+                acc.past.push(event)
+                event.isPastEvent = true
+            }
+
+            return acc
+        },
+        {upcoming: [], past: []},
+    )
+
+    const showEvents = [_showEventData?.upcoming?.length > 0 ? _showEventData?.upcoming[0] : _showEventData?.past[0]]
+    const labelText = _showEventData?.upcoming?.length > 0 ? 'Upcoming Events' : 'Past Events'
 
     return (
         <>
@@ -27,12 +47,12 @@ export default function HomeEvent() {
                             fontSize: 'clamp(36px, calc(1.85vw + 29px), 48px)',
                         },
                     }}>
-                    <Label text={'Upcoming Events'} />
+                    <Label text={labelText} />
                     <Space y1={25} y2={50} />
-                    {data?.map?.((event) => (
+                    {showEvents?.map?.((event) => (
                         // TODO: EventCard needs to have fontSize removed
-                        <React.Fragment key={event.id}>
-                            <EventCard {...event} />
+                        <React.Fragment key={event?.id}>
+                            <EventCard {...event} isPastEvent={event?.isPastEvent} />
                             <Space y1={15} y2={20} />
                         </React.Fragment>
                     ))}
