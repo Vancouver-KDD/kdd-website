@@ -1,9 +1,24 @@
 import React from 'react'
-import {Button, Typography} from '@mui/material'
+import {ButtonBase, Typography} from '@mui/material'
 
-export default function SignupButton({href}: {href: string}) {
+export default function SignupButton({href, closed = false}: {href: string; closed: boolean}) {
+    if (closed) {
+        return (
+            <ButtonBase
+                disableRipple
+                sx={{
+                    cursor: 'not-allowed',
+                    height: 48,
+                    borderRadius: 24,
+                    backgroundColor: 'grey.500',
+                    color: 'white',
+                }}>
+                <Typography variant="button">Closed</Typography>
+            </ButtonBase>
+        )
+    }
     return (
-        <Button
+        <ButtonBase
             onClick={(e) => e.stopPropagation()}
             target="_blank"
             rel="noopener noreferrer"
@@ -18,6 +33,6 @@ export default function SignupButton({href}: {href: string}) {
                 },
             }}>
             <Typography variant="button">Sign Up</Typography>
-        </Button>
+        </ButtonBase>
     )
 }

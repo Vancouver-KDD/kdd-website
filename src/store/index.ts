@@ -1,7 +1,7 @@
 import React from 'react'
 import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers} from 'api'
 
-function getLoadData({name}: {name?: string}) {
+function getLoadCollection({name}: {name: string}) {
     switch (name) {
         case 'photos':
             return getPhotos
@@ -13,6 +13,13 @@ function getLoadData({name}: {name?: string}) {
             return getMembers
         case 'events':
             return getEvents
+        default:
+            throw new Error('name does not match')
+    }
+}
+
+function getLoadDocument({name}: {name: string}) {
+    switch (name) {
         case 'event':
             return getEvent
         default:
@@ -20,7 +27,7 @@ function getLoadData({name}: {name?: string}) {
     }
 }
 
-export function useCollection({name, limit = 6, id}: {name: string; limit?: number; id?: string}) {
+export function useCollection({name, limit = 6}: {name: string; limit?: number}) {
     const offsetRef = React.useRef(0)
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
@@ -30,18 +37,18 @@ export function useCollection({name, limit = 6, id}: {name: string; limit?: numb
         setData(null)
         setError(new Error('name cannot be empty'))
     }
+    const loadData = getLoadCollection({name})
 
     function loadMore() {
         if (loading) {
             return
         }
-        const loadData = getLoadData({name})
         setLoading(true)
         setError(null)
 
-        loadData({offset: offsetRef.current, limit, id})
+        loadData({offset: offsetRef.current, limit})
             .then((data) => {
-                offsetRef.current += data.length
+                offsetRef.current += data.length ?? 0
                 setData((_prevData) => [...(_prevData ?? []), ...data])
                 setLoading(false)
                 setError(null)
@@ -54,10 +61,9 @@ export function useCollection({name, limit = 6, id}: {name: string; limit?: numb
     }
 
     React.useEffect(() => {
-        const loadData = getLoadData({name})
-        loadData({offset: offsetRef.current, limit, id})
+        loadData({offset: offsetRef.current, limit})
             .then((data) => {
-                offsetRef.current += data.length
+                offsetRef.current += data.length ?? 0
                 setData(data)
                 setLoading(false)
                 setError(null)
@@ -67,7 +73,36 @@ export function useCollection({name, limit = 6, id}: {name: string; limit?: numb
                 setLoading(false)
                 setError(e)
             })
-    }, [name, limit, id])
+    }, [loadData, limit])
 
     return {loading, data, error, loadMore}
+}
+
+export function useDocument({name, id}: {name: string; id: string}) {
+    const [loading, setLoading] = React.useState(true)
+    const [error, setError] = React.useState<null | Error>(null)
+    const [data, setData] = React.useState<null | any>(null)
+
+    if (!name) {
+        setLoading(false)
+        setData(null)
+        setError(new Error('name cannot be empty'))
+    }
+    const loadDocument = getLoadDocument({name})
+
+    React.useEffect(() => {
+        loadDocument({id})
+            .then((data) => {
+                setData(data)
+                setLoading(false)
+                setError(null)
+            })
+            .catch((e) => {
+                setData(null)
+                setLoading(false)
+                setError(e)
+            })
+    }, [loadDocument, id])
+
+    return {loading, data, error}
 }

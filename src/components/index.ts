@@ -1,3 +1,4 @@
+export {default as CalendarTooltip} from './CalendarTooltip'
 export {default as EventCard} from './EventCard'
 export {default as Footer} from './Footer'
 export {default as NavigationBar} from './NavigationBar'

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link as RouterLink} from 'react-router-dom'
 import {Box, Link, Typography} from '@mui/material'
-import {CalendarButton, ClosedButton, SignupButton} from 'components/buttons'
+import {CalendarButton, SignupButton} from 'components/buttons'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -9,7 +9,8 @@ import type {EventType} from 'types'
 
 type PropTypes = EventType & {isPastEvent: boolean}
 
-function EventCard({id, title, poster, date, durationVal, durationType, joinLink, description, location, isPastEvent}: PropTypes) {
+function EventCard(props: PropTypes) {
+    const {id, title, poster, date, joinLink, description, location, isPastEvent} = props
     const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
@@ -55,18 +56,10 @@ function EventCard({id, title, poster, date, durationVal, durationType, joinLink
                         </Typography>
                     </Box>
                     <Box flexDirection="row" alignItems="center" justifyContent="center" gap={2}>
-                        <Box flex={1}>{!isPastEvent ? <SignupButton href={joinLink} /> : <ClosedButton />}</Box>
-                        {!isPastEvent && (
-                            <CalendarButton
-                                id={id}
-                                title={title}
-                                date={date}
-                                durationVal={durationVal}
-                                durationType={durationType}
-                                location={location}
-                                description={description}
-                            />
-                        )}
+                        <Box flex={1}>
+                            <SignupButton closed={isPastEvent} href={joinLink} />
+                        </Box>
+                        {!isPastEvent && <CalendarButton {...props} />}
                     </Box>
                 </Box>
             </Box>

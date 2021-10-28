@@ -1,11 +1,11 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
 import {google, outlook, office365, yahoo, ics} from 'calendar-link'
+import {Box} from '@mui/material'
+import type {EventType} from 'types'
+import type {CalendarEvent} from 'calendar-link'
 
-export default function CalendarTooltip({title, date, durationVal, durationType, location, description}) {
-    const classes = useStyles()
-
-    const event = {
+export default function CalendarTooltip({title, date, durationVal, durationType, location, description}: EventType) {
+    const event: CalendarEvent = {
         title,
         description,
         start: date,
@@ -14,7 +14,21 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
     }
 
     return (
-        <div className={classes.tooltipContent}>
+        <Box
+            sx={{
+                width: 220,
+                textAlign: 'center',
+                fontSize: '1rem',
+                '& a': {
+                    '& div': {
+                        padding: 1,
+                        cursor: 'pointer',
+                        '&:hover': {
+                            backgroundColor: 'grey.200',
+                        },
+                    },
+                },
+            }}>
             <a onClick={(e) => e.stopPropagation()} href={google(event)}>
                 <div>Google Calendar</div>
             </a>
@@ -30,23 +44,6 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
             <a onClick={(e) => e.stopPropagation()} href={office365(event)}>
                 <div>Office 365</div>
             </a>
-        </div>
+        </Box>
     )
 }
-
-const useStyles = createUseStyles({
-    tooltipContent: {
-        width: 220,
-        textAlign: 'center',
-        fontSize: '1.6rem',
-        '& a': {
-            '& div': {
-                padding: 8,
-                cursor: 'pointer',
-                '&:hover': {
-                    backgroundColor: '#eee',
-                },
-            },
-        },
-    },
-})
