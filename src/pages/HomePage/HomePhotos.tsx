@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {ArrowButton} from 'components/buttons/ArrowButton'
 import PhotoCard from 'components/PhotoCard'
 import {useCollection} from 'store'
-import {Typography, Box} from '@mui/material'
+import {Typography, Stack} from '@mui/material'
 
 export default function HomePhotos() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
@@ -18,7 +18,7 @@ export default function HomePhotos() {
     }
 
     return (
-        <Box
+        <Stack
             sx={{
                 position: 'relative',
                 width: '100%',
@@ -41,12 +41,12 @@ export default function HomePhotos() {
                 //     height: '100%',
                 // },
             }}>
-            <Box>
-                <Box>
+            <Stack>
+                <Stack>
                     <Typography variant="h4" fontWeight={700}>
                         Photos
                     </Typography>
-                    <Box
+                    <Stack
                         sx={{
                             flexDirection: 'row',
                             alignItems: 'center',
@@ -62,15 +62,15 @@ export default function HomePhotos() {
                         <Link to="/photos">VIEW ALL</Link>
                         <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} disabled={leftDisabled} />
                         <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} disabled={rightDisabled} />
-                    </Box>
-                </Box>
-                <Box sx={{overflowX: 'hidden'}}>
-                    <Box
+                    </Stack>
+                </Stack>
+                <Stack sx={{overflowX: 'hidden'}}>
+                    <Stack
                         sx={{
                             position: 'relative',
                             m: 'auto',
                         }}>
-                        <Box
+                        <Stack
                             sx={{
                                 flexDirection: 'row',
                                 transition: 'all 300ms ease 0s',
@@ -93,10 +93,10 @@ export default function HomePhotos() {
                                     />
                                 )
                             })}
-                        </Box>
-                    </Box>
-                </Box>
-            </Box>
-        </Box>
+                        </Stack>
+                    </Stack>
+                </Stack>
+            </Stack>
+        </Stack>
     )
 }

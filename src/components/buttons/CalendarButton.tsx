@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import btnCalendarImg from 'assets/images/btn-calendar.svg'
 import {CalendarTooltip} from 'components'
-import {Box, ButtonBase, Popover} from '@mui/material'
+import {Stack, ButtonBase, Popover} from '@mui/material'
 import type {EventType} from 'types'
 
 export default function CalendarButton(props: EventType) {
@@ -46,7 +46,7 @@ export default function CalendarButton(props: EventType) {
                     },
                 }}
                 onClick={handleClick}>
-                <Box component="img" src={btnCalendarImg} />
+                <Stack component="img" src={btnCalendarImg} />
             </ButtonBase>
         </>
     )

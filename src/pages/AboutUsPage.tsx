@@ -5,14 +5,14 @@ import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
 import * as memberSocialIcons from 'assets/members'
-import {Box, Typography} from '@mui/material'
+import {Stack, Typography} from '@mui/material'
 import {Section} from 'components'
 
 export default function AboutUsPage() {
     const {data} = useCollection({name: 'volunteers'})
 
     return (
-        <Box>
+        <Stack>
             <NavigationBar />
             <Section my={6} gap={4}>
                 <Typography variant="h4" fontWeight="700">
@@ -39,7 +39,7 @@ export default function AboutUsPage() {
                     성장하고 있습니다
                 </Typography>
             </Section>
-            <Box sx={{backgroundColor: '#EAEAEA'}}>
+            <Stack sx={{backgroundColor: '#EAEAEA'}}>
                 <Section my={6} gap={4}>
                     <Typography variant="h4" fontWeight="700">
                         KDD Mission
@@ -52,9 +52,9 @@ export default function AboutUsPage() {
                         KDD는 한인 IT인들의 안전한 캐나다 정착을 돕습니다.
                     </Typography>
                 </Section>
-            </Box>
+            </Stack>
             <Section flexDirection="row" gap={'6%'} my={6} alignItems="center">
-                <Box gap={2}>
+                <Stack gap={2}>
                     <Typography variant="h4" fontWeight="700" mb={2}>
                         Message From Members
                     </Typography>
@@ -70,10 +70,17 @@ export default function AboutUsPage() {
                         “졸업후 잡을 찾지 못해서 고생했는데 KDD회원분이 사내 채용정보를 알려주셔서 취업하게 됐습니다. 네트워킹이 정말
                         중요한것 같아요.”
                     </Typography>
-                </Box>
-                <Box component="img" src={about1} sx={{objectFit: 'cover'}} width="40%" height={400} alt={'hand holding lightbulb'} />
+                </Stack>
+                <Stack
+                    component="img"
+                    src={about1}
+                    sx={{objectFit: 'cover'}}
+                    width="40%"
+                    height={400}
+                    alt={'hand holding lightbulb'}
+                />
             </Section>
-            <Box sx={{backgroundColor: '#EAEAEA'}}>
+            <Stack sx={{backgroundColor: '#EAEAEA'}}>
                 <Section my={6} gap={4}>
                     <Typography variant="h4" fontWeight="700">
                         Wanted
@@ -83,12 +90,12 @@ export default function AboutUsPage() {
                         언제든 vancouverkdd@gmail.com 로 연락주세요.
                     </Typography>
                 </Section>
-            </Box>
+            </Stack>
             <Section textAlign="center" my={6}>
                 <Typography variant="h4" fontWeight="700">
                     Organizers
                 </Typography>
-                <Box
+                <Stack
                     sx={{
                         marginTop: 'calc(2.44140625% + 25px)', // 25px - 50px based on the width
                         display: 'grid',
@@ -105,10 +112,10 @@ export default function AboutUsPage() {
                     {data?.map?.((member) => {
                         return <Member key={member.id} {...member} />
                     })}
-                </Box>
+                </Stack>
             </Section>
             <Footer />
-        </Box>
+        </Stack>
     )
 }
 
@@ -129,8 +136,8 @@ const Member = ({name, title, description, profilePic, socialList}: MemberType) 
     const imageUrl = profilePic?.[0]?.formats?.small?.url ?? profilePic?.[0]?.url
 
     return (
-        <Box gap={1}>
-            <Box
+        <Stack gap={1}>
+            <Stack
                 component={'img'}
                 sx={{
                     width: '100%',
@@ -146,7 +153,7 @@ const Member = ({name, title, description, profilePic, socialList}: MemberType) 
             </Typography>
             <Typography variant="h6">{title}</Typography>
             <Typography variant="h6">{description}</Typography>
-            <Box
+            <Stack
                 sx={{
                     mt: 1,
                     width: '100%',
@@ -160,7 +167,7 @@ const Member = ({name, title, description, profilePic, socialList}: MemberType) 
                         <img src={memberSocialIcons?.[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
                     </a>
                 ))}
-            </Box>
-        </Box>
+            </Stack>
+        </Stack>
     )
 }

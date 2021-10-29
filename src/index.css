@@ -45,26 +45,3 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-/* h1 {
-    font-size: 4.8rem;
-}
-h2 {
-    font-size: 4rem;
-} */
-/* h3 {
-    font-size: 3.75rem;
-} */
-/* h4 {
-    font-size: 3.5rem;
-}
-h5 {
-    font-size: 3.25rem;
-}
-h6 {
-    font-size: 3rem;
-} */
-
-.MuiBox-root {
-    display: flex;
-    flex-direction: column;
-}

@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import moment from 'moment'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import {Box, ButtonBase, Typography} from '@mui/material'
+import {Stack, ButtonBase, Typography} from '@mui/material'
 
 export default function EventDetailsPage() {
     const match = useRouteMatch<{id?: string}>('/events/:id')
@@ -32,8 +32,8 @@ export default function EventDetailsPage() {
                         BACK
                     </Typography>
                 </ButtonBase>
-                <Box sx={{backgroundColor: 'grey.A100', borderRadius: 1, alignItems: 'center', p: 2, gap: 2}}>
-                    <Box
+                <Stack sx={{backgroundColor: 'grey.A100', borderRadius: 1, alignItems: 'center', p: 2, gap: 2}}>
+                    <Stack
                         component="img"
                         sx={{
                             maxHeight: 300,
@@ -45,7 +45,7 @@ export default function EventDetailsPage() {
                         src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
                         alt={poster?.[0]?.name}
                     />
-                    <Box maxWidth={'md'} gap={2}>
+                    <Stack maxWidth={'md'} gap={2}>
                         <Typography variant="subtitle1" textAlign="center">
                             {dateLocation}
                         </Typography>
@@ -55,15 +55,15 @@ export default function EventDetailsPage() {
                         <Typography>
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
                         </Typography>
-                        <Box flexDirection="row" alignSelf="center" width={'100%'} maxWidth="sm" gap={2}>
-                            <Box flex={1}>
+                        <Stack flexDirection="row" alignSelf="center" width={'100%'} maxWidth="sm" gap={2}>
+                            <Stack flex={1}>
                                 <SignupButton closed={!isEnabledSignUp} href={joinLink} />
-                            </Box>
+                            </Stack>
 
                             {isEnabledSignUp && <CalendarButton {...(data ?? {})} />}
-                        </Box>
-                    </Box>
-                </Box>
+                        </Stack>
+                    </Stack>
+                </Stack>
             </Section>
             <Footer />
         </>

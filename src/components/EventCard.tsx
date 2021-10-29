@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link as RouterLink} from 'react-router-dom'
-import {Box, Link, Typography} from '@mui/material'
+import {Stack, Link, Typography} from '@mui/material'
 import {CalendarButton, SignupButton} from 'components/buttons'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -17,7 +17,7 @@ function EventCard(props: PropTypes) {
 
     return (
         <Link component={RouterLink} to={`events/${id}`} sx={{color: 'inherit', textDecoration: 'inherit'}}>
-            <Box
+            <Stack
                 sx={{
                     borderRadius: 2,
                     overflow: 'hidden',
@@ -25,7 +25,7 @@ function EventCard(props: PropTypes) {
                     flexDirection: {sm: 'column', md: 'row'},
                     '&:hover > img': {transform: 'scale(1.1)'},
                 }}>
-                <Box
+                <Stack
                     component="img"
                     sx={{
                         transitionDuration: '0.5s',
@@ -36,8 +36,8 @@ function EventCard(props: PropTypes) {
                     src={posterImageUrl}
                     alt={title}
                 />
-                <Box sx={{zIndex: 1, backgroundColor: '#F5F5F5', p: 3, width: {sm: '100%', md: '50%'}}} gap={2}>
-                    <Box sx={{justifyContent: 'center', flex: 1}} gap={2}>
+                <Stack sx={{zIndex: 1, backgroundColor: '#F5F5F5', p: 3, width: {sm: '100%', md: '50%'}}} gap={2}>
+                    <Stack sx={{justifyContent: 'center', flex: 1}} gap={2}>
                         <Typography variant="subtitle1" textAlign="center">
                             {dateLocation}
                         </Typography>
@@ -54,15 +54,15 @@ function EventCard(props: PropTypes) {
                             }}>
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
                         </Typography>
-                    </Box>
-                    <Box flexDirection="row" alignItems="center" justifyContent="center" gap={2}>
-                        <Box flex={1}>
+                    </Stack>
+                    <Stack flexDirection="row" alignItems="center" justifyContent="center" gap={2}>
+                        <Stack flex={1}>
                             <SignupButton closed={isPastEvent} href={joinLink} />
-                        </Box>
+                        </Stack>
                         {!isPastEvent && <CalendarButton {...props} />}
-                    </Box>
-                </Box>
-            </Box>
+                    </Stack>
+                </Stack>
+            </Stack>
         </Link>
     )
 }

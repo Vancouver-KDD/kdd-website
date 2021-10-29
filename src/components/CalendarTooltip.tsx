@@ -1,6 +1,6 @@
 import React from 'react'
 import {google, outlook, office365, yahoo, ics} from 'calendar-link'
-import {Box} from '@mui/material'
+import {Stack} from '@mui/material'
 import type {EventType} from 'types'
 import type {CalendarEvent} from 'calendar-link'
 
@@ -14,7 +14,7 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
     }
 
     return (
-        <Box
+        <Stack
             sx={{
                 width: 220,
                 textAlign: 'center',
@@ -44,6 +44,6 @@ export default function CalendarTooltip({title, date, durationVal, durationType,
             <a onClick={(e) => e.stopPropagation()} href={office365(event)}>
                 <div>Office 365</div>
             </a>
-        </Box>
+        </Stack>
     )
 }

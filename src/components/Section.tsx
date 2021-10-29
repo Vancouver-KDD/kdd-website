@@ -1,13 +1,13 @@
 import React, {FC} from 'react'
-import {Box, BoxProps} from '@mui/material'
+import {Stack, StackProps} from '@mui/material'
 
-const Section: FC<BoxProps> = ({children, ...props}) => {
+const Section: FC<StackProps> = ({children, ...props}) => {
     return (
-        <Box p={1} width="100%" alignItems="center">
-            <Box width={'100%'} maxWidth="md" {...props}>
+        <Stack p={1} width="100%" alignItems="center">
+            <Stack width={'100%'} maxWidth="md" {...props}>
                 {children}
-            </Box>
-        </Box>
+            </Stack>
+        </Stack>
     )
 }
 

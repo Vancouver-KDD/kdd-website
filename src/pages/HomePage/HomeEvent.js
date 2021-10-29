@@ -2,7 +2,7 @@ import React from 'react'
 import EventCard from 'components/EventCard'
 import {Space} from 'components'
 import {useCollection} from 'store'
-import {Typography, Box} from '@mui/material'
+import {Typography, Stack} from '@mui/material'
 import moment from 'moment'
 
 export default function HomeEvent() {
@@ -30,7 +30,7 @@ export default function HomeEvent() {
     return (
         <>
             <Space y1={50} y2={75} />
-            <Box
+            <Stack
                 pl={2}
                 pr={2}
                 sx={{
@@ -38,7 +38,7 @@ export default function HomeEvent() {
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}>
-                <Box
+                <Stack
                     sx={{
                         width: 1024,
                         maxWidth: '100%',
@@ -56,8 +56,8 @@ export default function HomeEvent() {
                             <Space y1={15} y2={20} />
                         </React.Fragment>
                     ))}
-                </Box>
-            </Box>
+                </Stack>
+            </Stack>
         </>
     )
 }
@@ -65,7 +65,7 @@ export default function HomeEvent() {
 // TODO: Make this label component reusable
 function Label({text}) {
     return (
-        <Box
+        <Stack
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -75,7 +75,7 @@ function Label({text}) {
                 {text}
             </Typography>
             <Space y1={10} y2={15} />
-            <Box height={2} backgroundColor="hsl(343, 91%, 56%)" width={143} />
-        </Box>
+            <Stack height={2} backgroundColor="hsl(343, 91%, 56%)" width={143} />
+        </Stack>
     )
 }

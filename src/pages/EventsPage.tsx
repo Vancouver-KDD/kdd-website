@@ -2,7 +2,7 @@ import React from 'react'
 import {Section, Footer, NoUpcomingEventCard, EventCard, NavigationBar} from 'components'
 import {useCollection} from 'store'
 import moment from 'moment'
-import {Box, Typography} from '@mui/material'
+import {Stack, Typography} from '@mui/material'
 import type {EventType} from 'types'
 
 export default function EventsPage() {
@@ -33,24 +33,24 @@ export default function EventsPage() {
 
 function Label({text}: {text: string}) {
     return (
-        <Box alignItems="center" gap={2}>
+        <Stack alignItems="center" gap={2}>
             <Typography variant="h4" fontWeight="700">
                 {text}
             </Typography>
-            <Box sx={{height: 2, backgroundColor: 'hsl(343, 91%, 56%)', width: 143}} />
-        </Box>
+            <Stack sx={{height: 2, backgroundColor: 'hsl(343, 91%, 56%)', width: 143}} />
+        </Stack>
     )
 }
 
 function EventSection({data, label, isPastEvent}: {data: Array<EventType>; label: string; isPastEvent: boolean}) {
     return (
-        <Box gap={5}>
+        <Stack gap={5}>
             <Label text={label} />
             {!isPastEvent && !data?.[0] ? (
                 <NoUpcomingEventCard label={label} />
             ) : (
                 data?.map?.((event) => <EventCard key={event.id} {...event} isPastEvent={isPastEvent} />)
             )}
-        </Box>
+        </Stack>
     )
 }

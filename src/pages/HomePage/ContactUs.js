@@ -5,12 +5,12 @@ import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
 import LinkedinIcon from 'assets/icons/linkedIn1.svg'
-import {Typography, Box} from '@mui/material'
+import {Typography, Stack} from '@mui/material'
 
 export default function ContactUs() {
     const classes = useStyles()
     return (
-        <Box
+        <Stack
             component="section"
             sx={{
                 margin: 'auto',
@@ -29,7 +29,7 @@ export default function ContactUs() {
                 }}>
                 Contact Us
             </Typography>
-            <Box
+            <Stack
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
@@ -46,7 +46,7 @@ export default function ContactUs() {
                         flexDirection: 'column',
                     },
                 }}>
-                <Box width={375} maxWidth="100%">
+                <Stack width={375} maxWidth="100%">
                     <Typography variant="h4" fontWeight={700}>
                         Email
                     </Typography>
@@ -54,12 +54,12 @@ export default function ContactUs() {
                     <a className={classes.email} href="mailto:vancouverkdd@gmail.com">
                         vancouverkdd@gmail.com
                     </a>
-                </Box>
-                <Box width={375} maxWidth="100%">
+                </Stack>
+                <Stack width={375} maxWidth="100%">
                     <Typography variant="h4" fontWeight={700}>
                         Social Media
                     </Typography>
-                    <Box
+                    <Stack
                         sx={{
                             height: 73,
                             display: 'flex',
@@ -79,10 +79,10 @@ export default function ContactUs() {
                         <Image img={LinkedinIcon} alt="linkedin icon" url="https://www.linkedin.com/company/vancouver-kdd" />
                         <Image img={FaceBookIcon} alt="facebook icon" url="https://www.facebook.com/groups/VancouverKDD" />
                         <Image img={MeetupIcon} alt="meetup icon" url="https://www.meetup.com/Vancouver-KDD" />
-                    </Box>
-                </Box>
-            </Box>
-        </Box>
+                    </Stack>
+                </Stack>
+            </Stack>
+        </Stack>
     )
 }
 
