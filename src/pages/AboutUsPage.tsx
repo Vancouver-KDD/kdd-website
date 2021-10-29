@@ -1,12 +1,10 @@
 import React from 'react'
-import NavigationBar from 'components/NavigationBar'
-import Footer from 'components/Footer'
+import {Footer, NavigationBar, Section} from 'components'
 import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
 import * as memberSocialIcons from 'assets/members'
 import {Box, Grid, Stack, Typography} from '@mui/material'
-import {Section} from 'components'
 
 export default function AboutUsPage() {
     const {data} = useCollection({name: 'volunteers'})
@@ -39,7 +37,7 @@ export default function AboutUsPage() {
                     성장하고 있습니다
                 </Typography>
             </Section>
-            <Stack sx={{backgroundColor: '#EAEAEA'}}>
+            <Stack sx={{backgroundColor: 'grey.200'}}>
                 <Section my={6} spacing={4}>
                     <Typography variant="h4" fontWeight="700">
                         KDD Mission
@@ -71,14 +69,7 @@ export default function AboutUsPage() {
                         중요한것 같아요.”
                     </Typography>
                 </Stack>
-                <Stack
-                    component="img"
-                    src={about1}
-                    sx={{objectFit: 'cover'}}
-                    width="40%"
-                    height={400}
-                    alt={'hand holding lightbulb'}
-                />
+                <Box component="img" src={about1} sx={{objectFit: 'cover'}} width="40%" height={400} alt={'hand holding lightbulb'} />
             </Section>
             <Stack sx={{backgroundColor: '#EAEAEA'}}>
                 <Section my={6} spacing={4}>
