@@ -19,8 +19,8 @@ export default function Sponsors() {
                 minHeight: 214,
                 backgroundColor: 'hsla(0, 0%, 92%, 1)',
             }}>
-            <Typography variant="h6" fontWeight={700} mb={2}>
-                Proudly sponsored by
+            <Typography variant="h4" fontWeight={700} mb={2}>
+                Sponsors
             </Typography>
             <Stack direction="row" sx={{flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
                 {loading && <span>loading...</span>}

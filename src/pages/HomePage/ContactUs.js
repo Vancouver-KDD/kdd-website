@@ -1,44 +1,28 @@
 import React from 'react'
-import {createUseStyles} from 'react-jss'
 import {Image, Section} from 'components'
 import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
 import LinkedinIcon from 'assets/icons/linkedIn1.svg'
-import {Typography, Stack} from '@mui/material'
+import {Link, Typography, Stack} from '@mui/material'
 
 export default function ContactUs() {
-    const classes = useStyles()
     return (
         <Section>
-            <Typography
-                variant="h4"
-                my={4}
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    fontWeight: 700,
-                }}>
+            <Typography variant="h4" my={4} textAlign="center" fontWeight="700">
                 Contact Us
             </Typography>
-            <Stack
-                direction={{xs: 'column', sm: 'row'}}
-                sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                <Stack flex={1}>
-                    <Typography variant="h4" fontWeight={700}>
+            <Stack direction={{xs: 'column', sm: 'row'}} spacing={4}>
+                <Stack flex={1} spacing={3}>
+                    <Typography variant="h5" fontWeight={700}>
                         Email
                     </Typography>
-
-                    <a className={classes.email} href="mailto:vancouverkdd@gmail.com">
+                    <Link color={'text.primary'} href="mailto:vancouverkdd@gmail.com" variant="h6">
                         vancouverkdd@gmail.com
-                    </a>
+                    </Link>
                 </Stack>
-                <Stack flex={1}>
-                    <Typography variant="h4" fontWeight={700}>
+                <Stack flex={1} spacing={2}>
+                    <Typography variant="h5" fontWeight={700}>
                         Social Media
                     </Typography>
                     <Stack
@@ -48,7 +32,6 @@ export default function ContactUs() {
                             '& img': {
                                 width: 50,
                                 height: 50,
-                                mt: 2,
                             },
                         }}>
                         <Image
@@ -65,13 +48,3 @@ export default function ContactUs() {
         </Section>
     )
 }
-
-const useStyles = createUseStyles({
-    email: {
-        display: 'flex',
-        alignItems: 'center',
-        height: 73,
-        // fontSize: '2.4rem',
-        color: '#0E0E2C',
-    },
-})

@@ -76,7 +76,7 @@ export default function HomePhotos() {
                                 transition: 'all 300ms ease 0s',
                                 transform: {
                                     xs: `translate(${currentCardNo * -375}px, 0px)`,
-                                    md: `translate(${currentCardNo * -512}px, 0px)`,
+                                    md: `translate(${currentCardNo * -450}px, 0px)`,
                                 },
                             }}>
                             {loading && <span>loading...</span>}
