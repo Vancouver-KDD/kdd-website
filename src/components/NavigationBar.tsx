@@ -22,13 +22,13 @@ export default function NavigationBar() {
                 },
             }}>
             <Stack
+                direction={{
+                    xs: 'column-reverse',
+                    sm: 'row',
+                }}
                 sx={{
                     width: '100%',
                     maxWidth: 'md',
-                    flexDirection: {
-                        xs: 'column-reverse',
-                        sm: 'row',
-                    },
                     alignItems: {
                         xs: 'center',
                         sm: 'flex-start',
@@ -38,7 +38,7 @@ export default function NavigationBar() {
                 <Link component={RouterLink} to="/">
                     <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
                 </Link>
-                <Stack component={List} flexDirection="row" justifyContent={'space-between'}>
+                <Stack component={List} direction="row" justifyContent={'space-between'}>
                     <Link fontWeight="bold" underline="hover" component={RouterLink} to="/about-us">
                         <ListItem>About Us</ListItem>
                     </Link>

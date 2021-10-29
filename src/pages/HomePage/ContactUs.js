@@ -1,6 +1,6 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss'
-import {Image} from 'components/Image'
+import {Image, Section} from 'components'
 import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
@@ -10,17 +10,10 @@ import {Typography, Stack} from '@mui/material'
 export default function ContactUs() {
     const classes = useStyles()
     return (
-        <Stack
-            component="section"
-            sx={{
-                margin: 'auto',
-                position: 'relative',
-                textAlign: 'left',
-            }}>
+        <Section>
             <Typography
                 variant="h4"
-                mt={4}
-                mb={4}
+                my={4}
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -30,23 +23,12 @@ export default function ContactUs() {
                 Contact Us
             </Typography>
             <Stack
+                direction={{xs: 'column', sm: 'row'}}
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    // fontSize: '3.6rem',
-                    fontWeight: '900',
-                    flexWrap: 'wrap',
-                    '& > div': {
-                        marginBottom: '4rem',
-                        margin: 'auto',
-                    },
-                    '@media (max-width: 375px)': {
-                        flexDirection: 'column',
-                    },
                 }}>
-                <Stack width={375} maxWidth="100%">
+                <Stack flex={1}>
                     <Typography variant="h4" fontWeight={700}>
                         Email
                     </Typography>
@@ -55,20 +37,18 @@ export default function ContactUs() {
                         vancouverkdd@gmail.com
                     </a>
                 </Stack>
-                <Stack width={375} maxWidth="100%">
+                <Stack flex={1}>
                     <Typography variant="h4" fontWeight={700}>
                         Social Media
                     </Typography>
                     <Stack
+                        direction="row"
+                        spacing={2}
                         sx={{
-                            height: 73,
-                            display: 'flex',
-                            flexDirection: 'row',
                             '& img': {
                                 width: 50,
                                 height: 50,
-                                marginTop: 2,
-                                marginRight: 2,
+                                mt: 2,
                             },
                         }}>
                         <Image
@@ -82,7 +62,7 @@ export default function ContactUs() {
                     </Stack>
                 </Stack>
             </Stack>
-        </Stack>
+        </Section>
     )
 }
 

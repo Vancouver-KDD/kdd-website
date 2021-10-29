@@ -1,11 +1,8 @@
 import React, {useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import moment from 'moment'
-import {Button} from 'components/buttons/Button'
-import NavigationBar from 'components/NavigationBar'
-import PhotoCard from 'components/PhotoCard'
-import Footer from 'components/Footer'
-import Modal from 'components/Modal'
+import {Button} from 'components/buttons'
+import {Footer, Modal, NavigationBar, PhotoCard} from 'components'
 import {useCollection} from 'store'
 
 export default function PhotosPage() {

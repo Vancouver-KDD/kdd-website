@@ -30,14 +30,7 @@ export default function HomeEvent() {
     return (
         <>
             <Space y1={50} y2={75} />
-            <Stack
-                pl={2}
-                pr={2}
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}>
+            <Stack px={2} alignItems="center">
                 <Stack
                     sx={{
                         width: 1024,
@@ -65,12 +58,7 @@ export default function HomeEvent() {
 // TODO: Make this label component reusable
 function Label({text}) {
     return (
-        <Stack
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}>
+        <Stack alignItems="center">
             <Typography variant="h4" fontWeight={700}>
                 {text}
             </Typography>

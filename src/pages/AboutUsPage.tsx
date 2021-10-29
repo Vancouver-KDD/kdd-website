@@ -5,7 +5,7 @@ import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
 import * as memberSocialIcons from 'assets/members'
-import {Stack, Typography} from '@mui/material'
+import {Box, Grid, Stack, Typography} from '@mui/material'
 import {Section} from 'components'
 
 export default function AboutUsPage() {
@@ -14,7 +14,7 @@ export default function AboutUsPage() {
     return (
         <Stack>
             <NavigationBar />
-            <Section my={6} gap={4}>
+            <Section my={6} spacing={4}>
                 <Typography variant="h4" fontWeight="700">
                     Korean Developer & Designer
                 </Typography>
@@ -25,7 +25,7 @@ export default function AboutUsPage() {
             </Section>
 
             <img src={about0} width="100%" height="auto" alt={'aboutUsFirstimg'} />
-            <Section my={6} gap={4}>
+            <Section my={6} spacing={4}>
                 <Typography variant="h4" fontWeight="700">
                     About Us
                 </Typography>
@@ -40,7 +40,7 @@ export default function AboutUsPage() {
                 </Typography>
             </Section>
             <Stack sx={{backgroundColor: '#EAEAEA'}}>
-                <Section my={6} gap={4}>
+                <Section my={6} spacing={4}>
                     <Typography variant="h4" fontWeight="700">
                         KDD Mission
                     </Typography>
@@ -53,8 +53,8 @@ export default function AboutUsPage() {
                     </Typography>
                 </Section>
             </Stack>
-            <Section flexDirection="row" gap={'6%'} my={6} alignItems="center">
-                <Stack gap={2}>
+            <Section direction="row" spacing={'6%'} my={6} alignItems="center">
+                <Stack spacing={2}>
                     <Typography variant="h4" fontWeight="700" mb={2}>
                         Message From Members
                     </Typography>
@@ -81,7 +81,7 @@ export default function AboutUsPage() {
                 />
             </Section>
             <Stack sx={{backgroundColor: '#EAEAEA'}}>
-                <Section my={6} gap={4}>
+                <Section my={6} spacing={4}>
                     <Typography variant="h4" fontWeight="700">
                         Wanted
                     </Typography>
@@ -91,28 +91,19 @@ export default function AboutUsPage() {
                     </Typography>
                 </Section>
             </Stack>
-            <Section textAlign="center" my={6}>
+            <Section textAlign="center" my={6} gap={4}>
                 <Typography variant="h4" fontWeight="700">
                     Organizers
                 </Typography>
-                <Stack
-                    sx={{
-                        marginTop: 'calc(2.44140625% + 25px)', // 25px - 50px based on the width
-                        display: 'grid',
-                        gridTemplateColumns: '1fr',
-                        columnGap: 2,
-                        rowGap: 5,
-                        '@media (min-width: 375px)': {
-                            gridTemplateColumns: '1fr 1fr',
-                        },
-                        '@media (min-width: 768px)': {
-                            gridTemplateColumns: '1fr 1fr 1fr',
-                        },
-                    }}>
+                <Grid container spacing={2}>
                     {data?.map?.((member) => {
-                        return <Member key={member.id} {...member} />
+                        return (
+                            <Grid item key={member.id} xs={12} sm={6} md={4}>
+                                <Member {...member} />
+                            </Grid>
+                        )
                     })}
-                </Stack>
+                </Grid>
             </Section>
             <Footer />
         </Stack>
@@ -136,8 +127,8 @@ const Member = ({name, title, description, profilePic, socialList}: MemberType) 
     const imageUrl = profilePic?.[0]?.formats?.small?.url ?? profilePic?.[0]?.url
 
     return (
-        <Stack gap={1}>
-            <Stack
+        <Stack spacing={1}>
+            <Box
                 component={'img'}
                 sx={{
                     width: '100%',

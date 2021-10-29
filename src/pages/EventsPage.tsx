@@ -22,7 +22,7 @@ export default function EventsPage() {
     return (
         <>
             <NavigationBar />
-            <Section gap={8} mt={5}>
+            <Section spacing={8} mt={5}>
                 <EventSection data={upcomingEvents} label="Upcoming Events" isPastEvent={false} />
                 <EventSection data={pastEvents} label="Past Events" isPastEvent />
             </Section>
@@ -33,7 +33,7 @@ export default function EventsPage() {
 
 function Label({text}: {text: string}) {
     return (
-        <Stack alignItems="center" gap={2}>
+        <Stack alignItems="center" spacing={2}>
             <Typography variant="h4" fontWeight="700">
                 {text}
             </Typography>
@@ -44,7 +44,7 @@ function Label({text}: {text: string}) {
 
 function EventSection({data, label, isPastEvent}: {data: Array<EventType>; label: string; isPastEvent: boolean}) {
     return (
-        <Stack gap={5}>
+        <Stack spacing={5}>
             <Label text={label} />
             {!isPastEvent && !data?.[0] ? (
                 <NoUpcomingEventCard label={label} />

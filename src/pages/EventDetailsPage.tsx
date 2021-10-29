@@ -22,9 +22,7 @@ export default function EventDetailsPage() {
         <>
             <NavigationBar />
             <Section>
-                <ButtonBase
-                    sx={{p: 1, alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center'}}
-                    onClick={() => window.history.back()}>
+                <ButtonBase sx={{p: 1, alignSelf: 'flex-start'}} onClick={() => window.history.back()}>
                     <Typography fontSize={'1.8rem'} lineHeight={0} mr={1}>
                         <ArrowBackIcon fontSize="inherit" />
                     </Typography>
@@ -45,7 +43,7 @@ export default function EventDetailsPage() {
                         src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
                         alt={poster?.[0]?.name}
                     />
-                    <Stack maxWidth={'md'} gap={2}>
+                    <Stack maxWidth={'md'} spacing={2}>
                         <Typography variant="subtitle1" textAlign="center">
                             {dateLocation}
                         </Typography>
@@ -55,7 +53,7 @@ export default function EventDetailsPage() {
                         <Typography>
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
                         </Typography>
-                        <Stack flexDirection="row" alignSelf="center" width={'100%'} maxWidth="sm" gap={2}>
+                        <Stack direction="row" alignSelf="center" width={'100%'} maxWidth="sm" spacing={2}>
                             <Stack flex={1}>
                                 <SignupButton closed={!isEnabledSignUp} href={joinLink} />
                             </Stack>

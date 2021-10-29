@@ -13,38 +13,43 @@ export default function Stats() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: 'background.default',
-                textAlign: 'center',
             }}>
             <Stack
+                direction={{
+                    xs: 'column',
+                    sm: 'row',
+                }}
                 sx={{
                     height: 543,
                     alignItems: 'center',
                     width: '100%',
                     maxWidth: 'md',
-                    '@media (min-width: 768px)': {
-                        alignItems: 'initial',
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                    },
                 }}>
                 <Stack
+                    flex={1}
                     sx={{
                         backgroundImage: {
-                            sm: `url(${StatSmall})`,
+                            xs: `url(${StatSmall})`,
                             md: `url(${StatLarge})`,
                         },
                         backgroundColor: 'background.default',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center center',
-                        height: {sm: 250, md: 'inherit'},
-                        width: {sm: 250, md: 'unset'},
+                        height: {xs: 250, sm: 'inherit'},
+                        width: {xs: 250, sm: 'unset'},
                     }}
                     alt="Statistic image"
                 />
-                <Stack spacing={6} fontWeight="bold" color="text.primary" justifyContent="center">
-                    <Typography variant="h3">Since July 2017</Typography>
-                    <Typography variant="h3">{data?.meetups ?? '39+'} Meetups</Typography>
-                    <Typography variant="h3">{data?.members ?? '1250+'} Members</Typography>
+                <Stack flex={1} spacing={6} color="text.primary" justifyContent="center" textAlign="center">
+                    <Typography variant="h3" fontWeight="bold">
+                        Since July 2017
+                    </Typography>
+                    <Typography variant="h3" fontWeight="bold">
+                        {data?.meetups ?? '39+'} Meetups
+                    </Typography>
+                    <Typography variant="h3" fontWeight="bold">
+                        {data?.members ?? '1250+'} Members
+                    </Typography>
                 </Stack>
             </Stack>
         </Stack>

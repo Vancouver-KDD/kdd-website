@@ -1,10 +1,10 @@
-import {Image} from 'components/Image'
-import {Button} from 'components/buttons/Button'
+import {Image} from 'components'
+import {Button} from 'components/buttons'
 import slackLogo from 'assets/icons/coolicon-slack.svg'
 import linkedInIcon from 'assets/icons/LinkedIn.svg'
 import heroBG from 'assets/images/hero-bg.jpg'
 import ellipse from 'assets/images/ellipse.svg'
-import {Typography, Stack} from '@mui/material'
+import {Box, Typography, Stack} from '@mui/material'
 
 export default function Hero() {
     return (
@@ -15,23 +15,22 @@ export default function Hero() {
                     backgroundSize: 'cover',
                     height: '100%',
                 }}>
-                <Stack textAlign="center" p={2} pt={14} justifyContent="center" height="100%">
+                <Stack spacing={'2rem'} textAlign="center" p={2} pt={14} justifyContent="center" height="100%">
                     <Typography
                         variant="h3"
                         sx={{
                             textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                             color: 'primary.contrastText',
                             fontWeight: '900',
-                            mb: '2rem',
                         }}>
                         Vancouver KDD
                     </Typography>
 
-                    <Typography variant="h6" color="primary.contrastText" fontWeight="700" mb={'2rem'}>
+                    <Typography variant="h6" color="primary.contrastText" fontWeight="700">
                         저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
                     </Typography>
 
-                    <Stack justifyContent="center" flexDirection="row" mx={1} gap={2}>
+                    <Stack justifyContent="center" direction="row" mx={1} spacing={2}>
                         <Button
                             href="https://www.linkedin.com/company/vancouver-kdd"
                             newTab
@@ -47,7 +46,7 @@ export default function Hero() {
                     </Stack>
                 </Stack>
             </Stack>
-            <Stack component={'img'} width="100%" position="absolute" bottom={'-1px'} src={ellipse} alt="ellipse divider" />
+            <Box component={'img'} width="100%" position="absolute" bottom={'-1px'} src={ellipse} alt="ellipse divider" />
         </Stack>
     )
 }

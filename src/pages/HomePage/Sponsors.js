@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image} from 'components/Image'
+import {Image} from 'components'
 import {createUseStyles} from 'react-jss'
 import {useCollection} from 'store'
 import {Typography, Stack} from '@mui/material'
@@ -11,13 +11,10 @@ export default function Sponsors() {
     return (
         <Stack
             component="section"
-            pt={5}
-            pb={5}
+            py={5}
             sx={{
-                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flexDirection: 'column',
                 width: '100%',
                 minHeight: 214,
                 backgroundColor: 'hsla(0, 0%, 92%, 1)',
@@ -25,7 +22,7 @@ export default function Sponsors() {
             <Typography variant="h6" fontWeight={700} mb={2}>
                 Proudly sponsored by
             </Typography>
-            <Stack sx={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
+            <Stack direction="row" sx={{flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
                 {loading && <span>loading...</span>}
                 {!!error && <span>ERROR: {error.message}</span>}
                 {data?.map?.((sponsor) => {

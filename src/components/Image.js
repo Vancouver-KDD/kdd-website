@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-export const Image = ({className, img, url, alt = '', fallbackImg = ''}) => {
+export default function Image({className, img, url, alt = '', fallbackImg = ''}) {
     let errorFlag = false
 
     const handleError = (e) => {
@@ -15,9 +15,7 @@ export const Image = ({className, img, url, alt = '', fallbackImg = ''}) => {
     if (typeof img === 'string') {
         if (url) {
             return (
-                <a href={url}
-                    target="_blank"
-                    rel="noreferrer">
+                <a href={url} target="_blank" rel="noreferrer">
                     <img className={classnames('kdd-image', className)} src={img} alt={alt} onError={handleError} />
                 </a>
             )

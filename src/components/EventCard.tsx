@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link as RouterLink} from 'react-router-dom'
-import {Stack, Link, Typography} from '@mui/material'
+import {Box, Stack, Link, Typography} from '@mui/material'
 import {CalendarButton, SignupButton} from 'components/buttons'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -18,26 +18,26 @@ function EventCard(props: PropTypes) {
     return (
         <Link component={RouterLink} to={`events/${id}`} sx={{color: 'inherit', textDecoration: 'inherit'}}>
             <Stack
+                direction={{xs: 'column', md: 'row'}}
                 sx={{
                     borderRadius: 2,
                     overflow: 'hidden',
-                    alignItems: {sm: 'center', md: 'stretch'},
-                    flexDirection: {sm: 'column', md: 'row'},
+                    alignItems: {xs: 'center', md: 'stretch'},
                     '&:hover > img': {transform: 'scale(1.1)'},
                 }}>
-                <Stack
+                <Box
                     component="img"
                     sx={{
                         transitionDuration: '0.5s',
-                        width: {sm: '100%', md: '50%'},
+                        width: {xs: '100%', md: '50%'},
                         objectFit: 'cover',
-                        aspectRatio: {sm: '4 / 3', md: '16 / 10'},
+                        aspectRatio: {xs: '4 / 3', md: '16 / 10'},
                     }}
                     src={posterImageUrl}
                     alt={title}
                 />
-                <Stack sx={{zIndex: 1, backgroundColor: '#F5F5F5', p: 3, width: {sm: '100%', md: '50%'}}} gap={2}>
-                    <Stack sx={{justifyContent: 'center', flex: 1}} gap={2}>
+                <Stack sx={{zIndex: 1, backgroundColor: '#F5F5F5', p: 3, width: {xs: '100%', md: '50%'}}} spacing={2}>
+                    <Stack sx={{justifyContent: 'center', flex: 1}} spacing={2}>
                         <Typography variant="subtitle1" textAlign="center">
                             {dateLocation}
                         </Typography>
@@ -47,7 +47,7 @@ function EventCard(props: PropTypes) {
                         <Typography
                             sx={{
                                 display: '-webkit-box',
-                                WebkitLineClamp: {sm: 10, md: 5},
+                                WebkitLineClamp: {xs: 10, md: 5},
                                 WebkitBoxOrient: 'vertical',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
@@ -55,7 +55,7 @@ function EventCard(props: PropTypes) {
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
                         </Typography>
                     </Stack>
-                    <Stack flexDirection="row" alignItems="center" justifyContent="center" gap={2}>
+                    <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
                         <Stack flex={1}>
                             <SignupButton closed={isPastEvent} href={joinLink} />
                         </Stack>

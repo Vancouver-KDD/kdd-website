@@ -47,8 +47,8 @@ export default function HomePhotos() {
                         Photos
                     </Typography>
                     <Stack
+                        direction="row"
                         sx={{
-                            flexDirection: 'row',
                             alignItems: 'center',
                             justifyContent: 'flex-end',
                             mb: 1,
@@ -71,11 +71,11 @@ export default function HomePhotos() {
                             m: 'auto',
                         }}>
                         <Stack
+                            direction="row"
                             sx={{
-                                flexDirection: 'row',
                                 transition: 'all 300ms ease 0s',
                                 transform: {
-                                    sm: `translate(${currentCardNo * -375}px, 0px)`,
+                                    xs: `translate(${currentCardNo * -375}px, 0px)`,
                                     md: `translate(${currentCardNo * -512}px, 0px)`,
                                 },
                             }}>
