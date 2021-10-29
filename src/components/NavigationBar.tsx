@@ -18,13 +18,13 @@ export default function NavigationBar() {
                 width: '100%',
                 position: isHome ? 'absolute' : 'relative',
                 '& a': {
-                    color: isHome ? '#ffffff' : '#0E0E2C',
+                    color: isHome ? 'primary.contrastText' : 'text.primary',
                 },
             }}>
             <Box
                 sx={{
-                    width: 1024,
-                    maxWidth: '100%',
+                    width: '100%',
+                    maxWidth: 'md',
                     flexDirection: {
                         xs: 'column-reverse',
                         sm: 'row',

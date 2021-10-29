@@ -4,7 +4,7 @@ import {Box, BoxProps} from '@mui/material'
 const Section: FC<BoxProps> = ({children, ...props}) => {
     return (
         <Box p={1} width="100%" alignItems="center">
-            <Box width={1024} maxWidth="100%" {...props}>
+            <Box width={'100%'} maxWidth="md" {...props}>
                 {children}
             </Box>
         </Box>

@@ -20,14 +20,14 @@ export default function Hero() {
                         variant="h3"
                         sx={{
                             textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                            color: 'white',
+                            color: 'primary.contrastText',
                             fontWeight: '900',
                             mb: '2rem',
                         }}>
                         Vancouver KDD
                     </Typography>
 
-                    <Typography variant="h6" color="white" fontWeight="700" mb={'2rem'}>
+                    <Typography variant="h6" color="primary.contrastText" fontWeight="700" mb={'2rem'}>
                         저희는 밴쿠버 한인 개발자 디자이너로 이루어져 있으며 네트워킹 및 한인 사회에 기여를 추구하는 모임 입니다.
                     </Typography>
 

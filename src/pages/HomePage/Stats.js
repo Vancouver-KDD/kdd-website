@@ -1,7 +1,7 @@
 import StatSmall from 'assets/images/stat-small.png'
 import StatLarge from 'assets/images/stat-large.png'
 import {useCollection} from 'store'
-import {Typography, Box} from '@mui/material'
+import {Typography, Box, Stack} from '@mui/material'
 
 export default function Stats() {
     const {data} = useCollection({name: 'statistics'})
@@ -10,21 +10,17 @@ export default function Stats() {
         <Box
             component="section"
             sx={{
-                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flexDirection: 'column',
-                backgroundColor: 'hsla(0, 0%, 100%, 1)',
+                backgroundColor: 'background.default',
                 textAlign: 'center',
             }}>
             <Box
                 sx={{
                     height: 543,
-                    display: 'flex',
-                    flexDirection: 'column',
                     alignItems: 'center',
-                    width: 1024,
-                    maxWidth: '100%',
+                    width: '100%',
+                    maxWidth: 'md',
                     '@media (min-width: 768px)': {
                         alignItems: 'initial',
                         display: 'grid',
@@ -33,42 +29,23 @@ export default function Stats() {
                 }}>
                 <Box
                     sx={{
-                        backgroundImage: `url(${StatSmall})`,
-                        backgroundColor: 'white',
+                        backgroundImage: {
+                            sm: `url(${StatSmall})`,
+                            md: `url(${StatLarge})`,
+                        },
+                        backgroundColor: 'background.default',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center center',
-                        height: 250,
-                        width: 250,
-                        '@media (min-width: 768px)': {
-                            width: 'unset',
-                            height: 'inherit',
-                        },
-                        '@media (min-width: 1024px)': {
-                            backgroundImage: `url(${StatLarge})`,
-                        },
+                        height: {sm: 250, md: 'inherit'},
+                        width: {sm: 250, md: 'unset'},
                     }}
                     alt="Statistic image"
                 />
-                <Box
-                    mt={5}
-                    mb={5}
-                    sx={{
-                        color: 'rgba(14, 14, 44, 1)',
-                        '& > h3': {
-                            marginTop: 3,
-                            marginBottom: 3,
-                            fontWeight: 700,
-                        },
-                        '@media (min-width: 768px)': {
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                        },
-                    }}>
+                <Stack spacing={6} fontWeight="bold" color="text.primary" justifyContent="center">
                     <Typography variant="h3">Since July 2017</Typography>
                     <Typography variant="h3">{data?.meetups ?? '39+'} Meetups</Typography>
                     <Typography variant="h3">{data?.members ?? '1250+'} Members</Typography>
-                </Box>
+                </Stack>
             </Box>
         </Box>
     )

@@ -5,39 +5,27 @@ import PhotoCard from 'components/PhotoCard'
 import {useCollection} from 'store'
 import {Typography, Box} from '@mui/material'
 
-const TODO_NUM = 1
-
 export default function HomePhotos() {
     const [currentCardNo, setCurrentCardNo] = useState(0)
-    const [leftDisabled, setLeftDisabled] = useState(true)
-    const [rightDisabled, setRightDisabled] = useState(false)
-    const {data: photos, loading, error} = useCollection({name: 'photos'})
+    const {data: photos, loading, error} = useCollection({name: 'photos', limit: 24})
     const cardListSize = photos?.length ?? 0
 
-    const handleClick = (index) => {
-        if (0 <= index && index < cardListSize - TODO_NUM) {
-            setCurrentCardNo(index)
-        }
+    const leftDisabled = currentCardNo <= 0
+    const rightDisabled = currentCardNo >= cardListSize - 2
 
-        if (cardListSize - 1 - TODO_NUM === index) {
-            setLeftDisabled(false)
-            setRightDisabled(true)
-        } else if (0 === index) {
-            setLeftDisabled(true)
-            setRightDisabled(false)
-        } else {
-            setLeftDisabled(false)
-            setRightDisabled(false)
-        }
+    const handleClick = (index: number) => {
+        setCurrentCardNo(index)
     }
 
     return (
         <Box
             sx={{
                 position: 'relative',
-                width: 375,
-                maxWidth: '100%',
-                height: 370,
+                width: '100%',
+                maxWidth: 'md',
+                // width: 375,
+                // maxWidth: '100%',
+                // height: 370,
                 textAlign: 'center',
                 margin: 'auto',
                 overflowX: 'hidden',
@@ -45,13 +33,13 @@ export default function HomePhotos() {
                     marginTop: 4,
                     // fontSize: '3.5rem',
                 },
-                '@media (min-width: 800px)': {
-                    width: 756,
-                },
-                '@media (min-width: 1024px)': {
-                    width: 1022,
-                    height: '100%',
-                },
+                // '@media (min-width: 800px)': {
+                //     width: 756,
+                // },
+                // '@media (min-width: 1024px)': {
+                //     width: 1022,
+                //     height: '100%',
+                // },
             }}>
             <Box>
                 <Box>
@@ -60,17 +48,15 @@ export default function HomePhotos() {
                     </Typography>
                     <Box
                         sx={{
-                            display: 'flex',
                             flexDirection: 'row',
                             alignItems: 'center',
                             justifyContent: 'flex-end',
-                            marginBottom: 1,
+                            mb: 1,
                             '& a': {
-                                // fontSize: '1.3rem',
                                 fontWeight: '600',
                             },
                             '& button': {
-                                marginLeft: 1,
+                                ml: 1,
                             },
                         }}>
                         <Link to="/photos">VIEW ALL</Link>
@@ -78,23 +64,19 @@ export default function HomePhotos() {
                         <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} disabled={rightDisabled} />
                     </Box>
                 </Box>
-                <Box overflowX="hidden">
+                <Box sx={{overflowX: 'hidden'}}>
                     <Box
                         sx={{
                             position: 'relative',
-                            margin: 'auto',
+                            m: 'auto',
                         }}>
                         <Box
                             sx={{
-                                display: 'flex',
                                 flexDirection: 'row',
                                 transition: 'all 300ms ease 0s',
-                                transform: (currentCardNo) => {
-                                    console.log(currentCardNo)
-                                    return `translate3d(${currentCardNo * -375} px, 0px, 0px)`
-                                },
-                                '@media (min-width: 1024px)': {
-                                    transform: (currentCardNo) => `translate3d(${currentCardNo * -512}px, 0px, 0px)`,
+                                transform: {
+                                    sm: `translate(${currentCardNo * -375}px, 0px)`,
+                                    md: `translate(${currentCardNo * -512}px, 0px)`,
                                 },
                             }}>
                             {loading && <span>loading...</span>}
