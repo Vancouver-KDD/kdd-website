@@ -1,52 +1,33 @@
 import React from 'react'
 import {useCollection} from 'store'
-import {Typography, Stack, Box, Link} from '@mui/material'
+import {Typography, Stack, Link} from '@mui/material'
+import {Section} from 'components'
 
 export default function Footer() {
     const {data} = useCollection({name: 'statistics'})
 
     return (
-        <Box
-            component="footer"
-            sx={{
-                height: 'auto',
-                padding: 1,
-                color: 'hsla(240, 52%, 11%, 1)',
-                fontWeight: '700',
-                textAlign: 'center',
-                padding: {
-                    xs: 0.5,
-                    sm: 3,
-                    md: 6,
-                },
-
-                '& div': {
-                    mt: 1,
-                },
-                '& a': {
-                    padding: {
-                        xs: 0.5,
-                        sm: 0.75,
-                    },
-                    color: 'hsla(240, 52%, 11%, 1)',
-                },
-            }}>
-            <Box>
+        <Section component="footer" my={4} spacing={1}>
+            <Typography variant="h5" textAlign="center" fontWeight="bold">
                 Developed by{' '}
+            </Typography>
+            <Stack direction="row" flexWrap="wrap" justifyContent="center" spacing={2} pb={2}>
                 {data?.developers?.map?.(({name, link}, i) => (
-                    <Link key={i} href={link}>
+                    <Link key={i} href={link} color="text.primary" fontWeight="600">
                         {name}
                     </Link>
                 ))}
-            </Box>
-            <Box>
+            </Stack>
+            <Typography variant="h5" textAlign="center" fontWeight="bold">
                 Special thanks to{' '}
+            </Typography>
+            <Stack direction="row" flexWrap="wrap" justifyContent="center" spacing={2}>
                 {data?.supporters?.map?.(({name, link}, i) => (
-                    <Link key={i} href={link}>
+                    <Link key={i} href={link} color="text.primary" fontWeight="600">
                         {name}
                     </Link>
                 ))}
-            </Box>
-        </Box>
+            </Stack>
+        </Section>
     )
 }
