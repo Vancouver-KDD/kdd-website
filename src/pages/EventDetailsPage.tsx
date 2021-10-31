@@ -12,7 +12,7 @@ import {Stack, ButtonBase, Typography} from '@mui/material'
 export default function EventDetailsPage() {
     const match = useRouteMatch<{id?: string}>('/events/:id')
     const {data} = useDocument({name: 'event', id: match?.params.id ?? 'Missing ID'})
-    const {title, date, poster, durationVal, durationType, joinLink, description, location} = data ?? {}
+    const {title, date, poster, durationVal, durationType, location} = data ?? {}
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
@@ -30,38 +30,40 @@ export default function EventDetailsPage() {
                         BACK
                     </Typography>
                 </ButtonBase>
-                <Stack sx={{backgroundColor: 'grey.A100', borderRadius: 1, alignItems: 'center', p: 2, gap: 2}}>
-                    <Stack
-                        component="img"
-                        sx={{
-                            maxHeight: 300,
-                            maxWidth: '100%',
-                            objectFit: 'cover',
-                            aspectRatio: String(16 / 10),
-                            borderRadius: 1,
-                        }}
-                        src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
-                        alt={poster?.[0]?.name}
-                    />
-                    <Stack maxWidth={'md'} spacing={2}>
-                        <Typography variant="subtitle1" textAlign="center">
-                            {dateLocation}
-                        </Typography>
-                        <Typography variant="h5" fontWeight="700" textAlign="center">
-                            {title}
-                        </Typography>
-                        <Typography>
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown>
-                        </Typography>
-                        <Stack direction="row" alignSelf="center" width={'100%'} maxWidth="sm" spacing={2}>
-                            <Stack flex={1}>
-                                <SignupButton closed={!isEnabledSignUp} href={joinLink} />
-                            </Stack>
+                {data ? (
+                    <Stack sx={{backgroundColor: 'grey.A100', borderRadius: 1, alignItems: 'center', p: 2, gap: 2}}>
+                        <Stack
+                            component="img"
+                            sx={{
+                                maxHeight: 300,
+                                maxWidth: '100%',
+                                objectFit: 'cover',
+                                aspectRatio: String(16 / 10),
+                                borderRadius: 1,
+                            }}
+                            src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
+                            alt={poster?.[0]?.name}
+                        />
+                        <Stack maxWidth={'md'} spacing={2}>
+                            <Typography variant="subtitle1" textAlign="center">
+                                {dateLocation}
+                            </Typography>
+                            <Typography variant="h5" fontWeight="700" textAlign="center">
+                                {title}
+                            </Typography>
+                            <Typography>
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>{data.description}</ReactMarkdown>
+                            </Typography>
+                            <Stack direction="row" alignSelf="center" width={'100%'} maxWidth="sm" spacing={2}>
+                                <Stack flex={1}>
+                                    <SignupButton closed={!isEnabledSignUp} href={data.joinLink} />
+                                </Stack>
 
-                            {isEnabledSignUp && <CalendarButton {...(data ?? {})} />}
+                                {isEnabledSignUp && <CalendarButton {...data} />}
+                            </Stack>
                         </Stack>
                     </Stack>
-                </Stack>
+                ) : null}
             </Section>
             <Footer />
         </>

@@ -5,6 +5,7 @@ import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
 import * as memberSocialIcons from 'assets/members'
 import {Box, Grid, Stack, Typography} from '@mui/material'
+import type {MemberType} from 'types'
 
 export default function AboutUsPage() {
     const {data} = useCollection({name: 'volunteers'})
@@ -99,19 +100,6 @@ export default function AboutUsPage() {
             <Footer />
         </Stack>
     )
-}
-
-interface MemberType {
-    name: string
-    title: string
-    description: string
-    profilePic: any
-    socialList: [
-        {
-            link: string
-            type: keyof typeof memberSocialIcons
-        },
-    ]
 }
 
 const Member = ({name, title, description, profilePic, socialList}: MemberType) => {

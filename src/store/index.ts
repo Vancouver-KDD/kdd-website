@@ -1,14 +1,17 @@
 import React from 'react'
 import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers} from 'api'
+import type {PhotoType, MemberType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
 
+function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
+function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
+function getLoadCollection({name}: {name: 'volunteers'}): typeof getMembers
+function getLoadCollection({name}: {name: 'events'}): typeof getEvents
 function getLoadCollection({name}: {name: string}) {
     switch (name) {
         case 'photos':
             return getPhotos
         case 'sponsors':
             return getSponsors
-        case 'statistics':
-            return getStats
         case 'volunteers':
             return getMembers
         case 'events':
@@ -18,8 +21,12 @@ function getLoadCollection({name}: {name: string}) {
     }
 }
 
+function getLoadDocument({name}: {name: 'statistics'}): typeof getStats
+function getLoadDocument({name}: {name: 'event'}): typeof getEvent
 function getLoadDocument({name}: {name: string}) {
     switch (name) {
+        case 'statistics':
+            return getStats
         case 'event':
             return getEvent
         default:
@@ -27,11 +34,15 @@ function getLoadDocument({name}: {name: string}) {
     }
 }
 
-export function useCollection({name, limit = 6}: {name: string; limit?: number}) {
+export function useCollection({name, limit}: {name: 'photos'; limit?: number}): UseCollection<PhotoType>
+export function useCollection({name, limit}: {name: 'sponsors'; limit?: number}): UseCollection<SponsorsType>
+export function useCollection({name, limit}: {name: 'volunteers'; limit?: number}): UseCollection<MemberType>
+export function useCollection({name, limit}: {name: 'events'; limit?: number}): UseCollection<EventType>
+export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
     const offsetRef = React.useRef(0)
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
-    const [data, setData] = React.useState<null | Array<any>>(null)
+    const [data, setData] = React.useState<null | any[]>(null)
     if (!name) {
         setLoading(false)
         setData(null)
@@ -78,10 +89,12 @@ export function useCollection({name, limit = 6}: {name: string; limit?: number})
     return {loading, data, error, loadMore}
 }
 
-export function useDocument({name, id}: {name: string; id: string}) {
+export function useDocument({name, id}: {name: 'event'; id: string}): UseDocument<EventType>
+export function useDocument({name, id}: {name: 'statistics'; id: string}): UseDocument<StatisticsType>
+export function useDocument({name, id}: {name: any; id: string}) {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
-    const [data, setData] = React.useState<null | any>(null)
+    const [data, setData] = React.useState<null | EventType | StatisticsType>(null)
 
     if (!name) {
         setLoading(false)

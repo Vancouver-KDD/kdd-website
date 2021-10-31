@@ -1,10 +1,10 @@
 import React from 'react'
-import {useCollection} from 'store'
+import {useDocument} from 'store'
 import {Typography, Stack, Link} from '@mui/material'
 import {Section} from 'components'
 
 export default function Footer() {
-    const {data} = useCollection({name: 'statistics'})
+    const {data} = useDocument({name: 'statistics', id: '1'})
 
     return (
         <Section component="footer" my={4} spacing={1}>

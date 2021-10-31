@@ -1,10 +1,10 @@
 import StatSmall from 'assets/images/stat-small.png'
 import StatLarge from 'assets/images/stat-large.png'
-import {useCollection} from 'store'
+import {useDocument} from 'store'
 import {Typography, Stack} from '@mui/material'
 
 export default function Stats() {
-    const {data} = useCollection({name: 'statistics'})
+    const {data} = useDocument({name: 'statistics', id: '1'})
 
     return (
         <Stack
