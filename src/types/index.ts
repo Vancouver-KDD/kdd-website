@@ -28,10 +28,8 @@ export interface UseCollection<T> {
 }
 
 export interface PhotoType extends StrapiDocument {
-    src: string
-    alt: string
+    title: string
     description: string
-    author: string
     uploader_name: string
     photo: any[]
 }

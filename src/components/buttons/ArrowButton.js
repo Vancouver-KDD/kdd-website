@@ -5,7 +5,7 @@ import {createUseStyles} from 'react-jss'
 import leftArrorButtonImg from 'assets/images/btn-arror-left.svg'
 import rightArrorButtonImg from 'assets/images/btn-arror-right.svg'
 
-export const ArrowButton = ({direction, onClick, disabled}) => {
+export default function ArrowButton({direction, onClick, disabled}) {
     const classes = useStyles()
 
     return (

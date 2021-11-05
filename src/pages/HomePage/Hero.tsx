@@ -1,10 +1,8 @@
-import {Image} from 'components'
-import {Button} from 'components/buttons'
 import slackLogo from 'assets/icons/coolicon-slack.svg'
 import linkedInIcon from 'assets/icons/LinkedIn.svg'
 import heroBG from 'assets/images/hero-bg.jpg'
 import ellipse from 'assets/images/ellipse.svg'
-import {Box, Typography, Stack} from '@mui/material'
+import {Button, Box, Typography, Stack} from '@mui/material'
 
 export default function Hero() {
     return (
@@ -33,16 +31,24 @@ export default function Hero() {
                     <Stack justifyContent="center" direction="row" mx={1} spacing={2}>
                         <Button
                             href="https://www.linkedin.com/company/vancouver-kdd"
-                            newTab
-                            Icon={<Image img={linkedInIcon} alt="LinkedIn" />}
-                            text="LinkedIn"
-                        />
+                            variant="contained"
+                            disableElevation
+                            size="large"
+                            target="_blank"
+                            rel="noreferrer"
+                            startIcon={<Box component="img" src={linkedInIcon} alt="LinkedIn" />}>
+                            LinkedIn
+                        </Button>
                         <Button
                             href="https://join.slack.com/t/vancouverkdd/shared_invite/zt-smt20gzk-OBnpJFijGnVKaT80RdgD9g"
-                            newTab
-                            Icon={<Image img={slackLogo} alt="Join Slack" />}
-                            text="Join Slack"
-                        />
+                            variant="contained"
+                            disableElevation
+                            size="large"
+                            target="_blank"
+                            rel="noreferrer"
+                            startIcon={<Box component="img" src={slackLogo} alt="Join Slack" />}>
+                            Join Slack
+                        </Button>
                     </Stack>
                 </Stack>
             </Stack>

@@ -28,7 +28,7 @@ export default function Sponsors() {
                 {data?.map?.((sponsor) => {
                     const imageUrl = sponsor?.logo?.[0]?.formats?.small?.url || sponsor?.logo?.[0]?.url
                     return (
-                        <Stack key={sponsor.id} margin={2}>
+                        <Stack key={sponsor.id} m={2}>
                             <Image className={classes.sponsorImage} img={imageUrl} url={sponsor.url} alt={`${sponsor.name} logo`} />
                         </Stack>
                     )

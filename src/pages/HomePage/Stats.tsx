@@ -38,7 +38,6 @@ export default function Stats() {
                         height: {xs: 250, sm: 'inherit'},
                         width: {xs: 250, sm: 'unset'},
                     }}
-                    alt="Statistic image"
                 />
                 <Stack flex={1} spacing={6} color="text.primary" justifyContent="center" textAlign="center">
                     <Typography variant="h3" fontWeight="bold">
