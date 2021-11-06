@@ -72,7 +72,7 @@ export default function AboutUsPage() {
                 </Stack>
                 <Box component="img" src={about1} sx={{objectFit: 'cover'}} width="40%" height={400} alt={'hand holding lightbulb'} />
             </Section>
-            <Stack sx={{backgroundColor: '#EAEAEA'}}>
+            <Stack sx={{backgroundColor: 'grey.200'}}>
                 <Section my={6} spacing={4}>
                     <Typography variant="h4" fontWeight="700">
                         Wanted

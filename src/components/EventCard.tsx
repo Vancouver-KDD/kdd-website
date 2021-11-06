@@ -36,7 +36,7 @@ function EventCard(props: PropTypes) {
                     src={posterImageUrl}
                     alt={title}
                 />
-                <Stack sx={{zIndex: 1, backgroundColor: '#F5F5F5', p: 3, width: {xs: '100%', md: '50%'}}} spacing={2}>
+                <Stack sx={{zIndex: 1, backgroundColor: 'grey.100', p: 3, width: {xs: '100%', md: '50%'}}} spacing={2}>
                     <Stack sx={{justifyContent: 'center', flex: 1}} spacing={2}>
                         <Typography variant="subtitle1" textAlign="center">
                             {dateLocation}
