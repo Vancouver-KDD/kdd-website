@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default function Space(props) {
+type PropTypes = {direction?: 'horizontal' | 'vertical'; x1: number; x2: number; y1: number; y2: number; style: React.CSSProperties}
+
+export default function Space(props: PropTypes) {
     const {direction, x1 = 375, x2 = 1024, y1 = 0, y2, style = {}, ...restProps} = props
     const minWidth = !direction || direction === 'horizontal' ? y1 : 0
     const minHeight = !direction || direction === 'vertical' ? y1 : 0
@@ -21,7 +23,7 @@ export default function Space(props) {
               height: sizeStyle,
           }
 
-    const _style = {
+    const _style: React.CSSProperties = {
         minWidth,
         maxWidth,
         minHeight,
