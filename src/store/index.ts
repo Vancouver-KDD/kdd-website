@@ -1,11 +1,12 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers} from 'api'
+import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers, getJobs, getJob} from 'api'
 import type {PhotoType, MemberType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
 function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
 function getLoadCollection({name}: {name: 'volunteers'}): typeof getMembers
 function getLoadCollection({name}: {name: 'events'}): typeof getEvents
+function getLoadCollection({name}: {name: 'jobs'}): typeof getJobs
 function getLoadCollection({name}: {name: string}) {
     switch (name) {
         case 'photos':
@@ -16,6 +17,8 @@ function getLoadCollection({name}: {name: string}) {
             return getMembers
         case 'events':
             return getEvents
+        case 'jobs':
+            return getJobs
         default:
             throw new Error('name does not match')
     }
@@ -23,12 +26,15 @@ function getLoadCollection({name}: {name: string}) {
 
 function getLoadDocument({name}: {name: 'statistics'}): typeof getStats
 function getLoadDocument({name}: {name: 'event'}): typeof getEvent
+function getLoadDocument({name}: {name: 'job'}): typeof getJob
 function getLoadDocument({name}: {name: string}) {
     switch (name) {
         case 'statistics':
             return getStats
         case 'event':
             return getEvent
+        case 'job':
+            return getJob
         default:
             throw new Error('name does not match')
     }

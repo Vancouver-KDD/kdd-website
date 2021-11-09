@@ -56,6 +56,7 @@ export interface EventType extends StrapiDocument {
     joinLink: string
     description: string
     location: string
+    photos: PhotoType[]
 }
 
 export interface StatisticsType extends StrapiDocument {
@@ -69,4 +70,12 @@ export interface StatisticsType extends StrapiDocument {
         name: string
         link: string
     }>
+}
+
+export interface JobType extends StrapiDocument {
+    title: string
+    description: string
+    applicationUrl: string
+    companyName: string
+    companyUrl: string
 }
