@@ -5,7 +5,6 @@ import ellipse from 'assets/images/ellipse.svg'
 import {Button, Box, Typography, Stack} from '@mui/material'
 
 export default function Hero() {
-    console.log(heroBG)
     return (
         <Stack height="100vh" minHeight={68} position="relative">
             <Stack
