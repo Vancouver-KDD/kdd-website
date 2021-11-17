@@ -1,6 +1,6 @@
 import React from 'react'
 import {useRouteMatch} from 'react-router-dom'
-import {Section, Footer, NavigationBar} from 'components'
+import {Section, Footer, NavigationBar, PhotoCard} from 'components'
 import {SignupButton, CalendarButton} from 'components/buttons'
 import {useDocument} from 'store'
 import ReactMarkdown from 'react-markdown'
@@ -12,7 +12,7 @@ import {Stack, ButtonBase, Typography} from '@mui/material'
 export default function EventDetailsPage() {
     const match = useRouteMatch<{id?: string}>('/events/:id')
     const {data} = useDocument({name: 'event', id: match?.params.id ?? 'Missing ID'})
-    const {title, date, poster, durationVal, durationType, location} = data ?? {}
+    const {title, date, poster, durationVal, durationType, location, photos} = data ?? {}
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
@@ -61,6 +61,11 @@ export default function EventDetailsPage() {
 
                                 {isEnabledSignUp && <CalendarButton {...data} />}
                             </Stack>
+                        </Stack>
+                        <Stack maxWidth={'md'} spacing={5} sx={{my: 5}}>
+                            {photos?.map((photo, index) => (
+                                <PhotoCard key={index} {...photo} />
+                            ))}
                         </Stack>
                     </Stack>
                 ) : null}

@@ -27,11 +27,29 @@ export interface UseCollection<T> {
     loadMore: () => void
 }
 
+interface Photo {
+    url: string
+    formats: {
+        large: {
+            url: string
+        }
+        medium: {
+            url: string
+        }
+        small: {
+            url: string
+        }
+        thumbnail: {
+            url: string
+        }
+    }
+}
+
 export interface PhotoType extends StrapiDocument {
     title: string
     description: string
     uploader_name: string
-    photo: any[]
+    photo: Photo[]
 }
 
 export interface MemberType extends StrapiDocument {
@@ -56,6 +74,7 @@ export interface EventType extends StrapiDocument {
     joinLink: string
     description: string
     location: string
+    photos: PhotoType[]
 }
 
 export interface StatisticsType extends StrapiDocument {
