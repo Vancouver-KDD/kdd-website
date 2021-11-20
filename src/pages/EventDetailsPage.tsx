@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import moment from 'moment'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import {Stack, ButtonBase, Typography} from '@mui/material'
+import {Stack, ButtonBase, Typography, Grid} from '@mui/material'
 
 export default function EventDetailsPage() {
     const match = useRouteMatch<{id?: string}>('/events/:id')
@@ -62,11 +62,13 @@ export default function EventDetailsPage() {
                                 {isEnabledSignUp && <CalendarButton {...data} />}
                             </Stack>
                         </Stack>
-                        <Stack maxWidth={'md'} spacing={5} sx={{my: 5}}>
+                        <Grid container spacing={2} sx={{my: 5}}>
                             {photos?.map((photo, index) => (
-                                <PhotoCard key={index} {...photo} />
+                                <Grid item xs={12} sm={6}>
+                                    <PhotoCard key={index} {...photo} />
+                                </Grid>
                             ))}
-                        </Stack>
+                        </Grid>
                     </Stack>
                 ) : null}
             </Section>
