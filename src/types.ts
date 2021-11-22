@@ -11,7 +11,7 @@ export interface StrapiDocument {
 export interface SponsorsType extends StrapiDocument {
     name: string
     url: string
-    logo: any[]
+    logo: Image[]
 }
 
 export interface UseDocument<T> {
@@ -27,19 +27,20 @@ export interface UseCollection<T> {
     loadMore: () => void
 }
 
-interface Photo {
+interface Image {
+    name: string
     url: string
     formats: {
-        large: {
+        large?: {
             url: string
         }
-        medium: {
+        medium?: {
             url: string
         }
-        small: {
+        small?: {
             url: string
         }
-        thumbnail: {
+        thumbnail?: {
             url: string
         }
     }
@@ -49,14 +50,14 @@ export interface PhotoType extends StrapiDocument {
     title: string
     description: string
     uploader_name: string
-    photo: Photo[]
+    photo: Image[]
 }
 
 export interface MemberType extends StrapiDocument {
     name: string
     title: string
     description: string
-    profilePic: any[]
+    profilePic: Image[]
     socialList: [
         {
             link: string
@@ -68,7 +69,7 @@ export interface MemberType extends StrapiDocument {
 export interface EventType extends StrapiDocument {
     date: string // ISO String
     title: string
-    poster: any[]
+    poster: Image[]
     durationVal: number
     durationType: UnitType & unitOfTime.DurationConstructor // Insection between moment and strapi date types
     joinLink: string

@@ -41,7 +41,7 @@ export default function EventDetailsPage() {
                                 aspectRatio: String(16 / 10),
                                 borderRadius: 1,
                             }}
-                            src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
+                            src={poster?.[0]?.formats.large?.url ?? poster?.[0]?.url}
                             alt={poster?.[0]?.name}
                         />
                         <Stack maxWidth={'md'} spacing={2}>
@@ -64,8 +64,8 @@ export default function EventDetailsPage() {
                         </Stack>
                         <Grid container spacing={2} sx={{my: 5}}>
                             {photos?.map((photo, index) => (
-                                <Grid item xs={12} sm={6}>
-                                    <PhotoCard key={index} {...photo} />
+                                <Grid item key={index} xs={12} sm={6}>
+                                    <PhotoCard {...photo} />
                                 </Grid>
                             ))}
                         </Grid>
