@@ -1,6 +1,7 @@
 import React from 'react'
 import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers, getJobs, getJob} from 'api'
 import type {PhotoType, MemberType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
+import type {JobType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
 function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
@@ -40,6 +41,7 @@ function getLoadDocument({name}: {name: string}) {
     }
 }
 
+export function useCollection({name, limit}: {name: 'jobs'; limit?: number}): UseCollection<JobType>
 export function useCollection({name, limit}: {name: 'photos'; limit?: number}): UseCollection<PhotoType>
 export function useCollection({name, limit}: {name: 'sponsors'; limit?: number}): UseCollection<SponsorsType>
 export function useCollection({name, limit}: {name: 'volunteers'; limit?: number}): UseCollection<MemberType>

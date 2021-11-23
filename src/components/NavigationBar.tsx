@@ -45,6 +45,9 @@ export default function NavigationBar() {
                     <Link fontWeight="bold" underline="hover" component={RouterLink} to="/events">
                         <ListItem>Events</ListItem>
                     </Link>
+                    {/* <Link fontWeight="bold" underline="hover" component={RouterLink} to="/jobs">
+                        <ListItem>Jobs</ListItem>
+                    </Link> */}
                     <Link fontWeight="bold" underline="hover" component={RouterLink} to="/photos">
                         <ListItem>Photos</ListItem>
                     </Link>
