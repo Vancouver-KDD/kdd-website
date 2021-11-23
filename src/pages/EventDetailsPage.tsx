@@ -1,18 +1,18 @@
 import React from 'react'
 import {useRouteMatch} from 'react-router-dom'
-import {Section, Footer, NavigationBar} from 'components'
+import {Section, Footer, NavigationBar, PhotoCard} from 'components'
 import {SignupButton, CalendarButton} from 'components/buttons'
 import {useDocument} from 'store'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import moment from 'moment'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import {Stack, ButtonBase, Typography} from '@mui/material'
+import {Stack, ButtonBase, Typography, Grid} from '@mui/material'
 
 export default function EventDetailsPage() {
     const match = useRouteMatch<{id?: string}>('/events/:id')
     const {data} = useDocument({name: 'event', id: match?.params.id ?? 'Missing ID'})
-    const {title, date, poster, durationVal, durationType, location} = data ?? {}
+    const {title, date, poster, durationVal, durationType, location, photos} = data ?? {}
     const dateStr = moment(date).format('MMM DD YYYY, LT')
     const dateEndStr = moment(date).add(durationVal, durationType).format('LT')
     const dateLocation = `${dateStr} - ${dateEndStr} | ${location}`
@@ -41,7 +41,7 @@ export default function EventDetailsPage() {
                                 aspectRatio: String(16 / 10),
                                 borderRadius: 1,
                             }}
-                            src={poster?.[0]?.formats.large.url ?? poster?.[0]?.url}
+                            src={poster?.[0]?.formats.large?.url ?? poster?.[0]?.url}
                             alt={poster?.[0]?.name}
                         />
                         <Stack maxWidth={'md'} spacing={2}>
@@ -62,6 +62,13 @@ export default function EventDetailsPage() {
                                 {isEnabledSignUp && <CalendarButton {...data} />}
                             </Stack>
                         </Stack>
+                        <Grid container spacing={2} sx={{my: 5}}>
+                            {photos?.map((photo, index) => (
+                                <Grid item key={index} xs={12} sm={6}>
+                                    <PhotoCard {...photo} />
+                                </Grid>
+                            ))}
+                        </Grid>
                     </Stack>
                 ) : null}
             </Section>
