@@ -1,4 +1,4 @@
-import type {PhotoType, StatisticsType, EventType, MemberType, SponsorsType, JobType} from 'types'
+import type {PhotoType, StatisticsType, EventType, OrganizerType, SponsorsType, JobType} from 'types'
 
 export function getBaseUrl() {
     return process.env.REACT_APP_SERVER_URL
@@ -23,8 +23,8 @@ export async function getPhotos({offset = 0, limit = 6} = {offset: 0, limit: 6})
     return res.json()
 }
 
-export async function getStats({id}: {id: string}): Promise<StatisticsType> {
-    const res = await fetch(getBaseUrl() + `/statistics/${id}`)
+export async function getStats({id}: {id?: string}): Promise<StatisticsType> {
+    const res = await fetch(getBaseUrl() + `/statistics`)
     return res.json()
 }
 
@@ -38,8 +38,8 @@ export async function getJob({id}: {id: string}): Promise<JobType> {
     return res.json()
 }
 
-export async function getMembers(): Promise<MemberType[]> {
-    const res = await fetch(getBaseUrl() + '/volunteers')
+export async function getMembers(): Promise<OrganizerType[]> {
+    const res = await fetch(getBaseUrl() + '/organizers')
     return res.json()
 }
 

@@ -4,7 +4,7 @@ import {useDocument} from 'store'
 import {Typography, Stack} from '@mui/material'
 
 export default function Stats() {
-    const {data} = useDocument({name: 'statistics', id: '1'})
+    const {data} = useDocument({name: 'statistics'})
 
     return (
         <Stack component="section" sx={{justifyContent: 'center', alignItems: 'center', backgroundColor: 'background.default'}}>

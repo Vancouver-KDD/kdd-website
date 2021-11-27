@@ -1,6 +1,6 @@
 import React from 'react'
 import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers, getJobs, getJob} from 'api'
-import type {PhotoType, MemberType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
+import type {PhotoType, OrganizerType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
 import type {JobType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
@@ -44,7 +44,7 @@ function getLoadDocument({name}: {name: string}) {
 export function useCollection({name, limit}: {name: 'jobs'; limit?: number}): UseCollection<JobType>
 export function useCollection({name, limit}: {name: 'photos'; limit?: number}): UseCollection<PhotoType>
 export function useCollection({name, limit}: {name: 'sponsors'; limit?: number}): UseCollection<SponsorsType>
-export function useCollection({name, limit}: {name: 'volunteers'; limit?: number}): UseCollection<MemberType>
+export function useCollection({name, limit}: {name: 'organizers'; limit?: number}): UseCollection<OrganizerType>
 export function useCollection({name, limit}: {name: 'events'; limit?: number}): UseCollection<EventType>
 export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
     const offsetRef = React.useRef(0)
@@ -98,8 +98,8 @@ export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
 }
 
 export function useDocument({name, id}: {name: 'event'; id: string}): UseDocument<EventType>
-export function useDocument({name, id}: {name: 'statistics'; id: string}): UseDocument<StatisticsType>
-export function useDocument({name, id}: {name: any; id: string}) {
+export function useDocument({name}: {name: 'statistics'}): UseDocument<StatisticsType>
+export function useDocument({name, id}: {name: any; id?: string}) {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
     const [data, setData] = React.useState<null | EventType | StatisticsType>(null)

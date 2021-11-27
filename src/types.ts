@@ -1,6 +1,6 @@
 import type {UnitType} from 'dayjs'
 import type {unitOfTime} from 'moment'
-import type * as memberSocialIcons from 'assets/members'
+import type * as socialIcons from 'assets/socialIcons'
 export interface StrapiDocument {
     id: number
     published_at: string // ISO String
@@ -11,7 +11,7 @@ export interface StrapiDocument {
 export interface SponsorsType extends StrapiDocument {
     name: string
     url: string
-    logo: Image[]
+    logo: Image
 }
 
 export interface UseDocument<T> {
@@ -53,7 +53,7 @@ export interface PhotoType extends StrapiDocument {
     photo: Image[]
 }
 
-export interface MemberType extends StrapiDocument {
+export interface OrganizerType extends StrapiDocument {
     name: string
     title: string
     description: string
@@ -61,7 +61,7 @@ export interface MemberType extends StrapiDocument {
     socialList: [
         {
             link: string
-            type: keyof typeof memberSocialIcons
+            type: keyof typeof socialIcons
         },
     ]
 }
