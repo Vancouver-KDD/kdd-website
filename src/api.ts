@@ -38,7 +38,7 @@ export async function getJob({id}: {id: string}): Promise<JobType> {
     return res.json()
 }
 
-export async function getMembers(): Promise<OrganizerType[]> {
+export async function getOrganizers(): Promise<OrganizerType[]> {
     const res = await fetch(getBaseUrl() + '/organizers')
     return res.json()
 }

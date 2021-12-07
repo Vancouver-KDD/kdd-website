@@ -1,11 +1,11 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers, getJobs, getJob} from 'api'
+import {getPhotos, getSponsors, getStats, getEvent, getEvents, getOrganizers, getJobs, getJob} from 'api'
 import type {PhotoType, OrganizerType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
 import type {JobType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
 function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
-function getLoadCollection({name}: {name: 'volunteers'}): typeof getMembers
+function getLoadCollection({name}: {name: 'organizers'}): typeof getOrganizers
 function getLoadCollection({name}: {name: 'events'}): typeof getEvents
 function getLoadCollection({name}: {name: 'jobs'}): typeof getJobs
 function getLoadCollection({name}: {name: string}) {
@@ -14,8 +14,8 @@ function getLoadCollection({name}: {name: string}) {
             return getPhotos
         case 'sponsors':
             return getSponsors
-        case 'volunteers':
-            return getMembers
+        case 'organizers':
+            return getOrganizers
         case 'events':
             return getEvents
         case 'jobs':
