@@ -103,7 +103,7 @@ export default function AboutUsPage() {
 }
 
 const Organizer = ({name, title, description, profilePic, socialList}: OrganizerType) => {
-    const imageUrl = profilePic?.[0]?.formats?.small?.url ?? profilePic?.[0]?.url
+    const imageUrl = profilePic?.formats?.small?.url ?? profilePic?.url
 
     return (
         <Stack spacing={1}>

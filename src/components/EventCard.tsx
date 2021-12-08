@@ -11,7 +11,7 @@ type PropTypes = EventType & {isPastEvent: boolean}
 
 function EventCard(props: PropTypes) {
     const {id, title, poster, date, joinLink, description, location, isPastEvent} = props
-    const posterImageUrl = poster?.[0]?.formats?.medium?.url || poster?.[0]?.url
+    const posterImageUrl = poster?.formats?.medium?.url || poster?.url
     const dateStr = moment(date).format('MMM DD, LT')
     const dateLocation = `${dateStr} | ${location}`
 

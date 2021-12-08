@@ -1,6 +1,12 @@
 import type {UnitType} from 'dayjs'
 import type {unitOfTime} from 'moment'
 import type * as socialIcons from 'assets/socialIcons'
+
+export interface FooterType extends StrapiDocument {
+    developers: Array<{id: number; name: string; link: string}>
+    supporters: Array<{id: number; name: string; link: string}>
+}
+
 export interface StrapiDocument {
     id: number
     published_at: string // ISO String
@@ -57,7 +63,7 @@ export interface OrganizerType extends StrapiDocument {
     name: string
     title: string
     description: string
-    profilePic: Image[]
+    profilePic: Image
     socialList: [
         {
             link: string
@@ -69,7 +75,7 @@ export interface OrganizerType extends StrapiDocument {
 export interface EventType extends StrapiDocument {
     date: string // ISO String
     title: string
-    poster: Image[]
+    poster: Image
     durationVal: number
     durationType: UnitType & unitOfTime.DurationConstructor // Insection between moment and strapi date types
     joinLink: string
@@ -81,14 +87,6 @@ export interface EventType extends StrapiDocument {
 export interface StatisticsType extends StrapiDocument {
     meetups: number
     members: number
-    developers: Array<{
-        name: string
-        link: string
-    }>
-    supporters: Array<{
-        name: string
-        link: string
-    }>
 }
 
 export interface JobType extends StrapiDocument {

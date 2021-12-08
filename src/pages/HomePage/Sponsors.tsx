@@ -23,7 +23,6 @@ export default function Sponsors() {
                 {loading && <span>loading...</span>}
                 {!!error && <span>ERROR: {error.message}</span>}
                 {data?.map?.((sponsor) => {
-                    console.log(sponsor)
                     const imageUrl = sponsor?.logo?.formats?.small?.url || sponsor?.logo?.url
                     return (
                         <ButtonBase href={sponsor.url} key={sponsor.id}>

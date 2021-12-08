@@ -1,7 +1,8 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvent, getEvents, getOrganizers, getJobs, getJob} from 'api'
+import {getPhotos, getSponsors, getStatistics, getEvent, getEvents, getOrganizers, getJobs, getJob} from 'api'
+import {getFooter} from 'api'
 import type {PhotoType, OrganizerType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
-import type {JobType} from 'types'
+import type {JobType, FooterType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
 function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
@@ -25,17 +26,20 @@ function getLoadCollection({name}: {name: string}) {
     }
 }
 
-function getLoadDocument({name}: {name: 'statistics'}): typeof getStats
 function getLoadDocument({name}: {name: 'event'}): typeof getEvent
+function getLoadDocument({name}: {name: 'footer'}): typeof getFooter
 function getLoadDocument({name}: {name: 'job'}): typeof getJob
+function getLoadDocument({name}: {name: 'statistics'}): typeof getStatistics
 function getLoadDocument({name}: {name: string}) {
     switch (name) {
-        case 'statistics':
-            return getStats
         case 'event':
             return getEvent
+        case 'footer':
+            return getFooter
         case 'job':
             return getJob
+        case 'statistics':
+            return getStatistics
         default:
             throw new Error('name does not match')
     }
@@ -98,11 +102,12 @@ export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
 }
 
 export function useDocument({name, id}: {name: 'event'; id: string}): UseDocument<EventType>
+export function useDocument({name}: {name: 'footer'}): UseDocument<FooterType>
 export function useDocument({name}: {name: 'statistics'}): UseDocument<StatisticsType>
-export function useDocument({name, id}: {name: any; id?: string}) {
+export function useDocument({name, id}: any) {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
-    const [data, setData] = React.useState<null | EventType | StatisticsType>(null)
+    const [data, setData] = React.useState<null | EventType | StatisticsType | FooterType>(null)
 
     if (!name) {
         setLoading(false)
