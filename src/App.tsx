@@ -27,12 +27,12 @@ export default function App() {
         <ThemeProvider theme={theme}>
             <Router>
                 <Switch>
-                    <Route exact path="/" component={() => <HomePage />} />
-                    <Route exact path="/photos" component={() => <PhotosPage />} />
-                    <Route exact path="/events" component={() => <EventsPage />} />
-                    <Route exact path="/events/:id" component={() => <EventDetailsPage />} />
-                    <Route exact path="/about-us" component={() => <AboutUsPage />} />
-                    <Route exact path="/jobs" component={() => <JobsPage />} />
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/photos" component={PhotosPage} />
+                    <Route exact path="/events" component={EventsPage} />
+                    <Route exact path="/events/:id" component={EventDetailsPage} />
+                    <Route exact path="/about-us" component={AboutUsPage} />
+                    <Route exact path="/jobs" component={JobsPage} />
                 </Switch>
             </Router>
         </ThemeProvider>

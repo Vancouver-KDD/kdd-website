@@ -134,7 +134,7 @@ const Organizer = ({name, title, description, profilePic, socialList}: Organizer
                 }}>
                 {socialList?.map?.((sns, index) => (
                     <a key={index} href={sns.link} target="_blank" rel="noreferrer">
-                        <img src={socialIcons?.[sns.type] ?? socialIcons.other} alt={sns.type} />
+                        <img src={socialIcons[sns.type] ?? socialIcons.other} alt={sns.type} />
                     </a>
                 ))}
             </Stack>
