@@ -5,7 +5,6 @@
         "company": "Foodly",
         "occupation": "Developer",
         "name": "Eric Kim",
-        "uid": "2",
         "social_list": [
             {"url": "https://github.com/bosung90", "type": "github"},
             {"url": "https://www.linkedin.com/in/bosung90", "type": "linkedin"}

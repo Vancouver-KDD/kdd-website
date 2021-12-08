@@ -4,27 +4,11 @@ import {useDocument} from 'store'
 import {Typography, Stack} from '@mui/material'
 
 export default function Stats() {
-    const {data} = useDocument({name: 'statistics', id: '1'})
+    const {data} = useDocument({name: 'statistics'})
 
     return (
-        <Stack
-            component="section"
-            sx={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'background.default',
-            }}>
-            <Stack
-                direction={{
-                    xs: 'column',
-                    sm: 'row',
-                }}
-                sx={{
-                    height: 543,
-                    alignItems: 'center',
-                    width: '100%',
-                    maxWidth: 'md',
-                }}>
+        <Stack component="section" sx={{justifyContent: 'center', alignItems: 'center', backgroundColor: 'background.default'}}>
+            <Stack direction={{xs: 'column', sm: 'row'}} sx={{height: 543, alignItems: 'center', width: '100%', maxWidth: 'md'}}>
                 <Stack
                     flex={1}
                     sx={{

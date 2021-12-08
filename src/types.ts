@@ -1,6 +1,12 @@
 import type {UnitType} from 'dayjs'
 import type {unitOfTime} from 'moment'
-import type * as memberSocialIcons from 'assets/members'
+import type * as socialIcons from 'assets/socialIcons'
+
+export interface FooterType extends StrapiDocument {
+    developers: Array<{id: number; name: string; link: string}>
+    supporters: Array<{id: number; name: string; link: string}>
+}
+
 export interface StrapiDocument {
     id: number
     published_at: string // ISO String
@@ -11,7 +17,7 @@ export interface StrapiDocument {
 export interface SponsorsType extends StrapiDocument {
     name: string
     url: string
-    logo: Image[]
+    logo: Image
 }
 
 export interface UseDocument<T> {
@@ -53,15 +59,15 @@ export interface PhotoType extends StrapiDocument {
     photo: Image[]
 }
 
-export interface MemberType extends StrapiDocument {
+export interface OrganizerType extends StrapiDocument {
     name: string
     title: string
     description: string
-    profilePic: Image[]
+    profilePic: Image
     socialList: [
         {
             link: string
-            type: keyof typeof memberSocialIcons
+            type: keyof typeof socialIcons
         },
     ]
 }
@@ -69,7 +75,7 @@ export interface MemberType extends StrapiDocument {
 export interface EventType extends StrapiDocument {
     date: string // ISO String
     title: string
-    poster: Image[]
+    poster: Image
     durationVal: number
     durationType: UnitType & unitOfTime.DurationConstructor // Insection between moment and strapi date types
     joinLink: string
@@ -81,12 +87,12 @@ export interface EventType extends StrapiDocument {
 export interface StatisticsType extends StrapiDocument {
     meetups: number
     members: number
-    developers: Array<{
-        name: string
-        link: string
-    }>
-    supporters: Array<{
-        name: string
-        link: string
-    }>
+}
+
+export interface JobType extends StrapiDocument {
+    title: string
+    description: string
+    applicationUrl: string
+    companyName: string
+    companyUrl: string
 }

@@ -41,8 +41,8 @@ export default function EventDetailsPage() {
                                 aspectRatio: String(16 / 10),
                                 borderRadius: 1,
                             }}
-                            src={poster?.[0]?.formats.large?.url ?? poster?.[0]?.url}
-                            alt={poster?.[0]?.name}
+                            src={poster?.formats.large?.url ?? poster?.url}
+                            alt={poster?.name}
                         />
                         <Stack maxWidth={'md'} spacing={2}>
                             <Typography variant="subtitle1" textAlign="center">

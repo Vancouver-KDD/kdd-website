@@ -1,0 +1,6 @@
+export {default as AboutUsPage} from './pages/AboutUsPage'
+export {default as EventDetailsPage} from './pages/EventDetailsPage'
+export {default as EventsPage} from './pages/EventsPage'
+export {default as HomePage} from './pages/HomePage'
+export {default as JobsPage} from './pages/JobsPage'
+export {default as PhotosPage} from './pages/PhotosPage'

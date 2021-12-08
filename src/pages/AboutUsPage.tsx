@@ -3,12 +3,12 @@ import {Footer, NavigationBar, Section} from 'components'
 import about0 from 'assets/images/about-us-0.jpg'
 import about1 from 'assets/images/about-us-1.jpg'
 import {useCollection} from 'store'
-import * as memberSocialIcons from 'assets/members'
+import * as socialIcons from 'assets/socialIcons'
 import {Box, Grid, Stack, Typography} from '@mui/material'
-import type {MemberType} from 'types'
+import type {OrganizerType} from 'types'
 
 export default function AboutUsPage() {
-    const {data} = useCollection({name: 'volunteers'})
+    const {data} = useCollection({name: 'organizers'})
 
     return (
         <Stack>
@@ -88,10 +88,10 @@ export default function AboutUsPage() {
                     Organizers
                 </Typography>
                 <Grid container spacing={2}>
-                    {data?.map?.((member) => {
+                    {data?.map?.((organizer) => {
                         return (
-                            <Grid item key={member.id} xs={12} sm={6} md={4}>
-                                <Member {...member} />
+                            <Grid item key={organizer.id} xs={12} sm={6} md={4}>
+                                <Organizer {...organizer} />
                             </Grid>
                         )
                     })}
@@ -102,8 +102,8 @@ export default function AboutUsPage() {
     )
 }
 
-const Member = ({name, title, description, profilePic, socialList}: MemberType) => {
-    const imageUrl = profilePic?.[0]?.formats?.small?.url ?? profilePic?.[0]?.url
+const Organizer = ({name, title, description, profilePic, socialList}: OrganizerType) => {
+    const imageUrl = profilePic?.formats?.small?.url ?? profilePic?.url
 
     return (
         <Stack spacing={1}>
@@ -134,7 +134,7 @@ const Member = ({name, title, description, profilePic, socialList}: MemberType) 
                 }}>
                 {socialList?.map?.((sns, index) => (
                     <a key={index} href={sns.link} target="_blank" rel="noreferrer">
-                        <img src={memberSocialIcons?.[sns.type] ?? memberSocialIcons.link} alt={sns.type} />
+                        <img src={socialIcons[sns.type] ?? socialIcons.other} alt={sns.type} />
                     </a>
                 ))}
             </Stack>

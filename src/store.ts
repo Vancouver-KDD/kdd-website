@@ -1,42 +1,54 @@
 import React from 'react'
-import {getPhotos, getSponsors, getStats, getEvent, getEvents, getMembers} from 'api'
-import type {PhotoType, MemberType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
+import {getPhotos, getSponsors, getStatistics, getEvent, getEvents, getOrganizers, getJobs, getJob} from 'api'
+import {getFooter} from 'api'
+import type {PhotoType, OrganizerType, SponsorsType, UseDocument, UseCollection, EventType, StatisticsType} from 'types'
+import type {JobType, FooterType} from 'types'
 
 function getLoadCollection({name}: {name: 'photos'}): typeof getPhotos
 function getLoadCollection({name}: {name: 'sponsors'}): typeof getSponsors
-function getLoadCollection({name}: {name: 'volunteers'}): typeof getMembers
+function getLoadCollection({name}: {name: 'organizers'}): typeof getOrganizers
 function getLoadCollection({name}: {name: 'events'}): typeof getEvents
+function getLoadCollection({name}: {name: 'jobs'}): typeof getJobs
 function getLoadCollection({name}: {name: string}) {
     switch (name) {
         case 'photos':
             return getPhotos
         case 'sponsors':
             return getSponsors
-        case 'volunteers':
-            return getMembers
+        case 'organizers':
+            return getOrganizers
         case 'events':
             return getEvents
+        case 'jobs':
+            return getJobs
         default:
             throw new Error('name does not match')
     }
 }
 
-function getLoadDocument({name}: {name: 'statistics'}): typeof getStats
 function getLoadDocument({name}: {name: 'event'}): typeof getEvent
+function getLoadDocument({name}: {name: 'footer'}): typeof getFooter
+function getLoadDocument({name}: {name: 'job'}): typeof getJob
+function getLoadDocument({name}: {name: 'statistics'}): typeof getStatistics
 function getLoadDocument({name}: {name: string}) {
     switch (name) {
-        case 'statistics':
-            return getStats
         case 'event':
             return getEvent
+        case 'footer':
+            return getFooter
+        case 'job':
+            return getJob
+        case 'statistics':
+            return getStatistics
         default:
             throw new Error('name does not match')
     }
 }
 
+export function useCollection({name, limit}: {name: 'jobs'; limit?: number}): UseCollection<JobType>
 export function useCollection({name, limit}: {name: 'photos'; limit?: number}): UseCollection<PhotoType>
 export function useCollection({name, limit}: {name: 'sponsors'; limit?: number}): UseCollection<SponsorsType>
-export function useCollection({name, limit}: {name: 'volunteers'; limit?: number}): UseCollection<MemberType>
+export function useCollection({name, limit}: {name: 'organizers'; limit?: number}): UseCollection<OrganizerType>
 export function useCollection({name, limit}: {name: 'events'; limit?: number}): UseCollection<EventType>
 export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
     const offsetRef = React.useRef(0)
@@ -90,11 +102,12 @@ export function useCollection({name, limit = 6}: {name: any; limit?: number}) {
 }
 
 export function useDocument({name, id}: {name: 'event'; id: string}): UseDocument<EventType>
-export function useDocument({name, id}: {name: 'statistics'; id: string}): UseDocument<StatisticsType>
-export function useDocument({name, id}: {name: any; id: string}) {
+export function useDocument({name}: {name: 'footer'}): UseDocument<FooterType>
+export function useDocument({name}: {name: 'statistics'}): UseDocument<StatisticsType>
+export function useDocument({name, id}: any) {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState<null | Error>(null)
-    const [data, setData] = React.useState<null | EventType | StatisticsType>(null)
+    const [data, setData] = React.useState<null | EventType | StatisticsType | FooterType>(null)
 
     if (!name) {
         setLoading(false)

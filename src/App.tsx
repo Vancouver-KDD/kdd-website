@@ -1,10 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import EventsPage from './pages/EventsPage'
-import EventDetailsPage from './pages/EventDetailsPage'
-import PhotosPage from './pages/PhotosPage'
-import AboutUsPage from './pages/AboutUsPage'
+import {HomePage, EventsPage, EventDetailsPage, PhotosPage, AboutUsPage, JobsPage} from './pages'
 import {ThemeProvider, createTheme, responsiveFontSizes} from '@mui/material/styles'
 
 const theme = responsiveFontSizes(
@@ -31,11 +27,12 @@ export default function App() {
         <ThemeProvider theme={theme}>
             <Router>
                 <Switch>
-                    <Route exact path="/" component={() => <HomePage />} />
-                    <Route exact path="/photos" component={() => <PhotosPage />} />
-                    <Route exact path="/events" component={() => <EventsPage />} />
-                    <Route exact path="/events/:id" component={() => <EventDetailsPage />} />
-                    <Route exact path="/about-us" component={() => <AboutUsPage />} />
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/photos" component={PhotosPage} />
+                    <Route exact path="/events" component={EventsPage} />
+                    <Route exact path="/events/:id" component={EventDetailsPage} />
+                    <Route exact path="/about-us" component={AboutUsPage} />
+                    <Route exact path="/jobs" component={JobsPage} />
                 </Switch>
             </Router>
         </ThemeProvider>
