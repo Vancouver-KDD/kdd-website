@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
-import {Dialog, DialogTitle, DialogContent, DialogContentText, Stack, Box, ButtonBase, Typography} from '@mui/material'
+import {Dialog, DialogTitle, DialogContent, DialogContentText, Stack, Box, Typography, Paper} from '@mui/material'
 import type {PhotoType} from 'types'
+import Carousel from 'react-material-ui-carousel'
 
 export default function PhotoCard({photo, title, description}: PhotoType) {
-    const imageUrl = photo?.[0]?.formats?.medium?.url || photo?.[0]?.url
+    const [imageUrl, setImageUrl] = useState(photo?.[0]?.formats?.medium?.url || photo?.[0]?.url)
     const [isOpen, setIsOpen] = useState(false)
+    const handleClickOpen = (imageUrl: string) => () => {
+        setIsOpen(true)
+        setImageUrl(imageUrl)
+    }
 
     return (
         <>
@@ -15,30 +20,33 @@ export default function PhotoCard({photo, title, description}: PhotoType) {
                     <DialogContentText>{description}</DialogContentText>
                 </DialogContent>
             </Dialog>
-            <Stack alignItems="center">
-                <ButtonBase disableRipple onClick={() => setIsOpen(true)}>
-                    <Stack>
-                        <Box
-                            component="img"
-                            sx={{
-                                borderRadius: 2,
-                                maxHeight: 250,
-                                aspectRatio: '16/9',
-                                maxWidth: 'sm',
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                            }}
-                            src={imageUrl}
-                            loading="lazy"
-                            alt={description}
-                        />
-                        <Typography variant="h6" fontWeight="bold" textAlign="center">
-                            {title}
-                        </Typography>
-                        <Typography variant="body1">{description}</Typography>
-                    </Stack>
-                </ButtonBase>
+            <Stack>
+                <Typography variant="h6" fontWeight="bold" textAlign="left">
+                    {title}
+                </Typography>
+                <Typography variant="body1">{description}</Typography>
+                <Carousel
+                    fullHeightHover={false}
+                    navButtonsProps={{
+                        style: {
+                            backgroundColor: 'tan',
+                            borderRadius: 0,
+                        },
+                    }}>
+                    {photo.map((item, i) => (
+                        <Paper>
+                            <img
+                                key={i}
+                                src={item.url}
+                                alt={title}
+                                height="100%"
+                                width="100%"
+                                onClick={handleClickOpen(item.url)}
+                                style={{cursor: 'pointer'}}
+                            />
+                        </Paper>
+                    ))}
+                </Carousel>
             </Stack>
         </>
     )

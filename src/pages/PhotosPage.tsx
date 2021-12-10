@@ -6,7 +6,7 @@ import {Typography, Stack, Grid, Button} from '@mui/material'
 import type {PhotoType} from 'types'
 
 export default function PhotosPage() {
-    const {data: photos, loading, error, loadMore} = useCollection({name: 'photos'})
+    const {data: photos, loading, error, loadMore} = useCollection({name: 'photos', limit: 8})
     return (
         <>
             <NavigationBar />
@@ -25,7 +25,7 @@ export default function PhotosPage() {
                                         </Typography>
                                     </Grid>
                                 )}
-                                <Grid item xs={12} sm={6} mb={4}>
+                                <Grid item xs={12} mb={4} height="100%">
                                     <PhotoCard {...photo} />
                                 </Grid>
                             </React.Fragment>
