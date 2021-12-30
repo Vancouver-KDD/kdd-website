@@ -1,8 +1,8 @@
 import React from 'react'
 import kddLogo1 from 'assets/images/KDD-Logo1.svg'
 import kddLogo2 from 'assets/images/KDD-Logo2.svg'
-import {Stack, List, ListItem, Link} from '@mui/material'
-import {Link as RouterLink} from 'react-router-dom'
+import {Stack, List, ListItem} from '@mui/material'
+import {RouterLink} from 'components'
 
 export default function NavigationBar() {
     const isHome = window.location.pathname === '/'
@@ -35,22 +35,22 @@ export default function NavigationBar() {
                     },
                     justifyContent: 'space-between',
                 }}>
-                <Link component={RouterLink} to="/">
+                <RouterLink to="/">
                     <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
-                </Link>
+                </RouterLink>
                 <Stack component={List} direction="row" justifyContent={'space-between'}>
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/about-us">
+                    <RouterLink fontWeight="bold" underline="hover" to="/about-us">
                         <ListItem>About Us</ListItem>
-                    </Link>
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/events">
+                    </RouterLink>
+                    <RouterLink fontWeight="bold" underline="hover" to="/events">
                         <ListItem>Events</ListItem>
-                    </Link>
-                    {/* <Link fontWeight="bold" underline="hover" component={RouterLink} to="/jobs">
+                    </RouterLink>
+                    {/* <RouterLink fontWeight="bold" underline="hover" to="/jobs">
                         <ListItem>Jobs</ListItem>
-                    </Link> */}
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/photos">
+                    </RouterLink> */}
+                    <RouterLink fontWeight="bold" underline="hover" to="/photos">
                         <ListItem>Photos</ListItem>
-                    </Link>
+                    </RouterLink>
                 </Stack>
             </Stack>
         </Stack>
