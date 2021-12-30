@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box, Stack, Typography} from '@mui/material'
-import {RouterLink} from 'components'
+import {Link} from 'components'
 import {CalendarButton, SignupButton} from 'components/buttons'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -16,7 +16,7 @@ function EventCard(props: PropTypes) {
     const dateLocation = `${dateStr} | ${location}`
 
     return (
-        <RouterLink to={`events/${id}`} sx={{color: 'inherit', textDecoration: 'inherit'}}>
+        <Link to={`events/${id}`} sx={{color: 'inherit', textDecoration: 'inherit'}}>
             <Stack
                 direction={{xs: 'column', md: 'row'}}
                 sx={{
@@ -63,7 +63,7 @@ function EventCard(props: PropTypes) {
                     </Stack>
                 </Stack>
             </Stack>
-        </RouterLink>
+        </Link>
     )
 }
 

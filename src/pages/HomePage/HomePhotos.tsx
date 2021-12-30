@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Section, PhotoCard, RouterLink} from 'components'
+import {Section, PhotoCard, Link} from 'components'
 import {ArrowButton} from 'components/buttons'
 import {useCollection} from 'store'
 import {Typography, Stack} from '@mui/material'
@@ -34,7 +34,7 @@ export default function HomePhotos() {
                         ml: 1,
                     },
                 }}>
-                <RouterLink to="/photos">VIEW ALL</RouterLink>
+                <Link to="/photos">VIEW ALL</Link>
                 <ArrowButton direction="left" onClick={() => handleClick(currentCardNo - 1)} disabled={leftDisabled} />
                 <ArrowButton direction="right" onClick={() => handleClick(currentCardNo + 1)} disabled={rightDisabled} />
             </Stack>

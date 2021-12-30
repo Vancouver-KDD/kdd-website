@@ -2,7 +2,7 @@ import React from 'react'
 import kddLogo1 from 'assets/images/KDD-Logo1.svg'
 import kddLogo2 from 'assets/images/KDD-Logo2.svg'
 import {Stack, List, ListItem} from '@mui/material'
-import {RouterLink} from 'components'
+import {Link} from 'components'
 
 export default function NavigationBar() {
     const isHome = window.location.pathname === '/'
@@ -35,22 +35,22 @@ export default function NavigationBar() {
                     },
                     justifyContent: 'space-between',
                 }}>
-                <RouterLink to="/">
+                <Link to="/">
                     <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
-                </RouterLink>
+                </Link>
                 <Stack component={List} direction="row" justifyContent={'space-between'}>
-                    <RouterLink fontWeight="bold" underline="hover" to="/about-us">
+                    <Link fontWeight="bold" underline="hover" to="/about-us">
                         <ListItem>About Us</ListItem>
-                    </RouterLink>
-                    <RouterLink fontWeight="bold" underline="hover" to="/events">
+                    </Link>
+                    <Link fontWeight="bold" underline="hover" to="/events">
                         <ListItem>Events</ListItem>
-                    </RouterLink>
-                    {/* <RouterLink fontWeight="bold" underline="hover" to="/jobs">
+                    </Link>
+                    {/* <Link fontWeight="bold" underline="hover" to="/jobs">
                         <ListItem>Jobs</ListItem>
-                    </RouterLink> */}
-                    <RouterLink fontWeight="bold" underline="hover" to="/photos">
+                    </Link> */}
+                    <Link fontWeight="bold" underline="hover" to="/photos">
                         <ListItem>Photos</ListItem>
-                    </RouterLink>
+                    </Link>
                 </Stack>
             </Stack>
         </Stack>
