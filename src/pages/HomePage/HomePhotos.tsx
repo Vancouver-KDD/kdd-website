@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-import {Section, PhotoCard} from 'components'
+import {Section, PhotoCard, Link} from 'components'
 import {ArrowButton} from 'components/buttons'
 import {useCollection} from 'store'
 import {Typography, Stack} from '@mui/material'

@@ -1,8 +1,8 @@
 import React from 'react'
-import kddLogo1 from 'assets/images/KDD-Logo1.svg'
-import kddLogo2 from 'assets/images/KDD-Logo2.svg'
-import {Stack, List, ListItem, Link} from '@mui/material'
-import {Link as RouterLink} from 'react-router-dom'
+import kddLogo1 from 'assets/images/logo_kr_white_horizontal.svg'
+import kddLogo2 from 'assets/images/logo_kr_color_horizontal.png'
+import {Stack, List, ListItem} from '@mui/material'
+import {Link} from 'components'
 
 export default function NavigationBar() {
     const isHome = window.location.pathname === '/'
@@ -35,20 +35,22 @@ export default function NavigationBar() {
                     },
                     justifyContent: 'space-between',
                 }}>
-                <Link component={RouterLink} to="/">
-                    <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
+                <Link to="/">
+                    <Stack sx={{width: 140}}>
+                        <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
+                    </Stack>
                 </Link>
                 <Stack component={List} direction="row" justifyContent={'space-between'}>
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/about-us">
+                    <Link fontWeight="bold" underline="hover" to="/about-us">
                         <ListItem>About Us</ListItem>
                     </Link>
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/events">
+                    <Link fontWeight="bold" underline="hover" to="/events">
                         <ListItem>Events</ListItem>
                     </Link>
-                    {/* <Link fontWeight="bold" underline="hover" component={RouterLink} to="/jobs">
+                    {/* <Link fontWeight="bold" underline="hover" to="/jobs">
                         <ListItem>Jobs</ListItem>
                     </Link> */}
-                    <Link fontWeight="bold" underline="hover" component={RouterLink} to="/photos">
+                    <Link fontWeight="bold" underline="hover" to="/photos">
                         <ListItem>Photos</ListItem>
                     </Link>
                 </Stack>

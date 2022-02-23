@@ -1,7 +1,7 @@
 import React from 'react'
 import {useDocument} from 'store'
-import {Typography, Stack, Link} from '@mui/material'
-import {Section} from 'components'
+import {Typography, Stack} from '@mui/material'
+import {Section, Link} from 'components'
 
 export default function Footer() {
     const {data} = useDocument({name: 'footer'})
@@ -13,7 +13,7 @@ export default function Footer() {
             </Typography>
             <Stack direction="row" flexWrap="wrap" justifyContent="center" spacing={2} pb={2}>
                 {data?.developers?.map?.(({name, link}, i) => (
-                    <Link key={i} href={link} color="text.primary" fontWeight="600">
+                    <Link component="a" key={i} href={link} color="text.primary" fontWeight="600">
                         {name}
                     </Link>
                 ))}
@@ -23,7 +23,7 @@ export default function Footer() {
             </Typography>
             <Stack direction="row" flexWrap="wrap" justifyContent="center" spacing={2}>
                 {data?.supporters?.map?.(({name, link}, i) => (
-                    <Link key={i} href={link} color="text.primary" fontWeight="600">
+                    <Link component="a" key={i} href={link} color="text.primary" fontWeight="600">
                         {name}
                     </Link>
                 ))}

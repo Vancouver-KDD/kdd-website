@@ -1,10 +1,10 @@
 import React from 'react'
-import {Section} from 'components'
+import {Link, Section} from 'components'
 import SlackIcon from 'assets/icons/slack.svg'
 import FaceBookIcon from 'assets/icons/facebook.svg'
 import MeetupIcon from 'assets/icons/meetup1.svg'
 import LinkedinIcon from 'assets/icons/linkedIn1.svg'
-import {IconButton, Box, Link, Typography, Stack} from '@mui/material'
+import {IconButton, Box, Typography, Stack} from '@mui/material'
 
 export default function ContactUs() {
     return (
@@ -17,7 +17,7 @@ export default function ContactUs() {
                     <Typography variant="h5" fontWeight={700}>
                         Email
                     </Typography>
-                    <Link color={'text.primary'} href="mailto:vancouverkdd@gmail.com" variant="h6">
+                    <Link component="a" color={'text.primary'} href="mailto:vancouverkdd@gmail.com" variant="h6">
                         vancouverkdd@gmail.com
                     </Link>
                 </Stack>
