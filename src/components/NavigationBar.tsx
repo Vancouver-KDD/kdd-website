@@ -1,6 +1,6 @@
 import React from 'react'
-import kddLogo1 from 'assets/images/KDD-Logo1.svg'
-import kddLogo2 from 'assets/images/KDD-Logo2.svg'
+import kddLogo1 from 'assets/images/logo_kr_white_horizontal.svg'
+import kddLogo2 from 'assets/images/logo_kr_color_horizontal.png'
 import {Stack, List, ListItem} from '@mui/material'
 import {Link} from 'components'
 
@@ -36,7 +36,9 @@ export default function NavigationBar() {
                     justifyContent: 'space-between',
                 }}>
                 <Link to="/">
-                    <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
+                    <Stack sx={{width: 140}}>
+                        <img src={isHome ? kddLogo1 : kddLogo2} alt="KDD logo" />
+                    </Stack>
                 </Link>
                 <Stack component={List} direction="row" justifyContent={'space-between'}>
                     <Link fontWeight="bold" underline="hover" to="/about-us">
